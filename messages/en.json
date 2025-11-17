@@ -1,0 +1,42 @@
+{
+  "common": {
+    "title": "Free Image Compressor",
+    "subtitle": "Compress images quickly and easily to reduce file size",
+    "footer": "© 2024 Image Compressor. All images are processed in the browser and are not sent to the server."
+  },
+  "compressor": {
+    "quality": "Quality",
+    "maxWidth": "Max Width",
+    "maxHeight": "Max Height",
+    "px": "px",
+    "percent": "%",
+    "dropZone": {
+      "title": "Drag and drop images here or click to select",
+      "subtitle": "You can select multiple images at once"
+    },
+    "compressing": "Compressing images...",
+    "removeImage": "Remove image",
+    "compressedImage": "Compressed image",
+    "error": "Compression error",
+    "results": {
+      "title": "Compression Results",
+      "downloadAll": "Download All",
+      "clearAll": "Clear All",
+      "download": "Download",
+      "original": "Original",
+      "compressed": "Compressed",
+      "reduced": "Reduced"
+    }
+  },
+  "language": {
+    "korean": "한국어",
+    "english": "English",
+    "switchLanguage": "Switch language"
+  },
+  "seo": {
+    "title": "Free Image Compressor - Online Image Optimization Tool",
+    "description": "Compress and optimize images for free on the web. Fast and easy image compression tool. Processed directly in your browser for privacy protection.",
+    "keywords": "image compression, image optimization, online compressor, free compression, image resize, web image optimization"
+  }
+}
+

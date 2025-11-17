@@ -1,0 +1,42 @@
+{
+  "common": {
+    "title": "무료 이미지 압축기",
+    "subtitle": "이미지를 빠르고 간편하게 압축하여 용량을 줄이세요",
+    "footer": "© 2024 이미지 압축기. 모든 이미지는 브라우저에서 처리되며 서버로 전송되지 않습니다."
+  },
+  "compressor": {
+    "quality": "품질",
+    "maxWidth": "최대 너비",
+    "maxHeight": "최대 높이",
+    "px": "px",
+    "percent": "%",
+    "dropZone": {
+      "title": "이미지를 여기에 드래그하거나 클릭하여 선택하세요",
+      "subtitle": "여러 이미지를 한 번에 선택할 수 있습니다"
+    },
+    "compressing": "이미지 압축 중...",
+    "removeImage": "이미지 제거",
+    "compressedImage": "압축된 이미지",
+    "error": "압축 오류",
+    "results": {
+      "title": "압축 결과",
+      "downloadAll": "모두 다운로드",
+      "clearAll": "모두 지우기",
+      "download": "다운로드",
+      "original": "원본",
+      "compressed": "압축",
+      "reduced": "감소"
+    }
+  },
+  "language": {
+    "korean": "한국어",
+    "english": "English",
+    "switchLanguage": "언어 변경"
+  },
+  "seo": {
+    "title": "무료 이미지 압축기 - 온라인 이미지 최적화 도구",
+    "description": "웹에서 무료로 이미지를 압축하고 최적화하세요. 빠르고 간편한 이미지 압축 도구입니다. 브라우저에서 직접 처리되어 개인정보가 보호됩니다.",
+    "keywords": "이미지 압축, 이미지 최적화, 온라인 압축기, 무료 압축, 이미지 리사이즈, 웹 이미지 최적화"
+  }
+}
+
