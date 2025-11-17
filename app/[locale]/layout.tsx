@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { locales, defaultLocale } from "@/i18n";
 import type { Metadata } from "next";
@@ -8,7 +8,7 @@ import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 type Props = {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }> | { locale: string };
 };
 
 export function generateStaticParams() {
@@ -16,10 +16,14 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({
-  params: { locale },
+  params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }> | { locale: string };
 }): Promise<Metadata> {
+  const { locale } = await Promise.resolve(params);
+  // Enable static rendering
+  setRequestLocale(locale);
+
   const messages = await getMessages({ locale });
   const seo = messages.seo as {
     title: string;
@@ -87,13 +91,15 @@ export async function generateMetadata({
   };
 }
 
-export default async function LocaleLayout({
-  children,
-  params: { locale },
-}: Props) {
+export default async function LocaleLayout({ children, params }: Props) {
+  const { locale } = await Promise.resolve(params);
+
   if (!locales.includes(locale as any)) {
     notFound();
   }
+
+  // Enable static rendering
+  setRequestLocale(locale);
 
   const messages = await getMessages();
 
@@ -157,6 +163,10 @@ export default async function LocaleLayout({
               ],
             }),
           }}
+        />
+        <meta
+          name="naver-site-verification"
+          content="c14223cecc243ac817b5fa8c0d84a525305a7042"
         />
       </head>
       <body>
