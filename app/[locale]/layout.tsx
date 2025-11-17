@@ -60,7 +60,7 @@ export async function generateMetadata({
       type: "website",
       images: [
         {
-          url: `${baseUrl}/og-image.png`,
+          url: `${baseUrl}/${locale}/opengraph-image`,
           width: 1200,
           height: 630,
           alt: seo.title,
@@ -71,7 +71,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: seo.title,
       description: seo.description,
-      images: [`${baseUrl}/og-image.png`],
+      images: [`${baseUrl}/${locale}/twitter-image`],
     },
     robots: {
       index: true,
