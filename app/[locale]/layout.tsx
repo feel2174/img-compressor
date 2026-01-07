@@ -151,6 +151,10 @@ export default async function LocaleLayout({ children, params }: Props) {
           name="naver-site-verification"
           content="c14223cecc243ac817b5fa8c0d84a525305a7042"
         />
+        <meta
+          name="google-site-verification"
+          content="ylRZwQXQH9ZVegPDqDJGKHanYBIwb2fDMD_NWF917FI"
+        />
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
