@@ -2,7 +2,7 @@
   "common": {
     "title": "Free Image Compressor",
     "subtitle": "Compress images quickly and easily to reduce file size",
-    "footer": "© 2024 Image Compressor. All images are processed in the browser and are not sent to the server."
+    "footer": "© 2026 Image Compressor. All images are processed in the browser and are not sent to the server."
   },
   "compressor": {
     "quality": "Quality",
@@ -18,14 +18,34 @@
     "removeImage": "Remove image",
     "compressedImage": "Compressed image",
     "error": "Compression error",
+    "webpConversionError": "WebP conversion error",
+    "directToWebP": {
+      "title": "Convert directly to WebP without compression",
+      "description": "Convert images to WebP format without compression"
+    },
     "results": {
       "title": "Compression Results",
+      "items": "items",
       "downloadAll": "Download All",
       "clearAll": "Clear All",
       "download": "Download",
       "original": "Original",
       "compressed": "Compressed",
-      "reduced": "Reduced"
+      "reduction": "Reduction"
+    },
+    "webp": {
+      "title": "Convert to WebP",
+      "description": "Convert to smaller file size",
+      "whatIsWebP": "What is WebP?",
+      "tooltipDescription": "WebP is a modern image format developed by Google. It provides the same quality as JPEG or PNG with 25-35% smaller file sizes. Supported by most modern browsers, it can significantly improve website loading speeds.",
+      "convert": "Convert",
+      "convertAll": "Convert All to WebP",
+      "converting": "Converting...",
+      "convertingAll": "Converting to WebP...",
+      "download": "Download WebP",
+      "downloadAll": "Download All WebP",
+      "smaller": "smaller",
+      "larger": "Larger than original"
     }
   },
   "language": {

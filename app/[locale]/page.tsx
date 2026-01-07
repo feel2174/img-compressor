@@ -8,13 +8,13 @@ export default function Home() {
   const t = useTranslations("common");
 
   return (
-    <main className="min-h-screen py-8 px-4 flex justify-center items-start">
-      <div className="max-w-6xl w-full bg-white rounded-3xl shadow-2xl p-8 md:p-12 my-8">
+    <main className="min-h-screen py-8 px-4 sm:px-6 lg:px-8 flex justify-center items-start">
+      <div className="max-w-7xl w-full bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl border border-slate-200/50 p-6 sm:p-8 md:p-12 lg:p-16 my-8">
         <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
-            🖼️ {t("title")}
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-slate-900 tracking-tight">
+            {t("title")}
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 font-normal">
+          <p className="text-lg md:text-xl text-slate-600 font-normal max-w-2xl mx-auto">
             {t("subtitle")}
           </p>
         </header>
@@ -23,7 +23,7 @@ export default function Home() {
 
         <AdSense slotId="YOUR_AD_SLOT_ID_2" position="bottom" />
 
-        <footer className="mt-12 pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
+        <footer className="mt-16 pt-8 border-t border-slate-200 text-center text-slate-500 text-sm">
           <p>{t("footer")}</p>
         </footer>
       </div>

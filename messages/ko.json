@@ -2,7 +2,7 @@
   "common": {
     "title": "무료 이미지 압축기",
     "subtitle": "이미지를 빠르고 간편하게 압축하여 용량을 줄이세요",
-    "footer": "© 2024 이미지 압축기. 모든 이미지는 브라우저에서 처리되며 서버로 전송되지 않습니다."
+    "footer": "© 2026 이미지 압축기. 모든 이미지는 브라우저에서 처리되며 서버로 전송되지 않습니다."
   },
   "compressor": {
     "quality": "품질",
@@ -18,14 +18,34 @@
     "removeImage": "이미지 제거",
     "compressedImage": "압축된 이미지",
     "error": "압축 오류",
+    "webpConversionError": "WebP 변환 오류",
+    "directToWebP": {
+      "title": "압축 없이 바로 WebP로 변환",
+      "description": "이미지를 압축하지 않고 바로 WebP 포맷으로 변환합니다"
+    },
     "results": {
       "title": "압축 결과",
+      "items": "개 항목",
       "downloadAll": "모두 다운로드",
       "clearAll": "모두 지우기",
       "download": "다운로드",
       "original": "원본",
-      "compressed": "압축",
-      "reduced": "감소"
+      "compressed": "압축됨",
+      "reduction": "감소율"
+    },
+    "webp": {
+      "title": "WebP로 변환",
+      "description": "더 작은 파일 크기로 변환할 수 있습니다",
+      "whatIsWebP": "WebP란?",
+      "tooltipDescription": "WebP는 Google이 개발한 최신 이미지 포맷입니다. JPEG나 PNG보다 25-35% 더 작은 파일 크기로 동일한 품질을 제공합니다. 대부분의 최신 브라우저에서 지원되며, 웹사이트 로딩 속도를 크게 향상시킬 수 있습니다.",
+      "convert": "변환하기",
+      "convertAll": "전체 WebP 변환",
+      "converting": "변환 중...",
+      "convertingAll": "WebP 변환 중...",
+      "download": "WebP 다운로드",
+      "downloadAll": "WebP 모두 다운로드",
+      "smaller": "더 작음",
+      "larger": "원본보다 큼"
     }
   },
   "language": {
