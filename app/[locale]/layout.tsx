@@ -3,6 +3,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { locales, defaultLocale } from "@/i18n";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
@@ -158,6 +159,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             {children}
           </div>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );
