@@ -1,16 +1,20 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
-import { locales, defaultLocale } from "@/i18n";
-import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import "../globals.css";
+import { defaultLocale, locales, type Locale } from "@/i18n";
+import { siteMeta } from "@/content/site";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import "../globals.css";
 
 type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }> | { locale: string };
 };
+
+const isLocale = (locale: string): locale is Locale =>
+  locales.includes(locale as Locale);
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -22,7 +26,11 @@ export async function generateMetadata({
   params: Promise<{ locale: string }> | { locale: string };
 }): Promise<Metadata> {
   const { locale } = await Promise.resolve(params);
-  // Enable static rendering
+
+  if (!isLocale(locale)) {
+    return {};
+  }
+
   setRequestLocale(locale);
 
   const messages = await getMessages({ locale });
@@ -39,9 +47,9 @@ export async function generateMetadata({
     title: seo.title,
     description: seo.description,
     keywords: seo.keywords,
-    authors: [{ name: "Image Compressor" }],
-    creator: "Image Compressor",
-    publisher: "Image Compressor",
+    authors: [{ name: siteMeta[locale].name }],
+    creator: siteMeta[locale].name,
+    publisher: siteMeta[locale].name,
     metadataBase: new URL(baseUrl),
     alternates: {
       canonical: currentUrl,
@@ -55,7 +63,7 @@ export async function generateMetadata({
       title: seo.title,
       description: seo.description,
       url: currentUrl,
-      siteName: "Image Compressor",
+      siteName: siteMeta[locale].name,
       locale: locale === "ko" ? "ko_KR" : "en_US",
       alternateLocale: locale === "ko" ? "en_US" : "ko_KR",
       type: "website",
@@ -85,30 +93,25 @@ export async function generateMetadata({
         "max-snippet": -1,
       },
     },
-    verification: {
-      // Google Search Console verification code (add your own)
-      // google: 'your-google-verification-code',
-    },
   };
 }
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await Promise.resolve(params);
 
-  if (!locales.includes(locale as any)) {
+  if (!isLocale(locale)) {
     notFound();
   }
 
-  // Enable static rendering
   setRequestLocale(locale);
-
   const messages = await getMessages();
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://yourdomain.com";
 
   return (
-    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
+    <html lang={locale}>
       <head>
         <link rel="manifest" href="/manifest" />
-        <meta name="theme-color" content="#667eea" />
+        <meta name="theme-color" content="#245edb" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
           type="application/ld+json"
@@ -116,34 +119,31 @@ export default async function LocaleLayout({ children, params }: Props) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebApplication",
-              name:
-                locale === "ko"
-                  ? "무료 이미지 압축기"
-                  : "Free Image Compressor",
-              description:
-                locale === "ko"
-                  ? "웹에서 무료로 이미지를 압축하고 최적화하세요"
-                  : "Compress and optimize images for free on the web",
-              url: `${
-                process.env.NEXT_PUBLIC_BASE_URL || "https://yourdomain.com"
-              }/${locale}`,
+              name: siteMeta[locale].name,
+              description: siteMeta[locale].description,
+              url: `${baseUrl}/${locale}`,
               applicationCategory: "UtilityApplication",
               operatingSystem: "Web",
+              inLanguage: locale === "ko" ? "ko-KR" : "en-US",
               offers: {
                 "@type": "Offer",
                 price: "0",
                 priceCurrency: "USD",
               },
-              featureList: [
-                locale === "ko" ? "이미지 압축" : "Image Compression",
-                locale === "ko" ? "이미지 최적화" : "Image Optimization",
+              featureList:
                 locale === "ko"
-                  ? "다중 이미지 처리"
-                  : "Multiple Image Processing",
-                locale === "ko"
-                  ? "브라우저 내 처리"
-                  : "Browser-based Processing",
-              ],
+                  ? [
+                      "이미지 용량 줄이기",
+                      "WebP 변환",
+                      "여러 이미지 처리",
+                      "브라우저 기반 개인정보 보호",
+                    ]
+                  : [
+                      "Image compression",
+                      "WebP conversion",
+                      "Batch image processing",
+                      "Browser-based privacy",
+                    ],
             }),
           }}
         />
@@ -158,10 +158,8 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <div className="relative">
-            <LanguageSwitcher currentLocale={locale} />
-            {children}
-          </div>
+          <LanguageSwitcher currentLocale={locale} />
+          {children}
         </NextIntlClientProvider>
         <Analytics />
       </body>

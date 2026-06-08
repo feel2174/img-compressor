@@ -1,29 +1,32 @@
-import { MetadataRoute } from 'next';
-import { locales } from '@/i18n';
+import type { MetadataRoute } from "next";
+import { infoPageSlugs } from "@/content/site";
+import { locales } from "@/i18n";
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://yourdomain.com';
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://yourdomain.com";
+
+const routes = [
+  { path: "", priority: 1.0, changeFrequency: "weekly" as const },
+  ...infoPageSlugs.map((slug) => ({
+    path: `/${slug}`,
+    priority: slug === "privacy" ? 0.8 : 0.7,
+    changeFrequency: "monthly" as const,
+  })),
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [''];
-
-  const sitemapEntries: MetadataRoute.Sitemap = [];
-
-  locales.forEach((locale) => {
-    routes.forEach((route) => {
-      sitemapEntries.push({
-        url: `${baseUrl}/${locale}${route}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly',
-        priority: route === '' ? 1.0 : 0.8,
-        alternates: {
-          languages: Object.fromEntries(
-            locales.map((loc) => [loc, `${baseUrl}/${loc}${route}`])
-          ),
+  return locales.flatMap((locale) =>
+    routes.map((route) => ({
+      url: `${baseUrl}/${locale}${route.path}`,
+      lastModified: new Date(),
+      changeFrequency: route.changeFrequency,
+      priority: route.priority,
+      alternates: {
+        languages: {
+          "ko-KR": `${baseUrl}/ko${route.path}`,
+          "en-US": `${baseUrl}/en${route.path}`,
+          "x-default": `${baseUrl}/ko${route.path}`,
         },
-      });
-    });
-  });
-
-  return sitemapEntries;
+      },
+    }))
+  );
 }
-

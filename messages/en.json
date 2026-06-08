@@ -1,18 +1,115 @@
 {
   "common": {
-    "title": "Free Image Compressor",
-    "subtitle": "Compress images quickly and easily to reduce file size",
-    "footer": "© 2026 Image Compressor. All images are processed in the browser and are not sent to the server."
+    "windowTitle": "XP Image Tools - Image Compressor",
+    "kicker": "Free browser-based image utility",
+    "title": "Compress Images and Convert to WebP",
+    "subtitle": "Upload photos or web images to compress them and convert them to WebP directly in your browser. Make files lighter for blogs, stores, portfolios, and landing pages without sending images to a server.",
+    "start": "Start",
+    "taskbarItem": "Image Compressor is running",
+    "footer": "All images are processed in your browser.",
+    "menu": {
+      "file": "File",
+      "tools": "Tools",
+      "help": "Help",
+      "about": "About",
+      "privacy": "Privacy",
+      "contact": "Contact"
+    },
+    "status": {
+      "title": "Processing Status",
+      "browser": "Images are processed inside the browser",
+      "private": "No server upload or storage",
+      "free": "Free to use without sign-up"
+    },
+    "startMenu": {
+      "label": "Start menu",
+      "title": "Image Tools",
+      "compress": "Image compression",
+      "webp": "WebP conversion",
+      "features": "Feature guide",
+      "privacy": "Privacy policy",
+      "about": "About this site",
+      "terms": "Terms of use",
+      "contact": "Contact",
+      "footer": "New tools will keep appearing in this menu."
+    },
+    "sections": {
+      "compress": {
+        "label": "Main Program",
+        "title": "Image Compression Workspace",
+        "description": "Adjust quality and maximum dimensions, then drag images in or choose files. You can process multiple files at once and download the results immediately."
+      },
+      "features": {
+        "label": "Feature List",
+        "title": "Available Features",
+        "description": "The current focus is image compression and WebP conversion. The structure is ready for future tools such as resizing, format conversion, and metadata removal."
+      },
+      "about": {
+        "label": "About Site",
+        "title": "About This Site",
+        "description": "XP Image Compressor is an online utility designed to finish image optimization without installing a complicated editing program."
+      },
+      "privacy": {
+        "label": "Privacy",
+        "title": "Privacy Policy",
+        "description": "For AdSense review and user trust, this site clearly explains image handling, analytics, advertising, and cookie-related practices."
+      }
+    },
+    "features": [
+      {
+        "title": "Image Compression",
+        "description": "Adjust quality and limit maximum dimensions for common formats such as JPEG and PNG to create web-ready files."
+      },
+      {
+        "title": "WebP Conversion",
+        "description": "Use browser canvas capabilities to convert images to WebP, a modern format that can reduce file size and improve page loading."
+      },
+      {
+        "title": "Batch Processing",
+        "description": "Select multiple images, process them sequentially, then download individual files or all processed results."
+      },
+      {
+        "title": "Browser-Based Privacy",
+        "description": "Images are handled on the user's device and browser instead of being uploaded to an external server."
+      }
+    ],
+    "about": {
+      "body1": "This site is built for website owners, bloggers, designers, and store operators who often prepare images for the web. Large images can slow down pages and affect search performance, so optimizing them before upload is a useful habit.",
+      "body2": "The Windows XP style is meant to feel like a familiar desktop utility. The Start menu collects current and future tools so the site can grow while staying easy to maintain."
+    },
+    "guide": [
+      "Set the quality slider and maximum width or height.",
+      "Drag images into the workspace or click to choose files.",
+      "Review the original size, result size, and reduction rate.",
+      "Convert to WebP when useful, then download the result."
+    ],
+    "privacy": [
+      "Image compression and WebP conversion run in the browser. Selected image files are not uploaded to or stored on this site's server.",
+      "Privacy-conscious analytics such as Vercel Analytics may be used to understand traffic and improve the service without directly identifying users.",
+      "If Google AdSense ads are added later, Google and its partners may use cookies to serve ads. Users can manage personalized advertising through browser settings or Google ad settings.",
+      "If contact, partnership, or feature request channels are added later, the collected fields and usage purpose will be explained separately."
+    ],
+    "footerNav": {
+      "label": "Policy and site information",
+      "about": "About",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "contact": "Contact"
+    }
   },
   "compressor": {
+    "ariaLabel": "Image compression and WebP conversion tool",
     "quality": "Quality",
-    "maxWidth": "Max Width",
-    "maxHeight": "Max Height",
+    "maxWidth": "Max width",
+    "maxHeight": "Max height",
     "px": "px",
     "percent": "%",
+    "settings": {
+      "title": "Compression Settings"
+    },
     "dropZone": {
-      "title": "Drag and drop images here or click to select",
-      "subtitle": "You can select multiple images at once"
+      "title": "Drag images here or click to choose files",
+      "subtitle": "You can select multiple JPG, PNG, GIF, and other image files at once."
     },
     "compressing": "Compressing images...",
     "removeImage": "Remove image",
@@ -20,43 +117,42 @@
     "error": "Compression error",
     "webpConversionError": "WebP conversion error",
     "directToWebP": {
-      "title": "Convert directly to WebP without compression",
-      "description": "Convert images to WebP format without compression"
+      "title": "Convert directly to WebP",
+      "description": "Prioritize WebP output instead of a compressed original format. The original is kept when WebP is larger."
     },
     "results": {
       "title": "Compression Results",
-      "items": "items",
-      "downloadAll": "Download All",
-      "clearAll": "Clear All",
+      "items": "files",
+      "downloadAll": "Download all",
+      "clearAll": "Clear list",
       "download": "Download",
       "original": "Original",
-      "compressed": "Compressed",
+      "compressed": "Result",
       "reduction": "Reduction"
     },
     "webp": {
       "title": "Convert to WebP",
-      "description": "Convert to smaller file size",
+      "description": "Create a smaller file at similar visual quality.",
       "whatIsWebP": "What is WebP?",
-      "tooltipDescription": "WebP is a modern image format developed by Google. It provides the same quality as JPEG or PNG with 25-35% smaller file sizes. Supported by most modern browsers, it can significantly improve website loading speeds.",
-      "convert": "Convert",
-      "convertAll": "Convert All to WebP",
+      "tooltipDescription": "WebP is a modern image format from Google that can reduce file size compared with JPEG or PNG and help improve web page loading speed.",
+      "convert": "Convert to WebP",
+      "convertAll": "Convert all to WebP",
       "converting": "Converting...",
       "convertingAll": "Converting to WebP...",
       "download": "Download WebP",
-      "downloadAll": "Download All WebP",
+      "downloadAll": "Download all WebP",
       "smaller": "smaller",
       "larger": "Larger than original"
     }
   },
   "language": {
-    "korean": "한국어",
-    "english": "English",
+    "korean": "KO",
+    "english": "EN",
     "switchLanguage": "Switch language"
   },
   "seo": {
-    "title": "Free Image Compressor - Online Image Optimization Tool",
-    "description": "Compress and optimize images for free on the web. Fast and easy image compression tool. Processed directly in your browser for privacy protection.",
-    "keywords": "image compression, image optimization, online compressor, free compression, image resize, web image optimization"
+    "title": "XP Image Compressor - Free Image Compression and WebP Conversion",
+    "description": "Compress images and convert them to WebP in your browser for free. Optimize JPG, PNG, and other image files without server upload while protecting privacy.",
+    "keywords": "image compression, WebP converter, free image optimizer, JPG compression, PNG compression, browser image tool"
   }
 }
-

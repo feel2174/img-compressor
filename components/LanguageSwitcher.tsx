@@ -21,16 +21,16 @@ export default function LanguageSwitcher({
   };
 
   return (
-    <div className="fixed top-4 right-4 z-50 flex gap-2 bg-white/80 backdrop-blur-sm rounded-xl shadow-lg border border-slate-200/50 p-1">
+    <div className="fixed right-3 top-3 z-50 flex gap-1 rounded border border-white/70 bg-[#dce9ff] p-1 shadow-[inset_1px_1px_0_#fff,0_2px_8px_rgba(0,0,0,0.25)]">
       {locales.map((locale) => (
         <button
           key={locale}
           onClick={() => switchLocale(locale)}
           aria-label={t("switchLanguage")}
-          className={`px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 ${
+          className={`min-w-10 rounded-sm px-3 py-1 text-xs font-bold transition ${
             currentLocale === locale
-              ? "bg-slate-900 text-white shadow-sm"
-              : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+              ? "bg-[#245edb] text-white shadow-[inset_1px_1px_0_rgba(255,255,255,0.45)]"
+              : "bg-[#f4f7ff] text-[#103a83] hover:bg-white"
           }`}
         >
           {locale === "ko" ? t("korean") : t("english")}

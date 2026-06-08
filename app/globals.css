@@ -2,23 +2,409 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --xp-blue: #245edb;
+  --xp-blue-dark: #0d45b7;
+  --xp-green: #2f9b31;
+  --xp-border: #0b3f9c;
+  --xp-cream: #ece9d8;
+  --xp-text: #1b1b1b;
+}
+
 @layer base {
   * {
-    @apply box-border p-0 m-0;
+    @apply box-border;
   }
 
-  html,
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply max-w-full overflow-x-hidden min-h-screen;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-      "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-      "Helvetica Neue", sans-serif;
+    @apply m-0 min-h-screen overflow-x-hidden;
+    color: var(--xp-text);
+    font-family: Tahoma, "Segoe UI", Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   }
 
   a {
     @apply text-inherit no-underline;
+  }
+}
+
+@layer components {
+  .xp-desktop {
+    @apply relative min-h-screen overflow-hidden px-3 pb-20 pt-14 sm:px-6 sm:pt-10;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent 34%),
+      linear-gradient(135deg, #4ca4ff 0%, #1d72d8 48%, #4a9c36 49%, #2e7d28 100%);
+  }
+
+  .xp-wallpaper {
+    @apply pointer-events-none fixed inset-0;
+    background:
+      radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.65), transparent 14rem),
+      radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.32), transparent 11rem),
+      linear-gradient(180deg, transparent 0%, transparent 58%, rgba(76, 138, 48, 0.9) 59%, rgba(48, 119, 40, 0.95) 100%);
+  }
+
+  .xp-window {
+    @apply relative z-10 mx-auto flex max-h-[calc(100vh-6.5rem)] w-full max-w-6xl flex-col overflow-hidden rounded-t-lg border-2 border-[#0b3f9c] bg-[var(--xp-cream)] shadow-2xl;
+  }
+
+  .xp-info-window {
+    @apply max-w-4xl;
+  }
+
+  .xp-titlebar {
+    @apply flex min-h-10 items-center justify-between px-2 text-white;
+    background: linear-gradient(180deg, #5798f5 0%, var(--xp-blue) 45%, var(--xp-blue-dark) 100%);
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.55);
+  }
+
+  .xp-titlebar-left {
+    @apply flex min-w-0 items-center gap-2 text-sm font-bold;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.35);
+  }
+
+  .xp-window-icon {
+    @apply h-5 w-5 shrink-0 rounded-sm border border-white/70;
+    background: linear-gradient(135deg, #f44336 0 50%, #21a52c 50% 100%);
+  }
+
+  .xp-window-controls {
+    @apply flex gap-1;
+  }
+
+  .xp-window-controls span {
+    @apply h-6 w-6 rounded-sm border border-white/70;
+    background: linear-gradient(180deg, #78adff, #1458d5);
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.65);
+  }
+
+  .xp-window-controls span:last-child {
+    background: linear-gradient(180deg, #ff8d73, #d72b16);
+  }
+
+  .xp-menubar {
+    @apply flex gap-5 border-b border-[#aca899] bg-[var(--xp-cream)] px-3 py-1 text-xs;
+  }
+
+  .xp-menubar a {
+    @apply rounded-sm px-2 py-1 hover:bg-[#316ac5] hover:text-white;
+  }
+
+  .xp-window-body {
+    @apply overflow-y-auto bg-[#f8f7ef] p-4 sm:p-6;
+  }
+
+  .xp-hero {
+    @apply grid gap-4 border border-[#aca899] bg-white p-4 sm:grid-cols-[1fr_260px] sm:p-6;
+    box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #d2cfbf;
+  }
+
+  .xp-kicker {
+    @apply mb-2 text-xs font-bold uppercase tracking-normal text-[#245edb];
+  }
+
+  .xp-hero h1 {
+    @apply mb-3 text-3xl font-bold leading-tight text-[#07348b] sm:text-4xl;
+  }
+
+  .xp-hero p {
+    @apply max-w-3xl text-sm leading-6 text-[#343434] sm:text-base;
+  }
+
+  .xp-status-card {
+    @apply border border-[#7f9db9] bg-[#eef5ff] p-3 text-xs;
+  }
+
+  .xp-status-card strong,
+  .xp-status-card span {
+    @apply block;
+  }
+
+  .xp-status-card strong {
+    @apply mb-2 text-sm text-[#07348b];
+  }
+
+  .xp-status-card span {
+    @apply border-t border-[#c3d8f2] py-2;
+  }
+
+  .xp-section {
+    @apply mt-5 border border-[#aca899] bg-[#fffef8] p-4 sm:p-5;
+    box-shadow: inset 1px 1px 0 #ffffff;
+  }
+
+  .xp-section-heading {
+    @apply mb-4 max-w-3xl;
+  }
+
+  .xp-section-heading span {
+    @apply mb-1 block text-xs font-bold uppercase tracking-normal text-[#245edb];
+  }
+
+  .xp-section-heading h2 {
+    @apply text-2xl font-bold text-[#07348b];
+  }
+
+  .xp-section-heading p {
+    @apply mt-2 text-sm leading-6 text-[#333];
+  }
+
+  .xp-panel {
+    @apply border border-[#7f9db9] bg-[#ece9d8] p-3;
+  }
+
+  .xp-sidebar {
+    @apply border border-[#aca899] bg-[#f7f3df] p-3;
+  }
+
+  .xp-sidebar-title {
+    @apply mb-3 bg-[#245edb] px-2 py-1 text-xs font-bold text-white;
+  }
+
+  .xp-field {
+    @apply mb-3 block text-xs font-bold;
+  }
+
+  .xp-field span {
+    @apply mb-1 inline-block;
+  }
+
+  .xp-field strong {
+    @apply float-right text-[#245edb];
+  }
+
+  .xp-field input[type="range"] {
+    @apply mt-2 w-full;
+  }
+
+  .xp-field input[type="number"] {
+    @apply w-full border border-[#7f9db9] bg-white px-2 py-1 text-sm font-normal;
+  }
+
+  .xp-checkbox {
+    @apply flex gap-2 border border-[#c8c2a6] bg-white p-2 text-xs;
+  }
+
+  .xp-checkbox input {
+    @apply mt-1;
+  }
+
+  .xp-checkbox b,
+  .xp-checkbox small {
+    @apply block;
+  }
+
+  .xp-checkbox small {
+    @apply mt-1 font-normal leading-5 text-[#555];
+  }
+
+  .xp-dropzone {
+    @apply flex min-h-52 cursor-pointer items-center justify-center gap-4 border-2 border-dashed border-[#7f9db9] bg-white p-6 text-center transition hover:bg-[#eef5ff];
+  }
+
+  .xp-drop-icon {
+    @apply flex h-16 w-16 shrink-0 items-center justify-center rounded-sm border border-[#7f9db9] bg-[#dce9ff] text-xs font-bold text-[#07348b];
+  }
+
+  .xp-dropzone p {
+    @apply text-lg font-bold text-[#07348b];
+  }
+
+  .xp-dropzone span {
+    @apply mt-1 block text-sm text-[#555];
+  }
+
+  .xp-progress {
+    @apply mt-4 border border-[#7f9db9] bg-white p-3 text-xs font-bold;
+  }
+
+  .xp-progress-track {
+    @apply mt-2 h-4 overflow-hidden border border-[#7f9db9] bg-white;
+  }
+
+  .xp-progress-track div {
+    @apply h-full transition-all;
+    background: repeating-linear-gradient(90deg, #2a8bff 0 10px, #66b2ff 10px 18px);
+  }
+
+  .xp-toolbar {
+    @apply mb-3 flex flex-col gap-3 border border-[#aca899] bg-[#f7f3df] p-3 md:flex-row md:items-center md:justify-between;
+  }
+
+  .xp-toolbar strong,
+  .xp-toolbar span {
+    @apply block;
+  }
+
+  .xp-toolbar span {
+    @apply text-xs text-[#555];
+  }
+
+  .xp-button {
+    @apply min-h-8 rounded-sm border border-[#003c74] bg-[#f7f7ef] px-3 py-1 text-xs font-bold text-[#111] transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-60;
+    box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #9d9d92;
+  }
+
+  .xp-button.primary {
+    @apply bg-[#245edb] text-white hover:bg-[#3577ec];
+  }
+
+  .xp-button.danger {
+    @apply border-[#8f1e11] text-[#8f1e11];
+  }
+
+  .xp-result-grid {
+    @apply grid gap-3 md:grid-cols-2 xl:grid-cols-3;
+  }
+
+  .xp-file-card {
+    @apply min-w-0 border border-[#7f9db9] bg-white;
+  }
+
+  .xp-file-preview {
+    @apply relative flex aspect-[4/3] items-center justify-center bg-[#eef5ff];
+  }
+
+  .xp-file-preview img {
+    @apply h-full w-full object-contain;
+  }
+
+  .xp-file-preview button {
+    @apply absolute right-2 top-2 h-6 w-6 rounded-sm border border-white/70 bg-[#d72b16] text-xs font-bold text-white;
+  }
+
+  .xp-file-body {
+    @apply space-y-2 p-3;
+  }
+
+  .xp-file-body strong {
+    @apply block truncate text-sm text-[#07348b];
+  }
+
+  .xp-file-body dl {
+    @apply space-y-1 border-y border-[#d5d0bd] py-2 text-xs;
+  }
+
+  .xp-file-body dl div {
+    @apply flex justify-between gap-3;
+  }
+
+  .xp-file-body dt {
+    @apply text-[#555];
+  }
+
+  .xp-file-body dd {
+    @apply font-bold;
+  }
+
+  .xp-info-grid,
+  .xp-two-column {
+    @apply grid gap-4 lg:grid-cols-[280px_1fr];
+  }
+
+  .xp-card-grid {
+    @apply grid gap-3 md:grid-cols-2;
+  }
+
+  .xp-info-card,
+  .xp-text-panel {
+    @apply border border-[#7f9db9] bg-white p-4;
+  }
+
+  .xp-info-card strong {
+    @apply block text-base text-[#07348b];
+  }
+
+  .xp-info-card p,
+  .xp-text-panel p,
+  .xp-text-panel li {
+    @apply mt-2 text-sm leading-6 text-[#333];
+  }
+
+  .xp-text-panel ol {
+    @apply mt-3 list-decimal pl-5;
+  }
+
+  .xp-text-panel ul {
+    @apply mt-4 list-disc border-t border-[#d5d0bd] pt-3 pl-5;
+  }
+
+  .xp-text-panel ul li {
+    @apply mt-1;
+  }
+
+  .xp-document .xp-section-heading h1 {
+    @apply text-3xl font-bold text-[#07348b];
+  }
+
+  .xp-contact-box {
+    @apply mt-4 border border-[#7f9db9] bg-[#eef5ff] p-3 text-sm;
+  }
+
+  .xp-contact-box strong,
+  .xp-contact-box a {
+    @apply block;
+  }
+
+  .xp-contact-box a {
+    @apply mt-1 font-bold text-[#07348b] underline;
+  }
+
+  .xp-footer-links {
+    @apply mt-5 flex flex-wrap gap-2 border border-[#aca899] bg-[#ece9d8] p-3 text-xs font-bold;
+  }
+
+  .xp-footer-links a {
+    @apply rounded-sm border border-[#7f9db9] bg-white px-3 py-2 text-[#07348b] hover:bg-[#316ac5] hover:text-white;
+  }
+
+  .xp-taskbar {
+    @apply fixed bottom-0 left-0 right-0 z-40 flex h-11 items-center gap-2 border-t border-[#4d91ef] px-2 text-white;
+    background: linear-gradient(180deg, #2b78e4 0%, #1454b8 100%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  }
+
+  .xp-start-button {
+    @apply flex h-8 items-center gap-2 rounded-lg border border-[#116b16] px-4 text-sm font-bold text-white;
+    background: linear-gradient(180deg, #57c84d, #197b17);
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.55), 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .xp-start-button span {
+    @apply h-4 w-4 rounded-sm bg-white/90;
+  }
+
+  .xp-taskbar-item {
+    @apply hidden h-8 min-w-0 max-w-xs items-center rounded-sm border border-[#0e4aa6] bg-[#2d75d6] px-3 text-xs shadow-inner sm:flex;
+  }
+
+  .xp-clock {
+    @apply ml-auto truncate border-l border-white/30 pl-3 text-[11px] sm:text-xs;
+  }
+
+  .xp-start-menu {
+    @apply fixed bottom-11 left-2 z-50 w-72 overflow-hidden rounded-t-lg border-2 border-[#0b3f9c] bg-[#f7f3df] shadow-2xl;
+  }
+
+  .xp-start-header {
+    @apply px-4 py-3 text-lg font-bold text-white;
+    background: linear-gradient(180deg, #5798f5, #245edb);
+  }
+
+  .xp-start-menu a {
+    @apply flex items-center gap-3 border-b border-[#d5d0bd] px-4 py-3 text-sm font-bold hover:bg-[#316ac5] hover:text-white;
+  }
+
+  .xp-start-menu a span {
+    @apply flex h-9 w-9 items-center justify-center rounded-sm border border-[#7f9db9] bg-white text-[10px] text-[#07348b];
+  }
+
+  .xp-start-footer {
+    @apply bg-[#ece9d8] px-4 py-2 text-xs text-[#555];
   }
 }

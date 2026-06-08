@@ -2,13 +2,13 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Image Compressor - Free Online Image Optimization Tool',
-    short_name: 'Image Compressor',
-    description: 'Compress and optimize images for free on the web',
-    start_url: '/',
+    name: 'XP Image Compressor - Free Image Compression and WebP Conversion',
+    short_name: 'XP Image Compressor',
+    description: 'Compress images and convert them to WebP directly in your browser.',
+    start_url: '/ko',
     display: 'standalone',
-    background_color: '#ffffff',
-    theme_color: '#667eea',
+    background_color: '#f8f7ef',
+    theme_color: '#245edb',
     icons: [
       {
         src: '/icon-192x192',
