@@ -40,7 +40,7 @@ export async function generateMetadata({
     keywords: string;
   };
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://yourdomain.com";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://pixelzipkit.com";
   const currentUrl = `${baseUrl}/${locale}`;
 
   return {
@@ -105,7 +105,8 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
   const messages = await getMessages();
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://yourdomain.com";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://pixelzipkit.com";
+  const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
 
   return (
     <html lang={locale}>
@@ -113,37 +114,59 @@ export default async function LocaleLayout({ children, params }: Props) {
         <link rel="manifest" href="/manifest" />
         <meta name="theme-color" content="#245edb" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {adsenseClient && (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+            crossOrigin="anonymous"
+          />
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "WebApplication",
-              name: siteMeta[locale].name,
-              description: siteMeta[locale].description,
-              url: `${baseUrl}/${locale}`,
-              applicationCategory: "UtilityApplication",
-              operatingSystem: "Web",
-              inLanguage: locale === "ko" ? "ko-KR" : "en-US",
-              offers: {
-                "@type": "Offer",
-                price: "0",
-                priceCurrency: "USD",
-              },
-              featureList:
-                locale === "ko"
-                  ? [
-                      "이미지 용량 줄이기",
-                      "WebP 변환",
-                      "여러 이미지 처리",
-                      "브라우저 기반 개인정보 보호",
-                    ]
-                  : [
-                      "Image compression",
-                      "WebP conversion",
-                      "Batch image processing",
-                      "Browser-based privacy",
-                    ],
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  name: siteMeta[locale].name,
+                  url: baseUrl,
+                  inLanguage: locale === "ko" ? "ko-KR" : "en-US",
+                },
+                {
+                  "@type": "Organization",
+                  name: siteMeta[locale].name,
+                  url: baseUrl,
+                },
+                {
+                  "@type": "WebApplication",
+                  name: siteMeta[locale].name,
+                  description: siteMeta[locale].description,
+                  url: `${baseUrl}/${locale}`,
+                  applicationCategory: "UtilityApplication",
+                  operatingSystem: "Web",
+                  inLanguage: locale === "ko" ? "ko-KR" : "en-US",
+                  offers: {
+                    "@type": "Offer",
+                    price: "0",
+                    priceCurrency: "USD",
+                  },
+                  featureList:
+                    locale === "ko"
+                      ? [
+                          "이미지 용량 줄이기",
+                          "WebP 변환",
+                          "여러 이미지 처리",
+                          "브라우저 기반 개인정보 보호",
+                        ]
+                      : [
+                          "Image compression",
+                          "WebP conversion",
+                          "Batch image processing",
+                          "Browser-based privacy",
+                        ],
+                },
+              ],
             }),
           }}
         />

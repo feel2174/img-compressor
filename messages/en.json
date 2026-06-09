@@ -12,6 +12,8 @@
       "tools": "Tools",
       "help": "Help",
       "about": "About",
+      "guide": "Guide",
+      "faq": "FAQ",
       "privacy": "Privacy",
       "contact": "Contact"
     },
@@ -29,6 +31,10 @@
       "features": "Feature guide",
       "privacy": "Privacy policy",
       "about": "About this site",
+      "guide": "Usage guide",
+      "faq": "FAQ",
+      "useCases": "Use cases",
+      "formats": "Format guide",
       "terms": "Terms of use",
       "contact": "Contact",
       "footer": "New tools will keep appearing in this menu."
@@ -75,7 +81,7 @@
     ],
     "about": {
       "body1": "This site is built for website owners, bloggers, designers, and store operators who often prepare images for the web. Large images can slow down pages and affect search performance, so optimizing them before upload is a useful habit.",
-      "body2": "The Windows XP style is meant to feel like a familiar desktop utility. The Start menu collects current and future tools so the site can grow while staying easy to maintain."
+      "body2": "The classic desktop style is meant to feel like a familiar utility. The Start menu collects current and future tools so the site can grow while staying easy to maintain."
     },
     "guide": [
       "Set the quality slider and maximum width or height.",
@@ -92,6 +98,10 @@
     "footerNav": {
       "label": "Policy and site information",
       "about": "About",
+      "guide": "Usage Guide",
+      "faq": "FAQ",
+      "useCases": "Use Cases",
+      "formats": "Format Guide",
       "privacy": "Privacy Policy",
       "terms": "Terms of Use",
       "contact": "Contact"

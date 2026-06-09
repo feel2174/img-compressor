@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import ImageCompressor from "@/components/ImageCompressor";
+import SiteFooter from "@/components/SiteFooter";
 import type { Locale } from "@/i18n";
 
 const featureIndexes = [0, 1, 2, 3];
@@ -20,6 +21,10 @@ export default function Home() {
     { label: t("startMenu.webp"), href: "#compressor", badge: "WEBP" },
     { label: t("startMenu.features"), href: "#features", badge: "DOC" },
     { label: t("startMenu.about"), href: `/${locale}/about`, badge: "INFO" },
+    { label: t("startMenu.guide"), href: `/${locale}/guide`, badge: "HELP" },
+    { label: t("startMenu.faq"), href: `/${locale}/faq`, badge: "FAQ" },
+    { label: t("startMenu.useCases"), href: `/${locale}/use-cases`, badge: "CASE" },
+    { label: t("startMenu.formats"), href: `/${locale}/formats`, badge: "JPG" },
     { label: t("startMenu.privacy"), href: `/${locale}/privacy`, badge: "TXT" },
     { label: t("startMenu.terms"), href: `/${locale}/terms`, badge: "LAW" },
     { label: t("startMenu.contact"), href: `/${locale}/contact`, badge: "MAIL" },
@@ -46,12 +51,23 @@ export default function Home() {
           <a href="#compressor">{t("menu.file")}</a>
           <a href="#features">{t("menu.tools")}</a>
           <Link href={`/${locale}/about`}>{t("menu.about")}</Link>
+          <Link href={`/${locale}/guide`}>{t("menu.guide")}</Link>
+          <Link href={`/${locale}/faq`}>{t("menu.faq")}</Link>
           <Link href={`/${locale}/privacy`}>{t("menu.privacy")}</Link>
           <Link href={`/${locale}/contact`}>{t("menu.contact")}</Link>
         </div>
 
         <div className="xp-window-body">
-          <header className="xp-hero">
+          <section id="compressor" className="xp-section">
+            <div className="xp-section-heading">
+              <span>{t("sections.compress.label")}</span>
+              <h2>{t("sections.compress.title")}</h2>
+              <p>{t("sections.compress.description")}</p>
+            </div>
+            <ImageCompressor />
+          </section>
+
+          <header className="xp-hero mt-5">
             <div>
               <p className="xp-kicker">{t("kicker")}</p>
               <h1>{t("title")}</h1>
@@ -64,15 +80,6 @@ export default function Home() {
               <span>{t("status.free")}</span>
             </div>
           </header>
-
-          <section id="compressor" className="xp-section">
-            <div className="xp-section-heading">
-              <span>{t("sections.compress.label")}</span>
-              <h2>{t("sections.compress.title")}</h2>
-              <p>{t("sections.compress.description")}</p>
-            </div>
-            <ImageCompressor />
-          </section>
 
           <section id="features" className="xp-section xp-info-grid">
             <div className="xp-section-heading">
@@ -120,12 +127,7 @@ export default function Home() {
             </div>
           </section>
 
-          <nav className="xp-footer-links" aria-label={t("footerNav.label")}>
-            <Link href={`/${locale}/about`}>{t("footerNav.about")}</Link>
-            <Link href={`/${locale}/privacy`}>{t("footerNav.privacy")}</Link>
-            <Link href={`/${locale}/terms`}>{t("footerNav.terms")}</Link>
-            <Link href={`/${locale}/contact`}>{t("footerNav.contact")}</Link>
-          </nav>
+          <SiteFooter locale={locale} />
         </div>
       </section>
 

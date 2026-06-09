@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   setRequestLocale(locale);
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://yourdomain.com";
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://pixelzipkit.com";
   const currentUrl = `${baseUrl}/${locale}/${page}`;
   const currentPage = legalPages[locale][page];
   const alternatePage = legalPages[locale === "ko" ? "en" : "ko"][page];

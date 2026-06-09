@@ -24,6 +24,8 @@
     @apply m-0 min-h-screen overflow-x-hidden;
     color: var(--xp-text);
     font-family: Tahoma, "Segoe UI", Arial, sans-serif;
+    word-break: keep-all;
+    overflow-wrap: break-word;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -88,11 +90,60 @@
   }
 
   .xp-menubar {
-    @apply flex gap-5 border-b border-[#aca899] bg-[var(--xp-cream)] px-3 py-1 text-xs;
+    @apply flex flex-wrap gap-x-5 gap-y-1 border-b border-[#aca899] bg-[var(--xp-cream)] px-3 py-1 text-xs;
   }
 
   .xp-menubar a {
     @apply rounded-sm px-2 py-1 hover:bg-[#316ac5] hover:text-white;
+  }
+
+  .xp-compact-menubar {
+    @apply relative flex-nowrap items-center gap-2 overflow-visible text-sm;
+  }
+
+  .xp-current-page {
+    @apply min-w-0 max-w-[45%] truncate rounded-sm border border-[#aca899] bg-white px-2 py-1 text-xs text-[#333];
+  }
+
+  .xp-nav-menu {
+    @apply relative ml-auto;
+  }
+
+  .xp-nav-menu summary {
+    @apply cursor-pointer list-none rounded-sm border border-[#7f9db9] bg-[#ece9d8] px-3 py-1 text-xs font-bold shadow-[inset_1px_1px_0_#fff,inset_-1px_-1px_0_#aca899] hover:bg-[#316ac5] hover:text-white;
+  }
+
+  .xp-nav-menu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .xp-nav-menu summary::before {
+    content: "▶";
+    @apply mr-1 text-[10px];
+  }
+
+  .xp-nav-menu[open] summary::before {
+    content: "▼";
+  }
+
+  .xp-nav-menu-panel {
+    @apply absolute right-0 top-8 z-40 grid max-h-[58vh] w-[min(22rem,calc(100vw-2rem))] grid-cols-1 overflow-y-auto border-2 border-[#0b3f9c] bg-[#f7f3df] p-1 shadow-2xl sm:grid-cols-2;
+  }
+
+  .xp-nav-menu:not([open]) .xp-nav-menu-panel {
+    @apply hidden;
+  }
+
+  .xp-nav-menu[open] .xp-nav-menu-panel {
+    @apply grid;
+  }
+
+  .xp-nav-menu-panel a {
+    @apply rounded-none border-b border-[#d5d0bd] px-3 py-2 text-xs font-bold leading-snug hover:bg-[#316ac5] hover:text-white;
+  }
+
+  .xp-nav-menu-panel a[aria-current="page"] {
+    @apply bg-[#316ac5] text-white;
   }
 
   .xp-window-body {
@@ -147,7 +198,7 @@
   }
 
   .xp-section-heading h2 {
-    @apply text-2xl font-bold text-[#07348b];
+    @apply text-2xl font-bold leading-tight text-[#07348b];
   }
 
   .xp-section-heading p {
@@ -204,7 +255,7 @@
   }
 
   .xp-dropzone {
-    @apply flex min-h-52 cursor-pointer items-center justify-center gap-4 border-2 border-dashed border-[#7f9db9] bg-white p-6 text-center transition hover:bg-[#eef5ff];
+    @apply flex min-h-52 cursor-pointer flex-col items-center justify-center gap-4 border-2 border-dashed border-[#7f9db9] bg-white p-6 text-center transition hover:bg-[#eef5ff] sm:flex-row;
   }
 
   .xp-drop-icon {
@@ -212,7 +263,7 @@
   }
 
   .xp-dropzone p {
-    @apply text-lg font-bold text-[#07348b];
+    @apply text-lg font-bold leading-snug text-[#07348b];
   }
 
   .xp-dropzone span {
@@ -246,7 +297,7 @@
   }
 
   .xp-button {
-    @apply min-h-8 rounded-sm border border-[#003c74] bg-[#f7f7ef] px-3 py-1 text-xs font-bold text-[#111] transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-60;
+    @apply min-h-8 rounded-sm border border-[#003c74] bg-[#f7f7ef] px-3 py-1 text-xs font-bold leading-snug text-[#111] transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-60;
     box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #9d9d92;
   }
 
@@ -284,6 +335,7 @@
 
   .xp-file-body strong {
     @apply block truncate text-sm text-[#07348b];
+    word-break: break-all;
   }
 
   .xp-file-body dl {
@@ -317,7 +369,7 @@
   }
 
   .xp-info-card strong {
-    @apply block text-base text-[#07348b];
+    @apply block text-base leading-snug text-[#07348b];
   }
 
   .xp-info-card p,
@@ -342,8 +394,41 @@
     @apply text-3xl font-bold text-[#07348b];
   }
 
+  .xp-author-line {
+    @apply mt-3 flex flex-wrap items-center gap-2 border border-[#d5d0bd] bg-[#fffdf1] px-3 py-2 text-xs leading-snug text-[#555];
+  }
+
+  .xp-author-line span {
+    @apply font-bold text-[#07348b];
+  }
+
+  .xp-author-line strong {
+    @apply text-[#222];
+  }
+
+  .xp-author-line em {
+    @apply not-italic text-[#555];
+    word-break: break-all;
+  }
+
   .xp-contact-box {
     @apply mt-4 border border-[#7f9db9] bg-[#eef5ff] p-3 text-sm;
+  }
+
+  .xp-faq-list {
+    @apply mt-4 space-y-3 border-t border-[#d5d0bd] pt-4;
+  }
+
+  .xp-faq-list section {
+    @apply border border-[#7f9db9] bg-[#eef5ff] p-3;
+  }
+
+  .xp-faq-list h2 {
+    @apply text-base font-bold leading-snug text-[#07348b];
+  }
+
+  .xp-faq-list p {
+    @apply mt-2 text-sm leading-6 text-[#333];
   }
 
   .xp-contact-box strong,
@@ -353,6 +438,7 @@
 
   .xp-contact-box a {
     @apply mt-1 font-bold text-[#07348b] underline;
+    word-break: break-all;
   }
 
   .xp-footer-links {
@@ -361,6 +447,47 @@
 
   .xp-footer-links a {
     @apply rounded-sm border border-[#7f9db9] bg-white px-3 py-2 text-[#07348b] hover:bg-[#316ac5] hover:text-white;
+  }
+
+  .xp-site-footer {
+    @apply mt-8 grid gap-6 border-t border-[#d5d0bd] bg-[#f1f3f6] px-5 py-7 text-sm text-[#68717d] sm:grid-cols-[1fr_auto] sm:px-8;
+  }
+
+  .xp-site-footer-main {
+    @apply max-w-3xl space-y-3 leading-7;
+  }
+
+  .xp-site-brand {
+    @apply flex flex-wrap items-center gap-2 text-base;
+  }
+
+  .xp-site-brand strong {
+    @apply font-bold text-[#245edb];
+  }
+
+  .xp-site-brand span:last-child {
+    @apply font-bold text-[#9aa3ad];
+  }
+
+  .xp-site-brand-mark {
+    @apply inline-block h-4 w-4 border border-white shadow-sm;
+    background: linear-gradient(135deg, #28cf42 0 48%, #f04228 49% 100%);
+  }
+
+  .xp-site-footer-title {
+    @apply font-bold text-[#59616c];
+  }
+
+  .xp-site-footer-nav {
+    @apply flex min-w-36 flex-col gap-3 text-sm font-bold text-[#59616c];
+  }
+
+  .xp-site-footer-nav a {
+    @apply hover:text-[#245edb] hover:underline;
+  }
+
+  .xp-site-footer-copy {
+    @apply border-t border-[#d5dbe2] pt-4 text-center text-xs font-bold text-[#a0a8b2] sm:col-span-2;
   }
 
   .xp-taskbar {
@@ -397,7 +524,7 @@
   }
 
   .xp-start-menu a {
-    @apply flex items-center gap-3 border-b border-[#d5d0bd] px-4 py-3 text-sm font-bold hover:bg-[#316ac5] hover:text-white;
+    @apply flex items-center gap-3 border-b border-[#d5d0bd] px-4 py-3 text-sm font-bold leading-snug hover:bg-[#316ac5] hover:text-white;
   }
 
   .xp-start-menu a span {
