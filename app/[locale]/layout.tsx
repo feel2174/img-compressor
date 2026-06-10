@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
@@ -117,10 +118,11 @@ export default async function LocaleLayout({ children, params }: Props) {
         <link rel="manifest" href="/manifest" />
         <meta name="theme-color" content="#245edb" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script
+        <Script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
           crossOrigin="anonymous"
+          strategy="afterInteractive"
         />
         <script
           type="application/ld+json"

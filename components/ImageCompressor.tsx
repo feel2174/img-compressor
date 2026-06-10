@@ -2,7 +2,6 @@
 
 import { useCallback, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import imageCompression from "browser-image-compression";
 
 interface CompressedImage {
   file: File;
@@ -139,6 +138,9 @@ export default function ImageCompressor() {
           };
         }
 
+        const { default: imageCompression } = await import(
+          "browser-image-compression"
+        );
         const compressedFile = await imageCompression(file, {
           maxSizeMB: 1,
           maxWidthOrHeight: Math.max(maxWidth, maxHeight),
