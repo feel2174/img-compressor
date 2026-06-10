@@ -45,7 +45,6 @@ export default function SiteFooter({ locale }: SiteFooterProps) {
         <Link href={`/${locale}/contact`}>{isKo ? "문의" : "Contact"}</Link>
         <Link href={`/${locale}/privacy`}>{isKo ? "개인정보처리방침" : "Privacy Policy"}</Link>
         <Link href={`/${locale}/terms`}>{isKo ? "이용약관" : "Terms"}</Link>
-        <a href="/sitemap.xml">{isKo ? "사이트맵" : "Sitemap"}</a>
       </nav>
 
       <nav
