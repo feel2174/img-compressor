@@ -486,6 +486,22 @@
     @apply hover:text-[#245edb] hover:underline;
   }
 
+  .xp-site-footer-articles {
+    @apply space-y-3 border-t border-[#d5dbe2] pt-4 text-sm sm:col-span-2;
+  }
+
+  .xp-site-footer-articles strong {
+    @apply font-bold text-[#59616c];
+  }
+
+  .xp-site-footer-articles ul {
+    @apply grid list-none gap-x-6 gap-y-1.5 pl-0 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .xp-site-footer-articles a {
+    @apply text-[#68717d] hover:text-[#245edb] hover:underline;
+  }
+
   .xp-site-footer-copy {
     @apply border-t border-[#d5dbe2] pt-4 text-center text-xs font-bold text-[#a0a8b2] sm:col-span-2;
   }

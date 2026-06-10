@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/i18n";
-import { siteMeta } from "@/content/site";
+import { legalPages, siteMeta } from "@/content/site";
+import { articleSlugs } from "@/content/articles";
 import { getSiteHost } from "@/lib/site-url";
 
 type SiteFooterProps = {
@@ -45,6 +46,22 @@ export default function SiteFooter({ locale }: SiteFooterProps) {
         <Link href={`/${locale}/privacy`}>{isKo ? "개인정보처리방침" : "Privacy Policy"}</Link>
         <Link href={`/${locale}/terms`}>{isKo ? "이용약관" : "Terms"}</Link>
         <a href="/sitemap.xml">{isKo ? "사이트맵" : "Sitemap"}</a>
+      </nav>
+
+      <nav
+        className="xp-site-footer-articles"
+        aria-label={isKo ? "이미지 최적화 콘텐츠" : "Image optimization articles"}
+      >
+        <strong>{isKo ? "이미지 최적화 콘텐츠" : "Image Optimization Articles"}</strong>
+        <ul>
+          {articleSlugs.map((slug) => (
+            <li key={slug}>
+              <Link href={`/${locale}/${slug}`}>
+                {legalPages[locale][slug].title}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </nav>
 
       <div className="xp-site-footer-copy">

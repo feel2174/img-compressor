@@ -115,7 +115,6 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <html lang={locale}>
       <head>
-        <link rel="manifest" href="/manifest" />
         <meta name="theme-color" content="#245edb" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Script
