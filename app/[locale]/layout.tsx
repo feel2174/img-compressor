@@ -16,6 +16,9 @@ type Props = {
 const isLocale = (locale: string): locale is Locale =>
   locales.includes(locale as Locale);
 
+const adsenseClient =
+  process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-8738602180421069";
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -106,7 +109,6 @@ export default async function LocaleLayout({ children, params }: Props) {
   setRequestLocale(locale);
   const messages = await getMessages();
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://pixelzipkit.com";
-  const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
 
   return (
     <html lang={locale}>
@@ -114,13 +116,11 @@ export default async function LocaleLayout({ children, params }: Props) {
         <link rel="manifest" href="/manifest" />
         <meta name="theme-color" content="#245edb" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {adsenseClient && (
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
-            crossOrigin="anonymous"
-          />
-        )}
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+          crossOrigin="anonymous"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
