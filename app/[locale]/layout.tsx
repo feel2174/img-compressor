@@ -177,6 +177,10 @@ export default async function LocaleLayout({ children, params }: Props) {
           content="c14223cecc243ac817b5fa8c0d84a525305a7042"
         />
         <meta
+          name="naver-site-verification"
+          content="454875241af788011e2b9d908f59919bb91c5cc3"
+        />
+        <meta
           name="google-site-verification"
           content="ylRZwQXQH9ZVegPDqDJGKHanYBIwb2fDMD_NWF917FI"
         />
