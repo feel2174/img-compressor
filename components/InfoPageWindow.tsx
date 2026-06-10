@@ -15,10 +15,9 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
   const homeHref = `/${locale}`;
   const baseUrl = getSiteUrl();
   const pageUrl = `${baseUrl}/${locale}/${slug}`;
-  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
-  const issueUrl = "https://github.com/feel2174/img-compressor/issues";
   const authorName = "pixelzip 운영자";
   const authorEmail = "devzucca@gmail.com";
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || authorEmail;
 
   return (
     <main className="xp-desktop">
@@ -96,13 +95,7 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
                   <strong>
                     {locale === "ko" ? "운영자 연락처" : "Operator contact"}
                   </strong>
-                  {contactEmail ? (
-                    <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-                  ) : (
-                    <a href={issueUrl} target="_blank" rel="noreferrer">
-                      {locale === "ko" ? "GitHub Issues로 문의하기" : "Contact via GitHub Issues"}
-                    </a>
-                  )}
+                  <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
                 </div>
               )}
             </div>

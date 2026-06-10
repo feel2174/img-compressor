@@ -1,4 +1,4 @@
-export const DEFAULT_SITE_URL = "https://pixelzipkit.com";
+export const DEFAULT_SITE_URL = "https://www.pixelzipkit.com";
 
 export function getSiteUrl() {
   const configuredUrl = process.env.NEXT_PUBLIC_BASE_URL || DEFAULT_SITE_URL;
@@ -7,6 +7,10 @@ export function getSiteUrl() {
     const url = new URL(configuredUrl);
 
     if (url.hostname.endsWith("zucca100.com")) {
+      return DEFAULT_SITE_URL;
+    }
+
+    if (url.hostname === "pixelzipkit.com") {
       return DEFAULT_SITE_URL;
     }
 

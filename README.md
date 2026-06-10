@@ -63,7 +63,7 @@ npm start
 `.env.local` 파일을 생성하고 다음을 추가하세요:
 
 ```env
-NEXT_PUBLIC_BASE_URL=https://pixelzipkit.com
+NEXT_PUBLIC_BASE_URL=https://www.pixelzipkit.com
 ```
 
 ## Vercel 배포
