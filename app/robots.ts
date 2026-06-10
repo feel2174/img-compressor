@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
+import { getSiteUrl } from "@/lib/site-url";
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://pixelzipkit.com";
+const baseUrl = getSiteUrl();
 
 export default function robots(): MetadataRoute.Robots {
   return {

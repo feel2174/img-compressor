@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 import { infoPageSlugs } from "@/content/site";
 import { locales } from "@/i18n";
+import { getSiteUrl } from "@/lib/site-url";
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://pixelzipkit.com";
+const baseUrl = getSiteUrl();
 
 const routes = [
   { path: "", priority: 1.0, changeFrequency: "weekly" as const },

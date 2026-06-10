@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { defaultLocale, locales, type Locale } from "@/i18n";
 import { siteMeta } from "@/content/site";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { getSiteUrl } from "@/lib/site-url";
 import "../globals.css";
 
 type Props = {
@@ -43,7 +44,7 @@ export async function generateMetadata({
     keywords: string;
   };
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://pixelzipkit.com";
+  const baseUrl = getSiteUrl();
   const currentUrl = `${baseUrl}/${locale}`;
 
   return {
@@ -108,7 +109,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   setRequestLocale(locale);
   const messages = await getMessages();
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://pixelzipkit.com";
+  const baseUrl = getSiteUrl();
 
   return (
     <html lang={locale}>

@@ -1,14 +1,14 @@
 import Link from "next/link";
 import type { Locale } from "@/i18n";
 import { siteMeta } from "@/content/site";
+import { getSiteHost } from "@/lib/site-url";
 
 type SiteFooterProps = {
   locale: Locale;
 };
 
 export default function SiteFooter({ locale }: SiteFooterProps) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://pixelzipkit.com";
-  const host = new URL(baseUrl).host;
+  const host = getSiteHost();
   const isKo = locale === "ko";
 
   return (

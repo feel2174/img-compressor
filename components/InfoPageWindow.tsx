@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Locale } from "@/i18n";
 import { infoPageSlugs, legalPages, siteMeta, type InfoPageSlug } from "@/content/site";
 import SiteFooter from "@/components/SiteFooter";
+import { getSiteUrl } from "@/lib/site-url";
 
 type InfoPageWindowProps = {
   locale: Locale;
@@ -12,7 +13,7 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
   const page = legalPages[locale][slug];
   const faqs = "faqs" in page ? page.faqs : undefined;
   const homeHref = `/${locale}`;
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://pixelzipkit.com";
+  const baseUrl = getSiteUrl();
   const pageUrl = `${baseUrl}/${locale}/${slug}`;
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
   const issueUrl = "https://github.com/feel2174/img-compressor/issues";
