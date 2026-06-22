@@ -37,7 +37,7 @@
 
 @layer components {
   .xp-desktop {
-    @apply relative min-h-screen overflow-hidden px-3 pb-20 pt-14 sm:px-6 sm:pt-10;
+    @apply relative min-h-screen overflow-hidden px-3 pb-11 pt-14 sm:px-6 sm:pt-10;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent 34%),
       linear-gradient(135deg, #4ca4ff 0%, #1d72d8 48%, #4a9c36 49%, #2e7d28 100%);
