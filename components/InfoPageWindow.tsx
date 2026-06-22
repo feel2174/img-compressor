@@ -3,6 +3,7 @@ import type { Locale } from "@/i18n";
 import { articleSlugs } from "@/content/articles";
 import { infoPageSlugs, legalPages, siteMeta, type InfoPageSlug } from "@/content/site";
 import { pageDepthSections, type PageDepthSection } from "@/content/page-depth";
+import BenchmarkReport from "@/components/BenchmarkReport";
 import SiteFooter from "@/components/SiteFooter";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -98,6 +99,30 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
                     </section>
                   ))}
                 </div>
+              )}
+
+              {slug === "image-compression-benchmark-results" && (
+                <BenchmarkReport locale={locale} />
+              )}
+
+              {isArticle && slug !== "image-compression-benchmark-results" && (
+                <aside className="xp-benchmark-link">
+                  <strong>
+                    {locale === "ko"
+                      ? "권장 품질을 실제 결과로 비교해 보세요"
+                      : "Compare the recommended settings with actual results"}
+                  </strong>
+                  <p>
+                    {locale === "ko"
+                      ? "사진, 텍스트 캡처, 투명 그래픽의 품질 60·70·80 및 WebP 파일 크기를 PixelZipKit 고정 테스트 세트에서 확인할 수 있습니다."
+                      : "Review quality 60, 70, and 80 plus WebP file sizes for photo, text screenshot, and transparent graphic benchmark assets."}
+                  </p>
+                  <Link href={`/${locale}/image-compression-benchmark-results`}>
+                    {locale === "ko"
+                      ? "이미지 압축 테스트 결과 보기"
+                      : "View image compression test results"}
+                  </Link>
+                </aside>
               )}
 
               {faqs && (

@@ -450,6 +450,62 @@
     @apply mt-2 text-sm leading-7 text-[#333];
   }
 
+  .xp-benchmark {
+    @apply mt-6 border-t border-[#d5d0bd] pt-5;
+  }
+
+  .xp-benchmark-images {
+    @apply grid gap-4 lg:grid-cols-2;
+  }
+
+  .xp-benchmark-images figure {
+    @apply overflow-hidden border border-[#7f9db9] bg-white;
+  }
+
+  .xp-benchmark-images img {
+    @apply h-auto w-full bg-[#eef3fa];
+  }
+
+  .xp-benchmark-images figcaption {
+    @apply border-t border-[#d5d0bd] bg-[#f8f7ef] px-3 py-3 text-sm leading-6 text-[#4d5968];
+  }
+
+  .xp-benchmark .xp-value-table-wrap {
+    @apply mt-4;
+  }
+
+  .xp-benchmark-supporting {
+    @apply mt-4;
+  }
+
+  .xp-benchmark-note {
+    @apply mt-4 border border-[#7f9db9] bg-[#eef5ff] p-4;
+  }
+
+  .xp-benchmark-note h3 {
+    @apply text-base font-bold leading-snug text-[#07348b];
+  }
+
+  .xp-benchmark-note p {
+    @apply mt-2 text-sm leading-7 text-[#333];
+  }
+
+  .xp-benchmark-link {
+    @apply mt-5 border border-[#7f9db9] bg-[#eef5ff] p-4;
+  }
+
+  .xp-benchmark-link strong {
+    @apply block text-base font-bold text-[#07348b];
+  }
+
+  .xp-benchmark-link p {
+    @apply mt-2 text-sm leading-6 text-[#333];
+  }
+
+  .xp-benchmark-link a {
+    @apply mt-3 inline-block text-sm font-bold text-[#245edb] underline;
+  }
+
   .xp-document .xp-section-heading h1 {
     @apply text-3xl font-bold text-[#07348b];
   }
