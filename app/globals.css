@@ -526,9 +526,7 @@
   }
 
   .xp-site-footer {
-    @apply relative z-10 mt-8 grid w-screen max-w-none gap-6 border-y border-[#d5d0bd] bg-[#f1f3f6] px-4 py-7 text-sm text-[#68717d] sm:grid-cols-[minmax(0,1fr)_12rem] sm:px-8 lg:px-12;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    @apply relative z-10 mt-8 ml-[-0.75rem] grid w-[calc(100%+1.5rem)] max-w-none gap-6 border-y border-[#d5d0bd] bg-[#f1f3f6] px-4 py-7 text-sm text-[#68717d] sm:ml-[-1.5rem] sm:w-[calc(100%+3rem)] sm:grid-cols-[minmax(0,1fr)_12rem] sm:px-8 lg:px-12;
   }
 
   .xp-site-footer-main {
