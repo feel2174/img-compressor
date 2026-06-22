@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Locale } from "@/i18n";
+import { articleSlugs } from "@/content/articles";
 import { infoPageSlugs, legalPages, siteMeta, type InfoPageSlug } from "@/content/site";
 import { pageDepthSections, type PageDepthSection } from "@/content/page-depth";
 import SiteFooter from "@/components/SiteFooter";
@@ -13,6 +14,9 @@ type InfoPageWindowProps = {
 export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
   const page = legalPages[locale][slug];
   const faqs = "faqs" in page ? page.faqs : undefined;
+  const isArticle = articleSlugs.includes(
+    slug as (typeof articleSlugs)[number]
+  );
   const localeDepthSections = pageDepthSections[locale] as Record<
     string,
     PageDepthSection[]
@@ -176,22 +180,30 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
                   },
                 ],
               },
-              {
-                "@type": "Article",
-                headline: page.title,
-                description: page.description,
-                inLanguage: locale === "ko" ? "ko-KR" : "en-US",
-                mainEntityOfPage: pageUrl,
-                author: {
-                  "@type": "Person",
-                  name: authorName,
-                  email: authorEmail,
-                },
-                publisher: {
-                  "@type": "Organization",
-                  name: siteMeta[locale].name,
-                },
-              },
+              isArticle
+                ? {
+                    "@type": "Article",
+                    headline: page.title,
+                    description: page.description,
+                    inLanguage: locale === "ko" ? "ko-KR" : "en-US",
+                    mainEntityOfPage: pageUrl,
+                    author: {
+                      "@type": "Person",
+                      name: authorName,
+                      email: authorEmail,
+                    },
+                    publisher: {
+                      "@type": "Organization",
+                      name: siteMeta[locale].name,
+                    },
+                  }
+                : {
+                    "@type": "WebPage",
+                    name: page.title,
+                    description: page.description,
+                    inLanguage: locale === "ko" ? "ko-KR" : "en-US",
+                    url: pageUrl,
+                  },
             ],
           }),
         }}
