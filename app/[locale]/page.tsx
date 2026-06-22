@@ -131,10 +131,10 @@ export default function Home() {
               ))}
             </div>
           </section>
-
-          <SiteFooter locale={locale} />
         </div>
       </section>
+
+      <SiteFooter locale={locale} />
 
       {isStartOpen && (
         <nav className="xp-start-menu" aria-label={t("startMenu.label")}>

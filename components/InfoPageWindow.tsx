@@ -121,9 +121,10 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
               )}
             </div>
           </article>
-          <SiteFooter locale={locale} />
         </div>
       </section>
+
+      <SiteFooter locale={locale} />
 
       <footer className="xp-taskbar">
         <Link className="xp-start-button" href={homeHref}>
