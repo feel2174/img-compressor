@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/i18n";
 import { infoPageSlugs, legalPages, siteMeta, type InfoPageSlug } from "@/content/site";
+import { pageDepthSections, type PageDepthSection } from "@/content/page-depth";
 import SiteFooter from "@/components/SiteFooter";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -12,6 +13,11 @@ type InfoPageWindowProps = {
 export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
   const page = legalPages[locale][slug];
   const faqs = "faqs" in page ? page.faqs : undefined;
+  const localeDepthSections = pageDepthSections[locale] as Record<
+    string,
+    PageDepthSection[]
+  >;
+  const depthSections = localeDepthSections[slug] || [];
   const homeHref = `/${locale}`;
   const baseUrl = getSiteUrl();
   const pageUrl = `${baseUrl}/${locale}/${slug}`;
@@ -78,6 +84,17 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
                   <li key={bullet}>{bullet}</li>
                 ))}
               </ul>
+
+              {depthSections.length > 0 && (
+                <div className="xp-depth-sections">
+                  {depthSections.map((section) => (
+                    <section key={section.title}>
+                      <h2>{section.title}</h2>
+                      <p>{section.body}</p>
+                    </section>
+                  ))}
+                </div>
+              )}
 
               {faqs && (
                 <div className="xp-faq-list">

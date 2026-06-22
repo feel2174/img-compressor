@@ -7,15 +7,6 @@ export const articleSlugs = [
   "image-quality-60-70-80-comparison",
   "mobile-photo-compression-before-upload",
   "webp-conversion-seo-guide",
-  "naver-blog-image-size-guide",
-  "google-image-seo-alt-filename-guide",
-  "product-thumbnail-compression-checklist",
-  "website-speed-core-web-vitals-images",
-  "transparent-png-webp-guide",
-  "social-media-upload-image-compression",
-  "email-attachment-image-size-guide",
-  "portfolio-image-optimization-guide",
-  "batch-image-compression-workflow",
 ] as const;
 
 export type ArticleSlug = (typeof articleSlugs)[number];
@@ -630,4 +621,4 @@ export const articlePages = {
       ],
     },
   },
-} satisfies Record<Locale, Record<ArticleSlug, ArticlePage>>;
+} satisfies Record<Locale, Record<string, ArticlePage>>;

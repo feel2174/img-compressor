@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import EditorialValueSection from "@/components/EditorialValueSection";
 import ImageCompressor from "@/components/ImageCompressor";
 import SiteFooter from "@/components/SiteFooter";
 import type { Locale } from "@/i18n";
@@ -66,6 +67,8 @@ export default function Home() {
             </div>
             <ImageCompressor />
           </section>
+
+          <EditorialValueSection locale={locale} />
 
           <header className="xp-hero mt-5">
             <div>
