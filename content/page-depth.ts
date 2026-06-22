@@ -279,6 +279,56 @@ export const pageDepthSections = {
         body: "Some files may become larger after conversion, transparency may need extra review, and some platforms may not accept WebP. In those cases, keep the original format or compare JPG, PNG, and WebP before publishing.",
       },
     ],
+    "use-cases": [
+      {
+        title: "Choose settings by publishing context",
+        body: "The same photo may need different settings for a blog article, product detail page, thumbnail, or social post. Start with the displayed size and the detail users need to inspect, then choose format and quality for that context.",
+      },
+      {
+        title: "Review the page, not only the downloaded file",
+        body: "A result can look acceptable in a file preview but feel too soft once it appears in a product grid or a mobile article. Check the final page for loading speed, readable labels, and consistent color across similar images.",
+      },
+    ],
+    formats: [
+      {
+        title: "Match the format to the image type",
+        body: "Use JPG or lossy WebP for photographs, and compare PNG with transparent WebP for logos, cutouts, and interface captures. The best format is the one that preserves the needed detail at the smallest practical size.",
+      },
+      {
+        title: "Compatibility is part of the decision",
+        body: "WebP is efficient for modern websites, but a recipient, marketplace, or office workflow may require JPG or PNG. Check the destination before converting a file that someone else must open or upload.",
+      },
+    ],
+    privacy: [
+      {
+        title: "How image processing works",
+        body: "Compression and WebP conversion run in the browser. Selected files are not stored on this site's server, and users decide whether to download the result after reviewing it.",
+      },
+      {
+        title: "Analytics and advertising notice",
+        body: "Analytics or advertising services may use cookies or similar technologies according to their own policies. The privacy policy explains the service categories involved and how users can manage advertising preferences.",
+      },
+    ],
+    terms: [
+      {
+        title: "Use files you have the right to process",
+        body: "Use the tool only with images you own or are authorized to edit. The service helps create smaller publishing copies, but users remain responsible for copyright, consent, and the final use of each file.",
+      },
+      {
+        title: "Review results before publishing",
+        body: "Compression results depend on image content, transparency, resolution, and the selected settings. Keep important originals separately and review the downloaded result before using it in a live page or submission.",
+      },
+    ],
+    contact: [
+      {
+        title: "Useful details for a support request",
+        body: "For an issue report, include the browser, image format, approximate file size, selected settings, and the step where the issue occurred. Do not send source images containing unnecessary personal information.",
+      },
+      {
+        title: "Feature and partnership inquiries",
+        body: "Feature ideas, accessibility feedback, privacy questions, and partnership requests are welcome. A clear explanation of the intended workflow helps prioritize improvements that make the tool more useful.",
+      },
+    ],
     "blog-image-optimization-checklist": [
       {
         title: "Pre-publishing review",

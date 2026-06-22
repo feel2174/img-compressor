@@ -155,6 +155,22 @@
     box-shadow: inset 1px 1px 0 #ffffff, inset -1px -1px 0 #d2cfbf;
   }
 
+  .xp-home-primary {
+    @apply flex flex-col gap-5;
+  }
+
+  .xp-home-primary #compressor {
+    order: 1;
+  }
+
+  .xp-home-primary .xp-home-hero {
+    order: 2;
+  }
+
+  .xp-home-primary .xp-editorial-value {
+    order: 3;
+  }
+
   .xp-kicker {
     @apply mb-2 text-xs font-bold uppercase tracking-normal text-[#245edb];
   }
@@ -369,6 +385,10 @@
   }
 
   .xp-info-card strong {
+    @apply block text-base leading-snug text-[#07348b];
+  }
+
+  .xp-info-card h3 {
     @apply block text-base leading-snug text-[#07348b];
   }
 

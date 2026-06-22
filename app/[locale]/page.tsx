@@ -59,30 +59,32 @@ export default function Home() {
         </div>
 
         <div className="xp-window-body">
-          <section id="compressor" className="xp-section">
-            <div className="xp-section-heading">
-              <span>{t("sections.compress.label")}</span>
-              <h2>{t("sections.compress.title")}</h2>
-              <p>{t("sections.compress.description")}</p>
-            </div>
-            <ImageCompressor />
-          </section>
+          <div className="xp-home-primary">
+            <header className="xp-hero xp-home-hero">
+              <div>
+                <p className="xp-kicker">{t("kicker")}</p>
+                <h1>{t("title")}</h1>
+                <p>{t("subtitle")}</p>
+              </div>
+              <div className="xp-status-card" aria-label={t("status.title")}>
+                <strong>{t("status.title")}</strong>
+                <span>{t("status.browser")}</span>
+                <span>{t("status.private")}</span>
+                <span>{t("status.free")}</span>
+              </div>
+            </header>
 
-          <EditorialValueSection locale={locale} />
+            <section id="compressor" className="xp-section">
+              <div className="xp-section-heading">
+                <span>{t("sections.compress.label")}</span>
+                <h2>{t("sections.compress.title")}</h2>
+                <p>{t("sections.compress.description")}</p>
+              </div>
+              <ImageCompressor />
+            </section>
 
-          <header className="xp-hero mt-5">
-            <div>
-              <p className="xp-kicker">{t("kicker")}</p>
-              <h1>{t("title")}</h1>
-              <p>{t("subtitle")}</p>
-            </div>
-            <div className="xp-status-card" aria-label={t("status.title")}>
-              <strong>{t("status.title")}</strong>
-              <span>{t("status.browser")}</span>
-              <span>{t("status.private")}</span>
-              <span>{t("status.free")}</span>
-            </div>
-          </header>
+            <EditorialValueSection locale={locale} />
+          </div>
 
           <section id="features" className="xp-section xp-info-grid">
             <div className="xp-section-heading">
@@ -93,7 +95,7 @@ export default function Home() {
             <div className="xp-card-grid">
               {featureIndexes.map((index) => (
                 <article className="xp-info-card" key={index}>
-                  <strong>{t(`features.${index}.title`)}</strong>
+                  <h3>{t(`features.${index}.title`)}</h3>
                   <p>{t(`features.${index}.description`)}</p>
                 </article>
               ))}
