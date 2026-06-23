@@ -64,11 +64,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       locale: locale === "ko" ? "ko_KR" : "en_US",
       alternateLocale: locale === "ko" ? "en_US" : "ko_KR",
       type: "article",
+      images: [
+        {
+          url: `${baseUrl}/${locale}/opengraph-image`,
+          width: 1200,
+          height: 630,
+          alt: `${currentPage.title} | ${siteMeta[locale].name}`,
+        },
+      ],
     },
     twitter: {
-      card: "summary",
+      card: "summary_large_image",
       title: `${currentPage.title} | ${siteMeta[locale].name}`,
       description: currentPage.description || alternatePage.description,
+      images: [`${baseUrl}/${locale}/twitter-image`],
     },
     robots: {
       index: true,

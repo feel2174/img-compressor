@@ -1,6 +1,6 @@
 {
   "common": {
-    "windowTitle": "XP Image Tools - Image Compressor",
+    "windowTitle": "PixelZipKit - XP Image Compressor",
     "kicker": "Free browser-based image utility",
     "title": "Compress Images and Convert to WebP",
     "subtitle": "Upload photos or web images to compress them and convert them to WebP directly in your browser. Make files lighter for blogs, stores, portfolios, and landing pages without sending images to a server.",
@@ -161,7 +161,7 @@
     "switchLanguage": "Switch language"
   },
   "seo": {
-    "title": "XP Image Compressor - Free Image Compression and WebP Conversion",
+    "title": "PixelZipKit XP Image Compressor - Free Image Compression and WebP Conversion",
     "description": "Compress images and convert them to WebP in your browser for free. Optimize JPG, PNG, and other image files without server upload while protecting privacy.",
     "keywords": "image compression, WebP converter, free image optimizer, JPG compression, PNG compression, browser image tool"
   }

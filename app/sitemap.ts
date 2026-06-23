@@ -4,6 +4,7 @@ import { locales } from "@/i18n";
 import { getSiteUrl } from "@/lib/site-url";
 
 const baseUrl = getSiteUrl();
+const contentLastModified = new Date("2026-06-22T00:00:00.000Z");
 
 const routes = [
   { path: "", priority: 1.0, changeFrequency: "weekly" as const },
@@ -18,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return locales.flatMap((locale) =>
     routes.map((route) => ({
       url: `${baseUrl}/${locale}${route.path}`,
-      lastModified: new Date(),
+      lastModified: contentLastModified,
       changeFrequency: route.changeFrequency,
       priority: route.priority,
       alternates: {

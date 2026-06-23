@@ -18,8 +18,10 @@ type Props = {
 const isLocale = (locale: string): locale is Locale =>
   locales.includes(locale as Locale);
 
-const adsenseClient =
-  process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "ca-pub-8738602180421069";
+const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+const adsenseEnabled =
+  process.env.NEXT_PUBLIC_ADSENSE_ENABLED === "true" &&
+  process.env.NEXT_PUBLIC_CONSENT_PLATFORM_READY === "true";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -116,12 +118,14 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html lang={locale}>
       <head>
         <meta name="theme-color" content="#245edb" />
-        <Script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        {adsenseEnabled && adsenseClient && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
+        )}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

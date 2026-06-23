@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'XP Image Compressor - Free Image Compression and WebP Conversion',
-    short_name: 'XP Image Compressor',
+    name: 'PixelZipKit XP Image Compressor - Free Image Compression and WebP Conversion',
+    short_name: 'PixelZipKit',
     description: 'Compress images and convert them to WebP directly in your browser.',
     start_url: '/ko',
     display: 'standalone',

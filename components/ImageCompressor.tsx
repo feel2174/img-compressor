@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import { convertToWebPFile } from "@/lib/browser-image-processing";
 
 interface CompressedImage {
   file: File;
@@ -50,50 +51,7 @@ export default function ImageCompressor() {
     return Math.max(0, Math.round((1 - compressed / original) * 100));
   };
 
-  const convertToWebPFormat = useCallback(
-    async (file: File, targetQuality: number): Promise<File> =>
-      new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          const img = new Image();
-          img.onload = () => {
-            const canvas = document.createElement("canvas");
-            canvas.width = img.width;
-            canvas.height = img.height;
-
-            const ctx = canvas.getContext("2d");
-            if (!ctx) {
-              reject(new Error("Canvas context not available"));
-              return;
-            }
-
-            ctx.drawImage(img, 0, 0);
-            canvas.toBlob(
-              (blob) => {
-                if (!blob) {
-                  reject(new Error("Failed to convert to WebP"));
-                  return;
-                }
-
-                resolve(
-                  new File([blob], `${file.name.replace(/\.[^/.]+$/, "")}.webp`, {
-                    type: "image/webp",
-                    lastModified: Date.now(),
-                  })
-                );
-              },
-              "image/webp",
-              targetQuality
-            );
-          };
-          img.onerror = () => reject(new Error("Failed to load image"));
-          img.src = event.target?.result as string;
-        };
-        reader.onerror = () => reject(new Error("Failed to read file"));
-        reader.readAsDataURL(file);
-      }),
-    []
-  );
+  const convertToWebPFormat = useCallback(convertToWebPFile, []);
 
   const compressImage = useCallback(
     async (file: File): Promise<CompressedImage | null> => {

@@ -4,6 +4,8 @@ import { articleSlugs } from "@/content/articles";
 import { infoPageSlugs, legalPages, siteMeta, type InfoPageSlug } from "@/content/site";
 import { pageDepthSections, type PageDepthSection } from "@/content/page-depth";
 import BenchmarkReport from "@/components/BenchmarkReport";
+import ArticleEvidencePanel from "@/components/ArticleEvidencePanel";
+import AdvertisingReadinessNotice from "@/components/AdvertisingReadinessNotice";
 import SiteFooter from "@/components/SiteFooter";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -104,6 +106,12 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
               {slug === "image-compression-benchmark-results" && (
                 <BenchmarkReport locale={locale} />
               )}
+
+              {isArticle && slug !== "image-compression-benchmark-results" && (
+                <ArticleEvidencePanel locale={locale} slug={slug as (typeof articleSlugs)[number]} />
+              )}
+
+              {slug === "privacy" && <AdvertisingReadinessNotice locale={locale} />}
 
               {isArticle && slug !== "image-compression-benchmark-results" && (
                 <aside className="xp-benchmark-link">
@@ -213,6 +221,12 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
                     description: page.description,
                     inLanguage: locale === "ko" ? "ko-KR" : "en-US",
                     mainEntityOfPage: pageUrl,
+                    datePublished: "2026-06-22",
+                    dateModified: "2026-06-22",
+                    image:
+                      slug === "image-compression-benchmark-results"
+                        ? `${baseUrl}/benchmarks/benchmark-photo-source.png`
+                        : `${baseUrl}/${locale}/opengraph-image`,
                     author: {
                       "@type": "Person",
                       name: authorName,

@@ -29,14 +29,14 @@ export const infoPageSlugs: InfoPageSlug[] = [
 
 export const siteMeta = {
   ko: {
-    name: "XP 이미지 압축기",
+    name: "PixelZipKit XP 이미지 압축기",
     description:
       "브라우저에서 이미지를 압축하고 WebP로 변환하는 무료 온라인 이미지 최적화 도구입니다.",
     keywords:
       "이미지 용량 줄이기, 이미지 압축, WebP 변환, 무료 이미지 최적화, JPG 압축, PNG 압축",
   },
   en: {
-    name: "XP Image Compressor",
+    name: "PixelZipKit XP Image Compressor",
     description:
       "A free online image optimization tool for browser-based compression and WebP conversion.",
     keywords:
