@@ -22,12 +22,24 @@ export const benchmarkAssets = {
     output: "/benchmarks/transparent-graphic-quality-80.webp",
     outputBytes: 7_430,
   },
+  workspace: {
+    source: "/benchmarks/editorial-workspace-source.png",
+    sourceBytes: 3_481_104,
+    width: 1536,
+    height: 1024,
+    outputs: [
+      { quality: 60, file: "/benchmarks/editorial-workspace-quality-60.jpg", bytes: 383_741 },
+      { quality: 80, file: "/benchmarks/editorial-workspace-quality-80.jpg", bytes: 577_779 },
+    ],
+  },
 } as const;
 
 export const benchmarkMethod = {
-  measuredAt: "2026-06-22",
+  webpMeasuredAt: "2026-06-22",
+  jpegMeasuredAt: "2026-06-23",
   encoder: "Browser Canvas WebP encoder",
   source: "PixelZipKit-owned fixed test assets; no user uploads or customer files",
+  jpegEncoder: "macOS Image I/O JPEG encoder",
 } as const;
 
 export function reductionPercent(sourceBytes: number, outputBytes: number) {

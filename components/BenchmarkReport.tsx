@@ -15,7 +15,7 @@ function formatSize(bytes: number, locale: Locale) {
 
 export default function BenchmarkReport({ locale }: { locale: Locale }) {
   const isKo = locale === "ko";
-  const { photo, screenshot, transparent } = benchmarkAssets;
+  const { photo, screenshot, transparent, workspace } = benchmarkAssets;
 
   return (
     <section className="xp-benchmark" aria-labelledby="benchmark-title">
@@ -37,8 +37,8 @@ export default function BenchmarkReport({ locale }: { locale: Locale }) {
         <strong>{isKo ? "측정 기록" : "Measurement record"}</strong>
         <p>
           {isKo
-            ? `측정일: ${benchmarkMethod.measuredAt}. 인코더: ${benchmarkMethod.encoder}. ${benchmarkMethod.source}. 사진 원본은 ${photo.width} x ${photo.height} PNG입니다.`
-            : `Measured: ${benchmarkMethod.measuredAt}. Encoder: ${benchmarkMethod.encoder}. ${benchmarkMethod.source}. The photo source is a ${photo.width} x ${photo.height} PNG.`}
+            ? `WebP 실측일: ${benchmarkMethod.webpMeasuredAt}. JPEG 실측일: ${benchmarkMethod.jpegMeasuredAt}. WebP 결과는 ${benchmarkMethod.encoder}, JPEG 결과는 ${benchmarkMethod.jpegEncoder}로 생성했습니다. ${benchmarkMethod.source}. 사진 원본은 ${photo.width} x ${photo.height} PNG입니다.`
+            : `WebP measured: ${benchmarkMethod.webpMeasuredAt}. JPEG measured: ${benchmarkMethod.jpegMeasuredAt}. WebP results use the ${benchmarkMethod.encoder}; JPEG results use the ${benchmarkMethod.jpegEncoder}. ${benchmarkMethod.source}. The photo source is a ${photo.width} x ${photo.height} PNG.`}
         </p>
         <a href={photo.source} download>
           {isKo ? "사진 테스트 원본 다운로드" : "Download the photo source"}
@@ -58,6 +58,42 @@ export default function BenchmarkReport({ locale }: { locale: Locale }) {
           <Image src={transparent.source} alt={isKo ? "투명 배경과 선명한 모서리를 포함한 그래픽 테스트 원본" : "Transparent graphic source with crisp edges"} width={1200} height={800} />
           <figcaption>{isKo ? "투명 그래픽: 밝고 어두운 배경에서 가장자리를 확인합니다." : "Transparent graphic: inspect edges on light and dark backgrounds."}</figcaption>
         </figure>
+        <figure>
+          <Image src={workspace.source} alt={isKo ? "린넨 노트, 식물 잎, 패브릭, 색상 카드를 포함한 사이트 소유 사진형 테스트 원본" : "Site-owned photographic test source with a linen notebook, leaves, fabric, and color card"} width={workspace.width} height={workspace.height} />
+          <figcaption>{isKo ? "사진형 자산: 린넨 섬유, 잎맥, 그림자, 색상 블록의 품질 저하를 확인합니다." : "Photographic asset: inspect linen fibers, leaf veins, shadows, and color blocks."}</figcaption>
+        </figure>
+      </div>
+
+      <div className="xp-benchmark-note">
+        <h3>{isKo ? "추가 사진형 자산: JPEG 품질 60·80" : "Additional photographic asset: JPEG quality 60 and 80"}</h3>
+        <p>
+          {isKo
+            ? "이 원본은 PixelZipKit이 만든 공개 합성 테스트 자산입니다. 사람, 고객 이미지, 상표가 포함되지 않으며, 원본과 두 결과 파일을 모두 내려받아 직접 비교할 수 있습니다."
+            : "This source is a public synthetic test asset created for PixelZipKit. It includes no people, customer images, or trademarks, and the source plus both outputs can be downloaded for direct comparison."}
+        </p>
+        <table className="xp-value-table">
+          <thead>
+            <tr>
+              <th>{isKo ? "JPEG 품질" : "JPEG quality"}</th>
+              <th>{isKo ? "결과 파일" : "Output file"}</th>
+              <th>{isKo ? "원본 대비 감소" : "Reduction"}</th>
+              <th>{isKo ? "검수 기준" : "Review point"}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {workspace.outputs.map((output) => (
+              <tr key={output.quality}>
+                <td>{output.quality}</td>
+                <td><a href={output.file} download>{formatSize(output.bytes, locale)}</a></td>
+                <td>{reductionPercent(workspace.sourceBytes, output.bytes).toFixed(1)}%</td>
+                <td>{output.quality === 60 ? (isKo ? "린넨 섬유와 잎맥" : "Linen fibers and leaf veins") : (isKo ? "색상 블록과 그림자 경계" : "Color blocks and shadow transitions")}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <a href={workspace.source} download>
+          {isKo ? "사진형 테스트 원본 다운로드" : "Download the photographic test source"}
+        </a>
       </div>
 
       <div className="xp-value-table-wrap">
