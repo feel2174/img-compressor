@@ -22,6 +22,7 @@ const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
 const adsenseEnabled =
   process.env.NEXT_PUBLIC_ADSENSE_ENABLED === "true" &&
   process.env.NEXT_PUBLIC_CONSENT_PLATFORM_READY === "true";
+const analyticsEnabled = process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -177,10 +178,6 @@ export default async function LocaleLayout({ children, params }: Props) {
         />
         <meta
           name="naver-site-verification"
-          content="c14223cecc243ac817b5fa8c0d84a525305a7042"
-        />
-        <meta
-          name="naver-site-verification"
           content="454875241af788011e2b9d908f59919bb91c5cc3"
         />
         <meta
@@ -193,7 +190,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <LanguageSwitcher currentLocale={locale} />
           {children}
         </NextIntlClientProvider>
-        <Analytics />
+        {analyticsEnabled && <Analytics />}
       </body>
     </html>
   );

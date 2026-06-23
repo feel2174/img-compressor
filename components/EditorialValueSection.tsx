@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Locale } from "@/i18n";
 
 type EditorialValueSectionProps = {
@@ -23,6 +24,19 @@ const enRows = [
 export default function EditorialValueSection({ locale }: EditorialValueSectionProps) {
   const isKo = locale === "ko";
   const rows = isKo ? koRows : enRows;
+  const resources = isKo
+    ? [
+        ["고정 자산 압축 테스트", "같은 원본의 품질 60·70·80 결과 파일을 직접 비교합니다.", "image-compression-benchmark-results"],
+        ["블로그 발행 전 체크리스트", "본문 사진의 표시 크기, alt 텍스트, 모바일 검수 순서를 정리했습니다.", "blog-image-optimization-checklist"],
+        ["상품 이미지 검수 가이드", "썸네일과 상세 컷을 분리하고 라벨·색감·질감을 확인하는 기준입니다.", "ecommerce-product-image-compression-guide"],
+        ["JPG·PNG·WebP 선택 기준", "사진, UI 캡처, 투명 자산의 포맷을 목적에 맞게 비교합니다.", "jpg-png-webp-format-choice"],
+      ]
+    : [
+        ["Fixed-asset compression test", "Compare published quality 60, 70, and 80 output files from the same source.", "image-compression-benchmark-results"],
+        ["Blog pre-publishing checklist", "Review displayed size, alt text, and mobile clarity for body images.", "blog-image-optimization-checklist"],
+        ["Product image review guide", "Separate thumbnails from detail images and inspect labels, color, and texture.", "ecommerce-product-image-compression-guide"],
+        ["JPG, PNG, and WebP decisions", "Compare formats by image type, visual quality, and destination support.", "jpg-png-webp-format-choice"],
+      ];
 
   return (
     <section className="xp-section xp-editorial-value" aria-labelledby="editorial-value-title">
@@ -87,6 +101,20 @@ export default function EditorialValueSection({ locale }: EditorialValueSectionP
           </p>
         </article>
       </div>
+
+      <nav className="xp-article-evidence" aria-label={isKo ? "이미지 최적화 자료" : "Image optimization resources"}>
+        <h3>{isKo ? "직접 확인할 수 있는 이미지 최적화 자료" : "Image optimization resources with checkable evidence"}</h3>
+        <ul>
+          {resources.map(([title, description, slug]) => (
+            <li key={slug}>
+              <Link href={`/${locale}/${slug}`}>
+                <strong>{title}</strong>
+                <span>{description}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </section>
   );
 }

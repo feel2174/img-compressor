@@ -524,6 +524,31 @@
     @apply mt-2;
   }
 
+  .xp-article-evidence h3 {
+    @apply mt-4 text-sm font-bold text-[#38547d];
+  }
+
+  .xp-article-evidence ul {
+    @apply mt-3 grid gap-2;
+  }
+
+  .xp-article-evidence li {
+    @apply border-t border-[#d7d3bd] pt-3;
+  }
+
+  .xp-article-evidence li a {
+    @apply mt-0 block no-underline;
+  }
+
+  .xp-article-evidence li strong,
+  .xp-article-evidence li span {
+    @apply block;
+  }
+
+  .xp-article-evidence li span {
+    @apply mt-1 font-normal leading-6 text-[#3f4854];
+  }
+
   .xp-benchmark-method a,
   .xp-article-evidence a {
     @apply mt-2 inline-block font-semibold text-[#1e54bd] underline underline-offset-2;

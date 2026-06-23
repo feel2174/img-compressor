@@ -48,7 +48,7 @@
       "features": {
         "label": "Feature List",
         "title": "Available Features",
-        "description": "The current focus is image compression and WebP conversion. The structure is ready for future tools such as resizing, format conversion, and metadata removal."
+        "description": "Compress images and convert them to WebP, then compare results by adjusting quality and maximum width and height for the publishing context."
       },
       "about": {
         "label": "About Site",
@@ -81,7 +81,7 @@
     ],
     "about": {
       "body1": "This site is built for website owners, bloggers, designers, and store operators who often prepare images for the web. Large images can slow down pages and affect search performance, so optimizing them before upload is a useful habit.",
-      "body2": "The classic desktop style is meant to feel like a familiar utility. The Start menu collects current and future tools so the site can grow while staying easy to maintain."
+      "body2": "The classic desktop style is designed to feel like a familiar utility. Key settings and result comparison stay on one screen so users can keep the original and create a publishing copy with confidence."
     },
     "guide": [
       "Set the quality slider and maximum width or height.",
@@ -91,8 +91,8 @@
     ],
     "privacy": [
       "Image compression and WebP conversion run in the browser. Selected image files are not uploaded to or stored on this site's server.",
-      "Privacy-conscious analytics such as Vercel Analytics may be used to understand traffic and improve the service without directly identifying users.",
-      "If Google AdSense ads are added later, Google and its partners may use cookies to serve ads. Users can manage personalized advertising through browser settings or Google ad settings.",
+      "Analytics are used only when the operator enables them in the deployment environment, and they do not collect the contents of selected image files.",
+      "Advertising tags are disabled by default. If advertising is enabled, this page will identify the provider and clearly explain how visitors can manage consent.",
       "If contact, partnership, or feature request channels are added later, the collected fields and usage purpose will be explained separately."
     ],
     "footerNav": {

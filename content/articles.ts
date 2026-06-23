@@ -5,9 +5,6 @@ export const articleSlugs = [
   "blog-image-optimization-checklist",
   "ecommerce-product-image-compression-guide",
   "jpg-png-webp-format-choice",
-  "image-quality-60-70-80-comparison",
-  "mobile-photo-compression-before-upload",
-  "webp-conversion-seo-guide",
 ] as const;
 
 export type ArticleSlug = (typeof articleSlugs)[number];
@@ -29,7 +26,7 @@ export const articlePages = {
         "고정 테스트 이미지로 품질 60·70·80의 브라우저 WebP 변환 결과와 사진, 텍스트 캡처, 투명 그래픽 검수 기준을 비교합니다.",
       label: "압축 테스트 결과",
       paragraphs: [
-        "이미지 압축 품질은 숫자만으로 정하기 어렵습니다. 사진의 질감, 작은 글자, 투명 가장자리처럼 원본 특성에 따라 압축 흔적이 먼저 드러나는 부분이 다르기 때문입니다. 이 페이지는 PixelZipKit이 만든 고정 테스트 자산을 현재 브라우저의 WebP 변환 방식으로 다시 측정하고, 품질 60·70·80의 결과와 검수 지점을 기록하는 실험 노트입니다.",
+        "이미지 압축 품질은 숫자만으로 정하기 어렵습니다. 사진의 질감, 작은 글자, 투명 가장자리처럼 원본 특성에 따라 압축 흔적이 먼저 드러나는 부분이 다르기 때문입니다. 이 페이지는 PixelZipKit이 만든 고정 테스트 자산과 공개한 WebP 결과 파일을 바탕으로, 품질 60·70·80의 파일 크기와 검수 지점을 기록한 실험 노트입니다.",
         "사진 원본은 천 질감, 식물 잎, 그림자처럼 손실 압축 차이가 보이는 요소를 포함합니다. 텍스트 캡처는 작은 글자와 얇은 테두리를, 투명 그래픽은 알파 채널과 가장자리 선명도를 확인하기 위해 준비했습니다. 사용자 업로드 파일은 테스트에 사용하거나 저장하지 않았습니다.",
         "파일 크기만 보면 품질 60이 가장 작지만, 실제 게시에서는 이미지가 맡은 역할이 더 중요합니다. 썸네일은 60부터 검토할 수 있지만, 상품 사진과 포트폴리오 대표 이미지는 80에서 시작하는 편이 안전합니다. WebP 결과는 브라우저와 원본 특성에 따라 달라지므로, 외부 업로드 채널의 호환성과 실제 결과 용량을 함께 확인해야 합니다.",
       ],
@@ -350,10 +347,10 @@ export const articlePages = {
     "image-compression-benchmark-results": {
       title: "Image Compression Test Results: Quality 60, 70, 80 and WebP",
       description:
-        "Compare browser-measured WebP output at quality 60, 70, and 80 using fixed images for photo, text screenshot, and transparent graphic review.",
+        "Compare published WebP output files at quality 60, 70, and 80 using fixed images for photo, text screenshot, and transparent graphic review.",
       label: "Compression Tests",
       paragraphs: [
-        "Image quality cannot be chosen by a number alone. Texture, small text, and transparent edges reveal compression artifacts at different points. This page reruns the same browser WebP conversion used by PixelZipKit against fixed benchmark assets and records the results and review criteria at quality 60, 70, and 80.",
+        "Image quality cannot be chosen by a number alone. Texture, small text, and transparent edges reveal compression artifacts at different points. This page records file sizes and review criteria for quality 60, 70, and 80 using PixelZipKit's fixed benchmark assets and published WebP output files.",
         "The photo source includes fabric texture, leaves, and shadows. The text screenshot checks small type and thin borders, while the transparent graphic checks alpha preservation and edge quality. No user-uploaded images or customer files were used in this benchmark.",
         "Quality 60 creates the smallest files, but publishing purpose matters more than file size alone. Thumbnails can begin at 60, while product photos and portfolio hero images are safer at 80. WebP output varies by browser and source asset, so destination compatibility and the measured result still need to be checked.",
       ],

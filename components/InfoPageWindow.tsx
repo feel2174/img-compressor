@@ -28,7 +28,11 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
   const homeHref = `/${locale}`;
   const baseUrl = getSiteUrl();
   const pageUrl = `${baseUrl}/${locale}/${slug}`;
-  const authorName = "pixelzip 운영자";
+  const authorName = locale === "ko" ? "PixelZipKit 운영팀" : "PixelZipKit editorial team";
+  const authorMethod =
+    locale === "ko"
+      ? "고정 테스트 자산, 실제 도구 동작, 공개된 참고 자료를 기준으로 검수"
+      : "Reviewed against fixed test assets, tool behavior, and published references";
   const authorEmail = "devzucca@gmail.com";
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || authorEmail;
 
@@ -77,7 +81,7 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
               <div className="xp-author-line">
                 <span>{locale === "ko" ? "작성자" : "Author"}</span>
                 <strong>{authorName}</strong>
-                <em>{authorEmail}</em>
+                <em>{authorMethod}</em>
               </div>
             </div>
 
@@ -221,16 +225,13 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
                     description: page.description,
                     inLanguage: locale === "ko" ? "ko-KR" : "en-US",
                     mainEntityOfPage: pageUrl,
-                    datePublished: "2026-06-22",
-                    dateModified: "2026-06-22",
                     image:
                       slug === "image-compression-benchmark-results"
                         ? `${baseUrl}/benchmarks/benchmark-photo-source.png`
                         : `${baseUrl}/${locale}/opengraph-image`,
                     author: {
-                      "@type": "Person",
+                      "@type": "Organization",
                       name: authorName,
-                      email: authorEmail,
                     },
                     publisher: {
                       "@type": "Organization",

@@ -54,7 +54,7 @@ export const legalPages = {
       paragraphs: [
         "XP 이미지 압축기는 웹사이트 운영자, 블로거, 디자이너, 쇼핑몰 운영자처럼 이미지를 자주 다루는 사용자를 위해 만든 무료 온라인 유틸리티입니다.",
         "이미지 파일이 너무 크면 페이지 로딩 속도가 느려지고 검색엔진 최적화에도 불리할 수 있습니다. 이 사이트는 별도 프로그램 설치 없이 브라우저에서 이미지 용량을 줄이고 WebP 파일을 만들 수 있도록 돕습니다.",
-        "클래식 데스크톱 스타일 화면은 친숙한 프로그램처럼 사용할 수 있도록 설계했습니다. 메인 기능은 이미지 압축과 WebP 변환이며, 추후 리사이즈, 포맷 변환, 메타데이터 정리 같은 기능을 같은 메뉴 구조 안에 추가할 예정입니다.",
+        "클래식 데스크톱 스타일 화면은 친숙한 프로그램처럼 사용할 수 있도록 설계했습니다. 메인 기능은 이미지 압축과 WebP 변환이며, 품질과 최대 너비·높이를 직접 조정한 뒤 결과 파일 크기와 선명도를 비교할 수 있습니다.",
       ],
       bullets: [
         "브라우저 기반 이미지 압축",
@@ -175,10 +175,10 @@ export const legalPages = {
       label: "Privacy",
       paragraphs: [
         "이 사이트의 이미지 압축과 WebP 변환 기능은 사용자의 브라우저에서 실행됩니다. 선택한 이미지 파일은 사이트 서버로 업로드하거나 저장하지 않습니다.",
-        "서비스 품질 개선을 위해 Vercel Analytics와 같은 분석 도구가 사용될 수 있습니다. 이 분석은 페이지 방문, 기기 환경, 대략적인 사용 흐름을 이해하기 위한 목적으로 사용되며, 사용자가 선택한 이미지 파일 내용은 수집하지 않습니다.",
-        "향후 Google AdSense 광고가 적용되면 Google을 포함한 제3자 광고 사업자는 사용자의 이전 방문 기록을 기반으로 광고를 제공하기 위해 쿠키를 사용할 수 있습니다. Google의 광고 쿠키 사용은 이 사이트 또는 인터넷의 다른 사이트 방문 정보를 바탕으로 사용자에게 광고를 제공하는 데 사용될 수 있습니다.",
-        "사용자는 Google 광고 설정에서 맞춤 광고를 관리하거나, www.aboutads.info를 통해 일부 제3자 광고 사업자의 맞춤 광고 쿠키 사용을 거부할 수 있습니다. Google 파트너 사이트에서 데이터가 사용되는 방식은 https://policies.google.com/technologies/partner-sites 에서 확인할 수 있습니다.",
-        "Google 및 제휴사는 쿠키, 웹 비콘, IP 주소 또는 기타 식별자를 사용해 광고를 제공하고 광고 성과를 측정할 수 있습니다. 이 사이트는 Google이 개인 식별 정보로 인식할 수 있는 정보를 광고 요청에 전달하지 않습니다.",
+        "분석 도구는 운영자가 배포 환경에서 별도로 활성화한 경우에만 사용됩니다. 활성화된 분석은 페이지 방문과 대략적인 기기·사용 흐름을 이해하기 위한 것이며, 사용자가 선택한 이미지 파일 내용은 수집하지 않습니다.",
+        "광고 태그는 기본적으로 비활성화되어 있습니다. 운영자가 광고를 활성화하면 이 페이지에 광고 제공자, 쿠키 또는 유사 기술의 사용 목적, 적용 시점, 이용자가 선택을 관리하는 방법을 함께 공개합니다.",
+        "EEA, 영국, 스위스처럼 동의 관리 요건이 적용되는 지역에 광고를 제공하기 전에는 Google 인증 CMP를 실제 배포에 연결합니다. 사용자는 해당 CMP를 통해 선택을 관리할 수 있어야 하며, Google 파트너 사이트 데이터 정책도 함께 확인할 수 있습니다.",
+        "이 사이트는 광고 요청에 개인 식별 정보로 인식될 수 있는 이미지 파일이나 문의 내용을 전달하지 않습니다. 문의자가 직접 제공한 연락처 정보는 문의 응답과 서비스 개선 목적에만 사용합니다.",
         "문의 기능이나 이메일 연락처를 통해 사용자가 직접 정보를 제공하는 경우, 해당 정보는 문의 응답과 서비스 개선 목적에 한해 사용됩니다. 법령상 보관 의무가 있거나 분쟁 대응이 필요한 경우를 제외하고 불필요한 개인정보는 보관하지 않습니다.",
       ],
       bullets: [
@@ -354,10 +354,10 @@ export const legalPages = {
       label: "Privacy",
       paragraphs: [
         "Image compression and WebP conversion run in the user's browser. Selected image files are not uploaded to or stored on this site's server.",
-        "Privacy-conscious analytics such as Vercel Analytics may be used to improve service quality. Analytics may help understand visits, device context, and broad usage flow, but it does not collect the contents of selected image files.",
-        "If Google AdSense ads are added later, third-party vendors including Google may use cookies to serve ads based on a user's prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads based on visits to this site and other sites on the Internet.",
-        "Users may manage personalized advertising through Google Ads Settings or opt out of some third-party vendors' use of cookies for personalized advertising at www.aboutads.info. Information about how Google uses data on partner sites is available at https://policies.google.com/technologies/partner-sites.",
-        "Google and its partners may use cookies, web beacons, IP addresses, or other identifiers to serve ads and measure ad performance. This site does not pass information to Google that Google could recognize as personally identifiable information.",
+        "Analytics are used only when the operator enables them in the deployment environment. Enabled analytics help understand visits, broad device context, and usage flow; they do not collect the contents of selected image files.",
+        "Advertising tags are disabled by default. If the operator enables advertising, this page will identify the provider, the purpose of cookies or similar technologies, the activation date, and the way visitors can manage their choices.",
+        "Before ads are served in regions with consent requirements, including the EEA, the UK, and Switzerland, a Google-certified CMP must be deployed. Visitors must be able to manage their choices through that CMP, and the Google partner-site data policy will be linked here.",
+        "This site does not send selected image files or inquiry contents that could be recognized as personally identifiable information in advertising requests. Contact information provided directly by a visitor is used only to respond to the inquiry and improve the service.",
         "If a user provides information through a contact channel, it will be used to respond to the inquiry and improve the service. Unnecessary personal data is not retained unless required by law or needed to resolve a dispute.",
       ],
       bullets: [

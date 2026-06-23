@@ -2,7 +2,10 @@
 
 import { useCallback, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { convertToWebPFile } from "@/lib/browser-image-processing";
+import {
+  convertToWebPFile,
+  resizeImageFile,
+} from "@/lib/browser-image-processing";
 
 interface CompressedImage {
   file: File;
@@ -57,16 +60,17 @@ export default function ImageCompressor() {
     async (file: File): Promise<CompressedImage | null> => {
       try {
         if (directToWebP) {
-          const webpFile = await convertToWebPFormat(file, quality);
-          if (webpFile.size >= file.size) {
-            const url = URL.createObjectURL(file);
+          const resizedFile = await resizeImageFile(file, maxWidth, maxHeight);
+          const webpFile = await convertToWebPFormat(resizedFile, quality);
+          if (webpFile.size >= resizedFile.size) {
+            const url = URL.createObjectURL(resizedFile);
             return {
-              file,
+              file: resizedFile,
               originalFile: file,
               originalSize: file.size,
-              compressedSize: file.size,
+              compressedSize: resizedFile.size,
               url,
-              format: file.type,
+              format: resizedFile.type,
             };
           }
 
@@ -84,30 +88,33 @@ export default function ImageCompressor() {
           };
         }
 
-        if (file.size < 100 * 1024) {
-          const url = URL.createObjectURL(file);
+        const resizedFile = await resizeImageFile(file, maxWidth, maxHeight);
+
+        if (resizedFile.size < 100 * 1024) {
+          const url = URL.createObjectURL(resizedFile);
           return {
-            file,
+            file: resizedFile,
             originalFile: file,
             originalSize: file.size,
-            compressedSize: file.size,
+            compressedSize: resizedFile.size,
             url,
-            format: file.type,
+            format: resizedFile.type,
           };
         }
 
         const { default: imageCompression } = await import(
           "browser-image-compression"
         );
-        const compressedFile = await imageCompression(file, {
+        const compressedFile = await imageCompression(resizedFile, {
           maxSizeMB: 1,
           maxWidthOrHeight: Math.max(maxWidth, maxHeight),
           useWebWorker: true,
-          fileType: file.type,
+          fileType: resizedFile.type,
           initialQuality: quality,
         });
 
-        const finalFile = compressedFile.size >= file.size ? file : compressedFile;
+        const finalFile =
+          compressedFile.size >= resizedFile.size ? resizedFile : compressedFile;
         return {
           file: finalFile,
           originalFile: file,
@@ -164,7 +171,12 @@ export default function ImageCompressor() {
       setConvertingWebP(index);
       try {
         const sourceFile = image.originalFile || image.file;
-        const webpFile = await convertToWebPFormat(sourceFile, quality);
+        const webpFile = await convertToWebPFormat(
+          sourceFile,
+          quality,
+          maxWidth,
+          maxHeight
+        );
         if (webpFile.size >= sourceFile.size) return;
 
         const webpUrl = URL.createObjectURL(webpFile);
@@ -179,7 +191,7 @@ export default function ImageCompressor() {
         setConvertingWebP(null);
       }
     },
-    [convertToWebPFormat, quality, t]
+    [convertToWebPFormat, maxHeight, maxWidth, quality, t]
   );
 
   const convertAllToWebP = useCallback(async () => {
@@ -199,7 +211,12 @@ export default function ImageCompressor() {
 
       try {
         const sourceFile = targets[i].originalFile || targets[i].file;
-        const webpFile = await convertToWebPFormat(sourceFile, quality);
+        const webpFile = await convertToWebPFormat(
+          sourceFile,
+          quality,
+          maxWidth,
+          maxHeight
+        );
         if (webpFile.size >= sourceFile.size) continue;
 
         const webpUrl = URL.createObjectURL(webpFile);
@@ -217,7 +234,7 @@ export default function ImageCompressor() {
 
     setConvertingAllWebP(false);
     setProcessingProgress(null);
-  }, [convertToWebPFormat, images, quality, t]);
+  }, [convertToWebPFormat, images, maxHeight, maxWidth, quality, t]);
 
   const downloadFile = useCallback((url: string, filename: string) => {
     const link = document.createElement("a");
