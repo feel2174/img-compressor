@@ -5,18 +5,6 @@ export const articleSlugs = [
   "blog-image-optimization-checklist",
   "ecommerce-product-image-compression-guide",
   "jpg-png-webp-format-choice",
-  "image-quality-60-70-80-comparison",
-  "mobile-photo-compression-before-upload",
-  "webp-conversion-seo-guide",
-  "naver-blog-image-size-guide",
-  "google-image-seo-alt-filename-guide",
-  "product-thumbnail-compression-checklist",
-  "website-speed-core-web-vitals-images",
-  "transparent-png-webp-guide",
-  "social-media-upload-image-compression",
-  "email-attachment-image-size-guide",
-  "portfolio-image-optimization-guide",
-  "batch-image-compression-workflow",
 ] as const;
 
 export type ArticleSlug = (typeof articleSlugs)[number];
