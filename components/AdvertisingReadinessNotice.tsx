@@ -14,9 +14,32 @@ export default function AdvertisingReadinessNotice({ locale }: { locale: Locale 
           : "Image compression works independently of advertising. Ad tags are disabled by default and are deployed only when the operator confirms both advertising activation and consent readiness. This readiness setting is not a CMP itself. Before serving ads in regions with consent requirements, including the EEA, the UK, and Switzerland, the operator must deploy a Google-certified CMP and update this page with the services used and the consent method."}
       </p>
       <p>
-        {isKo
-          ? "광고가 활성화된 경우 사용자는 이 페이지에서 사용 중인 광고·동의 도구를 확인할 수 있어야 하며, Google 광고 설정과 Google 파트너 사이트 데이터 정책도 함께 안내합니다."
-          : "When advertising is enabled, visitors must be able to identify the advertising and consent tools used on this page, alongside links to Google Ads Settings and Google partner-site data policies."}
+        {isKo ? (
+          <>
+            광고가 활성화된 경우 사용자는 이 페이지에서 사용 중인 광고·동의 도구를 확인할 수 있어야 하며,{" "}
+            <a href="https://adssettings.google.com/" target="_blank" rel="noreferrer">
+              Google 광고 설정
+            </a>
+            과{" "}
+            <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noreferrer">
+              Google이 파트너 사이트에서 정보를 사용하는 방식
+            </a>
+            도 함께 안내합니다.
+          </>
+        ) : (
+          <>
+            When advertising is enabled, visitors must be able to identify the advertising and consent tools used on
+            this page, alongside links to{" "}
+            <a href="https://adssettings.google.com/" target="_blank" rel="noreferrer">
+              Google Ads Settings
+            </a>{" "}
+            and{" "}
+            <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noreferrer">
+              how Google uses information from sites or apps that use its services
+            </a>
+            .
+          </>
+        )}
       </p>
     </section>
   );
