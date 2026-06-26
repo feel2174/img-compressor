@@ -99,6 +99,18 @@ export const articlePages = {
         "색상명, 상품명, 촬영 각도를 파일명에 반영합니다.",
         "압축 후 모바일 상품 상세 페이지에서 실제 구매 흐름을 확인합니다.",
       ],
+      faqs: [
+        {
+          question: "스마트스토어나 쿠팡에 WebP를 올려도 되나요?",
+          answer:
+            "주요 국내 쇼핑 플랫폼은 WebP 표시를 대부분 지원하지만, 셀러 관리 시스템이나 MD 검수 환경에서 호환성 문제가 생길 수 있습니다. 플랫폼의 이미지 업로드 가이드를 먼저 확인하고, 불확실하면 JPG로 업로드하는 것이 가장 안전합니다.",
+        },
+        {
+          question: "상품 이미지를 리사이즈하지 않고 압축만 하면 어떤 문제가 생기나요?",
+          answer:
+            "원본 4000px 이미지를 300px 썸네일 칸에 올리면 브라우저가 화면 표시 시 이미지를 축소하지만, 파일 크기는 원본 그대로 전송됩니다. 목록 페이지에 이런 이미지가 50장 있다면 사용자가 내려받는 데이터가 불필요하게 수 MB 더 늘어납니다.",
+        },
+      ],
     },
     "jpg-png-webp-format-choice": {
       title: "JPG / PNG / WebP 차이와 선택 기준",
@@ -132,7 +144,7 @@ export const articlePages = {
         "압축 품질 60, 70, 80의 파일 크기와 선명도 차이를 비교하고 블로그, 쇼핑몰 상품 사진, 썸네일에 맞는 기준을 고르는 방법입니다.",
       label: "품질 비교",
       paragraphs: [
-        "이미지 압축 품질 값은 숫자가 낮을수록 파일이 작아지고, 높을수록 원본에 가까워집니다. 하지만 80에서 90으로 올린다고 체감 품질이 크게 좋아지지 않는 이미지도 있고, 70 아래로 낮추면 갑자기 뭉개짐이 보이는 이미지도 있습니다.",
+        "PixelZipKit 고정 테스트 원본 사진(JPG)을 WebP 품질 60·70·80으로 각각 변환한 결과, 세 설정 모두 90% 이상 용량이 줄었지만 화면에서 뭉개짐이 보이는 시점은 이미지 종류마다 달랐습니다. 숫자만 보고 설정을 고르기보다, 이미지가 맡은 역할에 따라 출발점을 달리 잡는 것이 실수를 줄이는 방법입니다.",
         "품질 80은 블로그 대표 이미지, 상품 사진, 포트폴리오처럼 시각적 신뢰가 중요한 경우의 출발점으로 좋습니다. 용량 절감과 선명도의 균형이 비교적 안정적이며, 대부분의 사진에서 원본과 차이를 크게 느끼기 어렵습니다.",
         "품질 70은 일반 본문 이미지, 설명용 사진, 모바일 중심 콘텐츠에 적합합니다. 화면에서 작게 보이는 이미지라면 70 정도로도 충분히 자연스럽게 보일 수 있습니다. 다만 텍스트가 포함된 캡처나 제품 라벨은 확대해서 확인해야 합니다.",
         "품질 60은 썸네일, 임시 공유용 이미지, 대량 업로드 전 미리보기처럼 용량 절감이 더 중요한 상황에 어울립니다. 그러나 인물 얼굴, 제품 질감, 작은 글자, 그라데이션이 많은 이미지는 압축 흔적이 드러날 수 있으므로 주의가 필요합니다.",
@@ -143,6 +155,18 @@ export const articlePages = {
         "품질 60: 썸네일과 용량 제한 대응에 유용합니다.",
         "텍스트가 포함된 이미지는 낮은 품질에서 흐림이 쉽게 보입니다.",
         "결과 파일은 원본과 나란히 비교한 뒤 다운로드합니다.",
+      ],
+      faqs: [
+        {
+          question: "품질 80이 항상 최선인가요?",
+          answer:
+            "그렇지 않습니다. 단색 배경의 아이콘이나 그라데이션이 없는 간단한 일러스트는 60~70에서도 선명도 차이를 거의 느끼기 어렵습니다. 반대로 인물 피부 톤이나 미세한 직물 질감이 중요한 사진은 80 이상에서 시작하는 것이 안전합니다.",
+        },
+        {
+          question: "같은 품질인데 WebP 결과가 원본 JPG보다 커질 수 있나요?",
+          answer:
+            "있습니다. 이미 강하게 압축된 JPG를 WebP 품질 80으로 변환하면 결과가 원본보다 커지는 경우가 있습니다. PixelZipKit에서 WebP 결과 크기가 원본보다 크다면 원본 포맷을 그대로 유지하는 것이 좋습니다.",
+        },
       ],
     },
     "mobile-photo-compression-before-upload": {
@@ -163,6 +187,18 @@ export const articlePages = {
         "대량 사진은 몇 장씩 나누어 처리하면 안정적입니다.",
         "업로드 후 모바일 화면에서 로딩과 선명도를 확인합니다.",
       ],
+      faqs: [
+        {
+          question: "스마트폰 사진 한 장이 보통 얼마나 되나요?",
+          answer:
+            "최근 출시된 아이폰이나 갤럭시 플래그십 모델은 기본 카메라로 찍은 JPG 한 장이 3~8MB에 달하는 경우가 흔합니다. 블로그 본문에 이런 사진 5장을 압축 없이 올리면 최대 40MB가 필요한 상황이 됩니다. 웹 게시용은 한 장에 200~500KB를 목표로 하면 대부분의 화면 크기에서 충분합니다.",
+        },
+        {
+          question: "모바일 브라우저에서 바로 압축하는 게 앱 설치보다 나은가요?",
+          answer:
+            "빠른 처리와 개인정보 보호 측면에서 브라우저 기반이 유리합니다. 이미지가 서버에 전송되지 않고, 별도 설치 없이 사용할 수 있습니다. 다만 원본이 매우 큰 사진을 여러 장 동시에 처리하면 구형 기기에서 속도가 느릴 수 있으므로, 중요한 사진부터 나누어 처리하는 것이 좋습니다.",
+        },
+      ],
     },
     "webp-conversion-seo-guide": {
       title: "WebP 변환이 SEO에 도움이 되는 이유",
@@ -181,6 +217,18 @@ export const articlePages = {
         "파일명과 alt 텍스트를 함께 정리해야 이미지 SEO 효과가 커집니다.",
         "외부 플랫폼 호환성이 필요하면 JPG 대체본을 준비합니다.",
         "압축 결과가 원본보다 큰 경우에는 원본 포맷을 유지합니다.",
+      ],
+      faqs: [
+        {
+          question: "WebP로 바꾸면 검색 순위가 바로 올라가나요?",
+          answer:
+            "직접적인 인과관계는 없습니다. Google은 페이지 속도를 여러 신호 중 하나로 보기 때문에, WebP 변환만으로 순위가 즉시 바뀌지는 않습니다. 다만 이미지가 많은 페이지에서 Core Web Vitals 점수가 개선되면 장기적으로 검색 품질 신호가 좋아질 수 있습니다.",
+        },
+        {
+          question: "WebP 파일에도 파일명과 alt 텍스트가 SEO에 영향을 주나요?",
+          answer:
+            "네. 검색엔진은 포맷에 관계없이 파일명과 alt 텍스트를 이미지 내용 파악에 활용합니다. `image1.webp`보다 `blog-image-compression-result.webp`처럼 내용을 설명하는 이름이 이미지 검색 최적화에 더 유리합니다.",
+        },
       ],
     },
     "naver-blog-image-size-guide": {
@@ -201,6 +249,18 @@ export const articlePages = {
         "장소명, 제품명, 주제를 파일명에 반영합니다.",
         "업로드 후 모바일에서 대표 이미지와 본문 사진을 확인합니다.",
       ],
+      faqs: [
+        {
+          question: "네이버 블로그에 WebP를 올릴 수 있나요?",
+          answer:
+            "네이버 블로그 편집기는 JPG, PNG, GIF를 기본으로 지원하며, WebP는 일부 환경에서 업로드 또는 표시가 제한될 수 있습니다. 안정적인 게시를 위해서는 JPG로 압축한 파일을 올리고, 블로그 내 섬네일 미리보기에서 이미지가 자연스럽게 보이는지 확인하는 것이 좋습니다.",
+        },
+        {
+          question: "리뷰 사진에 텍스트 캡처가 섞여 있을 때 어떻게 처리하나요?",
+          answer:
+            "텍스트가 있는 캡처는 JPG보다 PNG가 선명도를 더 잘 유지합니다. 용량이 너무 크다면 WebP 결과와 PNG 결과를 PixelZipKit에서 비교해 더 작은 쪽을 선택하세요. 손실 압축을 써야 한다면 품질을 사진보다 10~15 높게 두고, 작은 글자와 얇은 선이 흐려지지 않는지 확인하세요.",
+        },
+      ],
     },
     "google-image-seo-alt-filename-guide": {
       title: "Google 이미지 SEO: 파일명과 alt 텍스트 작성법",
@@ -219,6 +279,18 @@ export const articlePages = {
         "본문 문맥과 관련 있는 이미지만 사용합니다.",
         "장식용 이미지는 과도한 설명을 넣지 않습니다.",
         "이미지 용량과 접근성 텍스트를 함께 점검합니다.",
+      ],
+      faqs: [
+        {
+          question: "alt 텍스트를 비워두면 어떻게 되나요?",
+          answer:
+            "alt가 비어 있는 이미지는 검색엔진이 내용을 파악하기 어렵고, 화면 낭독기를 사용하는 시각 장애인도 이미지를 인식하지 못합니다. 순수 장식용 이미지는 빈 alt=\"\"가 맞지만, 본문 내용과 연관된 이미지는 반드시 설명 텍스트를 작성해야 합니다.",
+        },
+        {
+          question: "alt 텍스트에 키워드를 반복해서 넣으면 SEO에 도움이 되나요?",
+          answer:
+            "도움이 되지 않으며 스팸으로 인식될 수 있습니다. Google은 이미지를 자연스럽게 설명하는 문장을 선호합니다. 압축 전후를 보여주는 이미지라면 '이미지 압축 전후 WebP 품질 80 비교 결과'처럼 실제 내용을 설명하는 방식이 효과적입니다.",
+        },
       ],
     },
     "product-thumbnail-compression-checklist": {
@@ -239,6 +311,18 @@ export const articlePages = {
         "흰 배경 노이즈와 상품 경계 흐림을 확인합니다.",
         "카테고리 목록 전체 로딩 속도를 기준으로 판단합니다.",
       ],
+      faqs: [
+        {
+          question: "썸네일을 리사이즈하지 않고 압축만 해도 충분한가요?",
+          answer:
+            "압축만 해도 파일은 작아지지만, 이미지 픽셀 수는 그대로입니다. 300px 칸에 표시될 이미지가 2000px 원본이라면 브라우저가 표시할 때 다운스케일을 처리해야 합니다. 리사이즈와 압축을 함께 하면 파일 크기가 훨씬 더 많이 줄어드는 경우가 많습니다.",
+        },
+        {
+          question: "썸네일 압축이 잘못되면 어떤 문제가 생기나요?",
+          answer:
+            "가장 흔한 문제는 흰 배경 노이즈, 상품 색상 변질, 텍스트나 로고 흐림입니다. 이런 이미지가 카테고리 목록에 올라가면 클릭률이 낮아질 수 있습니다. 배경이 단색이고 상품 경계가 선명한 이미지는 압축 흔적이 더 잘 보이므로, 최종 결과를 실제 목록 크기로 미리 보는 습관이 중요합니다.",
+        },
+      ],
     },
     "website-speed-core-web-vitals-images": {
       title: "웹사이트 속도와 Core Web Vitals를 위한 이미지 최적화",
@@ -257,6 +341,18 @@ export const articlePages = {
         "WebP 변환으로 파일 크기를 줄일 수 있는지 비교합니다.",
         "이미지 너비와 높이를 지정해 레이아웃 흔들림을 줄입니다.",
         "아래쪽 이미지는 검색 친화적인 지연 로딩을 적용합니다.",
+      ],
+      faqs: [
+        {
+          question: "LCP 이미지에 lazy loading을 적용하면 안 되나요?",
+          answer:
+            "첫 화면에 바로 보이는 LCP 이미지에 loading=\"lazy\"를 적용하면 브라우저가 이미지를 늦게 불러와 LCP 점수가 오히려 나빠집니다. 스크롤 없이 보이는 이미지에는 loading 속성을 지정하지 않거나 loading=\"eager\"를 쓰고, 첫 화면 아래 이미지에만 lazy loading을 적용하세요.",
+        },
+        {
+          question: "이미지 용량을 줄이는 것만으로 Core Web Vitals가 개선되나요?",
+          answer:
+            "파일 크기 절감은 LCP 개선의 중요한 요소지만 그것만이 전부가 아닙니다. 이미지의 width·height 속성 누락으로 생기는 레이아웃 이동(CLS), 브라우저가 이미지를 늦게 발견하는 문제(preload 부재), 캐싱 정책 미설정도 점수에 영향을 줍니다. 파일 압축은 출발점이고, 실제 페이지에서 어떻게 불러오는지까지 함께 봐야 합니다.",
+        },
       ],
     },
     "transparent-png-webp-guide": {
@@ -277,6 +373,18 @@ export const articlePages = {
         "밝은 배경과 어두운 배경에서 모두 미리 봅니다.",
         "작은 아이콘은 무리하게 압축하지 않아도 됩니다.",
       ],
+      faqs: [
+        {
+          question: "WebP로 변환했더니 투명 배경이 검은색으로 바뀌었어요. 왜인가요?",
+          answer:
+            "WebP도 투명도를 지원하지만, 변환 과정에서 알파 채널이 제대로 전달되지 않거나 손실 압축 설정이 투명 영역을 다르게 처리할 수 있습니다. 투명 PNG를 WebP로 변환한 결과에 검은 배경이 생긴다면 원본 PNG를 그대로 유지하거나, PNG 압축 결과와 비교해 더 적합한 쪽을 선택하세요.",
+        },
+        {
+          question: "로고 파일은 PNG와 WebP 중 무엇이 더 좋나요?",
+          answer:
+            "단순한 벡터 스타일 로고는 WebP 무손실 압축이 PNG보다 작을 수 있습니다. 하지만 외부 플랫폼, 인쇄물 업체, 협업 도구에 전달하는 원본 로고는 PNG로 유지하는 것이 일반적으로 더 안전합니다. 웹사이트 게시용과 배포용 파일을 분리해 두는 것이 좋습니다.",
+        },
+      ],
     },
     "social-media-upload-image-compression": {
       title: "SNS 업로드용 이미지 압축 가이드",
@@ -295,6 +403,18 @@ export const articlePages = {
         "피드 사진은 품질 75~85에서 시작합니다.",
         "용량 제한 대응용 이미지는 품질 60~70도 테스트합니다.",
         "플랫폼 재압축을 고려해 너무 낮은 품질은 피합니다.",
+      ],
+      faqs: [
+        {
+          question: "인스타그램에 올릴 이미지를 미리 압축하면 플랫폼 재압축으로 화질이 더 나빠지지 않나요?",
+          answer:
+            "적당한 품질(75~80)로 압축한 파일이라면 인스타그램의 추가 압축 후에도 충분히 자연스럽게 보입니다. 문제는 품질 50 이하로 극단적으로 줄인 파일을 다시 압축할 때입니다. 피드용 사진은 75~80 수준을 유지하면 재압축 후에도 화질 저하가 눈에 띄지 않는 경우가 대부분입니다.",
+        },
+        {
+          question: "카드뉴스처럼 텍스트가 많은 이미지는 어떻게 압축하나요?",
+          answer:
+            "텍스트가 선명해야 하는 카드뉴스는 JPG보다 PNG로 저장하는 것이 일반적으로 유리합니다. 용량이 너무 크다면 WebP로 비교해보세요. 손실 압축을 써야 한다면 품질 85 이상에서 시작하고, 작은 글자와 얇은 선이 흐려지지 않는지 확대해서 확인한 뒤 결정하세요.",
+        },
       ],
     },
     "email-attachment-image-size-guide": {
@@ -315,6 +435,18 @@ export const articlePages = {
         "여러 장은 순서가 보이도록 파일명을 정리합니다.",
         "첨부 전 전체 용량을 확인합니다.",
       ],
+      faqs: [
+        {
+          question: "이메일 첨부 용량 제한은 보통 얼마인가요?",
+          answer:
+            "Gmail은 기본 25MB, Outlook은 20MB이며 국내 포털 메일도 대부분 10~50MB 범위입니다. 원본 스마트폰 사진 5~8장이면 이 한도에 쉽게 걸립니다. 기관 제출이나 업무 메일은 사전에 용량 제한을 확인하고, 여유 있게 압축하는 편이 좋습니다.",
+        },
+        {
+          question: "여러 장을 ZIP으로 묶어서 보내야 하나요?",
+          answer:
+            "파일 수가 많다면 ZIP으로 묶으면 관리가 편하지만, 수신자가 압축 해제를 번거로워하거나 기관 메일이 ZIP 파일을 차단하는 경우도 있습니다. 5장 이하라면 JPG로 개별 첨부하고, 그 이상이라면 구글 드라이브나 네이버 마이박스 링크로 전달하는 방법이 더 효율적입니다.",
+        },
+      ],
     },
     "portfolio-image-optimization-guide": {
       title: "포트폴리오 이미지 최적화 가이드",
@@ -334,6 +466,18 @@ export const articlePages = {
         "사진 작품은 WebP 변환 결과를 비교합니다.",
         "작품명과 역할을 파일명과 alt 텍스트에 반영합니다.",
       ],
+      faqs: [
+        {
+          question: "포트폴리오 이미지를 WebP로 변환하면 Behance나 Notion에서 잘 보이나요?",
+          answer:
+            "Behance와 Notion은 WebP를 지원하며, 웹 기반 포트폴리오 플랫폼 대부분에서 WebP가 정상적으로 표시됩니다. 단, PDF 포트폴리오나 이메일로 전달하는 작품 파일은 JPG나 PNG가 더 안전한 선택입니다.",
+        },
+        {
+          question: "포트폴리오 첫 화면 대표 이미지는 얼마나 크게 준비해야 하나요?",
+          answer:
+            "화면 전체 폭으로 표시되는 히어로 이미지는 1920px 이상이 유리하지만, 원본 5000px을 그대로 올릴 필요는 없습니다. 2000~2400px로 리사이즈하고 품질 80~85로 압축하면 고해상도 화면에서도 충분히 선명하면서 빠르게 로딩됩니다.",
+        },
+      ],
     },
     "batch-image-compression-workflow": {
       title: "여러 이미지 한 번에 압축하는 작업 흐름",
@@ -352,6 +496,18 @@ export const articlePages = {
         "동일한 목적의 이미지만 같은 설정으로 일괄 처리합니다.",
         "원본보다 커진 결과는 다운로드하지 않습니다.",
         "압축 후 예외 파일을 따로 검수합니다.",
+      ],
+      faqs: [
+        {
+          question: "한 번에 몇 장까지 처리하는 게 좋은가요?",
+          answer:
+            "기기와 이미지 크기에 따라 다르지만, 처음 사용할 때는 10~20장 단위로 나눠 처리하는 것이 안전합니다. 특히 스마트폰에서 원본 5MB 이상의 사진을 20장 이상 동시에 처리하면 메모리 부족으로 브라우저가 느려질 수 있습니다.",
+        },
+        {
+          question: "일괄 압축한 결과를 어떻게 검수하나요?",
+          answer:
+            "처리가 끝나면 결과 목록에서 파일 크기를 원본과 비교하세요. 원본보다 큰 결과는 다운로드하지 않는 것이 좋습니다. 텍스트가 포함된 캡처, 투명 배경 이미지, 매우 밝거나 어두운 사진은 개별적으로 확대해서 선명도를 확인한 뒤 다운로드하세요.",
+        },
       ],
     },
   },
@@ -418,6 +574,18 @@ export const articlePages = {
         "Include product, color, and angle in filenames.",
         "Review compressed images on mobile product pages.",
       ],
+      faqs: [
+        {
+          question: "Can I upload WebP product images to marketplace platforms?",
+          answer:
+            "Most major platforms now display WebP images correctly. However, seller management tools, preview environments, and some older mobile apps may not handle WebP reliably. Check the platform's image upload guide first, and if uncertain, use JPG as the safer choice.",
+        },
+        {
+          question: "What happens if I compress product images without resizing them first?",
+          answer:
+            "Compression reduces file size, but the pixel count stays the same. A 4000px original in a 300px thumbnail slot still transfers all 4000px to the browser, which then scales it down locally. If a category page has 50 such images, users download several extra megabytes of data they never actually see.",
+        },
+      ],
     },
     "jpg-png-webp-format-choice": {
       title: "JPG, PNG, or WebP: How to Choose the Right Image Format",
@@ -444,7 +612,7 @@ export const articlePages = {
         "A practical comparison of 60, 70, and 80 quality settings for blog images, product photos, thumbnails, and mobile uploads.",
       label: "Quality Settings",
       paragraphs: [
-        "Lower image quality settings create smaller files, while higher settings preserve more detail. The best number is not universal because image content matters: portraits, product labels, screenshots, and gradients react differently to compression.",
+        "PixelZipKit's fixed benchmark photo produced over 90% file size reduction at quality settings 60, 70, and 80, but the point where visible artifacts appeared differed by image type. Choosing a setting by number alone is less reliable than picking a starting point based on what the image actually needs to show.",
         "Quality 80 is a strong starting point for hero images, product photos, and portfolio visuals where trust and detail matter. It often provides a good balance between size reduction and natural-looking results.",
         "Quality 70 is useful for ordinary blog body images, mobile-first content, and supporting photos. If the image is not displayed very large, quality 70 can look natural while saving meaningful file size.",
         "Quality 60 is best reserved for thumbnails, previews, temporary sharing, and strict upload limits. It can introduce visible artifacts in faces, text, gradients, and fine product details, so review the result before publishing.",
@@ -455,6 +623,18 @@ export const articlePages = {
         "Use quality 60 for thumbnails and size limits.",
         "Be careful with text-heavy screenshots.",
         "Compare the result beside the original before downloading.",
+      ],
+      faqs: [
+        {
+          question: "Is quality 80 always the best starting point?",
+          answer:
+            "Not for every image. Simple icons with flat colors and no gradients often look identical at quality 60 or 70. On the other hand, portrait skin tones and fine fabric textures show compression artifacts earlier, making quality 80 or above a safer start for those.",
+        },
+        {
+          question: "Can a WebP result at quality 80 be larger than the original JPG?",
+          answer:
+            "Yes. Re-encoding an already-compressed JPG to WebP can sometimes produce a larger file, especially at higher quality settings. If the WebP result is larger than the original in PixelZipKit, keep the original format instead.",
+        },
       ],
     },
     "mobile-photo-compression-before-upload": {
@@ -475,6 +655,18 @@ export const articlePages = {
         "Split very large batches on older phones.",
         "Check the uploaded page on mobile.",
       ],
+      faqs: [
+        {
+          question: "How large are typical smartphone photos?",
+          answer:
+            "Recent iPhone and Android flagship cameras produce JPG files of 3 to 8 MB per shot. Publishing five such photos in a blog post without compression can require up to 40 MB. Targeting 200 to 500 KB per image for web use is often more than sufficient for most display sizes.",
+        },
+        {
+          question: "Is browser-based compression better than installing a separate app?",
+          answer:
+            "For quick tasks and privacy, browser-based processing has clear advantages. Images stay on your device and are not uploaded to a server. The trade-off is speed on older phones when processing many large files at once — splitting large batches helps in those cases.",
+        },
+      ],
     },
     "webp-conversion-seo-guide": {
       title: "Does WebP Conversion Help SEO?",
@@ -493,6 +685,18 @@ export const articlePages = {
         "Use descriptive filenames and alt text.",
         "Keep fallbacks for tools or platforms that do not accept WebP.",
         "Do not use WebP if the result is larger than the original.",
+      ],
+      faqs: [
+        {
+          question: "Will converting to WebP immediately improve my search ranking?",
+          answer:
+            "There is no direct, immediate connection. Google treats page speed as one of many ranking signals, so format conversion alone rarely produces instant ranking changes. However, if WebP measurably improves Core Web Vitals scores on an image-heavy page, this can contribute to stronger long-term search signals.",
+        },
+        {
+          question: "Does alt text and filename still matter for WebP files?",
+          answer:
+            "Yes. Search engines read alt text and filenames regardless of image format. A descriptive name like `blog-image-compression-result.webp` is more useful for image SEO than a generic name like `image1.webp`.",
+        },
       ],
     },
     "naver-blog-image-size-guide": {
@@ -513,6 +717,18 @@ export const articlePages = {
         "Use filenames that describe topic or sequence.",
         "Check the final post on mobile.",
       ],
+      faqs: [
+        {
+          question: "Can I upload WebP images to Naver Blog?",
+          answer:
+            "Naver Blog's editor primarily supports JPG, PNG, and GIF. WebP uploads may not display correctly in all environments. For reliable publishing, compressing to JPG and verifying the result in the blog's thumbnail preview is the safer approach.",
+        },
+        {
+          question: "How should I handle screenshots with text mixed into a blog post?",
+          answer:
+            "Screenshots with text retain sharpness better as PNG than JPG. If the PNG is too large, compare WebP and PNG output in PixelZipKit and use whichever produces a smaller file without blurring the text. If lossy compression is needed, raise the quality 10 to 15 points higher than you would for a standard photo.",
+        },
+      ],
     },
     "google-image-seo-alt-filename-guide": {
       title: "Google Image SEO: Filenames and Alt Text",
@@ -531,6 +747,18 @@ export const articlePages = {
         "Place images near relevant text.",
         "Avoid over-describing decorative images.",
         "Optimize file size and accessibility together.",
+      ],
+      faqs: [
+        {
+          question: "What happens if I leave alt text empty?",
+          answer:
+            "An empty alt attribute makes it harder for search engines to understand the image and prevents screen readers from conveying its content to visually impaired users. Use an empty alt=\"\" only for purely decorative images. Any image that supports the article's meaning needs a descriptive alt text.",
+        },
+        {
+          question: "Does repeating keywords in alt text improve SEO?",
+          answer:
+            "No, and it can be flagged as keyword stuffing. Google prefers alt text that reads like an accurate description of the image. For a before-and-after compression example, something like 'WebP quality 80 compression result compared with the original JPG' is more useful than repeating keyword phrases.",
+        },
       ],
     },
     "product-thumbnail-compression-checklist": {
@@ -551,6 +779,18 @@ export const articlePages = {
         "Check product edges and background noise.",
         "Judge results by the full category page speed.",
       ],
+      faqs: [
+        {
+          question: "Is it enough to compress thumbnails without resizing them first?",
+          answer:
+            "Compression reduces file size, but the pixel count stays the same. A 2000px image in a 300px grid slot still transfers all 2000px to the browser, which scales it locally. Resizing together with compression usually produces a much larger combined reduction.",
+        },
+        {
+          question: "What visual problems appear when thumbnails are over-compressed?",
+          answer:
+            "The most common issues are white background noise, color shifts, and blurry text or logos. These can reduce click-through rates in a product grid. Clean-background product images show compression artifacts more clearly than complex scenes, so always preview the final result at the actual grid size before publishing.",
+        },
+      ],
     },
     "website-speed-core-web-vitals-images": {
       title: "Image Optimization for Website Speed and Core Web Vitals",
@@ -569,6 +809,18 @@ export const articlePages = {
         "Compare WebP output against JPG or PNG.",
         "Set width and height to reduce layout shifts.",
         "Use crawlable lazy loading for lower-page images.",
+      ],
+      faqs: [
+        {
+          question: "Should I avoid applying lazy loading to the LCP image?",
+          answer:
+            "Yes. Applying loading=\"lazy\" to an image visible without scrolling tells the browser to delay loading it, which directly hurts LCP scores. Reserve lazy loading for images below the fold. For above-the-fold images, omit the loading attribute or use loading=\"eager\".",
+        },
+        {
+          question: "Does reducing image file size alone fix Core Web Vitals?",
+          answer:
+            "File size is an important factor for LCP, but not the only one. Missing width and height attributes cause layout shifts (CLS). Late resource discovery from a missing preload hint slows LCP independently of file size. Caching headers and page placement also affect real-user performance. File compression is the starting point, not the complete solution.",
+        },
       ],
     },
     "transparent-png-webp-guide": {
@@ -589,6 +841,18 @@ export const articlePages = {
         "Preview product cutouts on different backgrounds.",
         "Do not over-compress tiny icons.",
       ],
+      faqs: [
+        {
+          question: "After converting to WebP, the transparent background turned black. Why?",
+          answer:
+            "WebP supports transparency, but some conversion workflows do not properly carry the alpha channel through lossy encoding. If a transparent PNG produces a black background after WebP conversion in PixelZipKit, use the original PNG or adjust the export settings to preserve transparency correctly.",
+        },
+        {
+          question: "Is PNG or WebP better for logo files?",
+          answer:
+            "For simple, vector-style logos, WebP lossless can produce a smaller file than PNG. However, keeping original logos as PNG is generally safer when sharing with external platforms, print vendors, or collaboration tools. Separate your web-use version from the source file to avoid compatibility issues.",
+        },
+      ],
     },
     "social-media-upload-image-compression": {
       title: "Image Compression Guide for Social Media Uploads",
@@ -607,6 +871,18 @@ export const articlePages = {
         "Start around quality 75 to 85 for feed photos.",
         "Try quality 60 to 70 for strict limits.",
         "Avoid overly low quality before platform recompression.",
+      ],
+      faqs: [
+        {
+          question: "Will pre-compressing for Instagram make the quality worse after platform recompression?",
+          answer:
+            "Not significantly if you compress at a reasonable quality. The problem occurs when a file is already at quality 50 or below before the platform applies its own compression. Keeping feed photos at quality 75 to 80 usually produces acceptable results after Instagram's processing.",
+        },
+        {
+          question: "How should I handle card images with a lot of text?",
+          answer:
+            "Text-heavy card images generally stay sharper as PNG than JPG. If PNG is too large, compare WebP output. If lossy compression is needed, start at quality 85 or above and zoom in on small text and thin lines before committing to the final result.",
+        },
       ],
     },
     "email-attachment-image-size-guide": {
@@ -627,6 +903,18 @@ export const articlePages = {
         "Use ordered, descriptive filenames.",
         "Check total attachment size before sending.",
       ],
+      faqs: [
+        {
+          question: "What are the typical email attachment size limits?",
+          answer:
+            "Gmail's limit is 25 MB, Outlook's is 20 MB, and many corporate mail servers set even lower limits. Five to eight uncompressed smartphone photos can easily exceed these thresholds. Confirm the limit before sending, especially for institutional submissions.",
+        },
+        {
+          question: "Should I zip compressed images before attaching them?",
+          answer:
+            "Zipping many files together helps with organization, but recipients may find decompressing inconvenient, and some institutional mail systems block ZIP attachments. For five or fewer images, attaching individual JPGs is simpler. For larger batches, a cloud sharing link is often more reliable.",
+        },
+      ],
     },
     "portfolio-image-optimization-guide": {
       title: "Portfolio Image Optimization Guide",
@@ -646,6 +934,18 @@ export const articlePages = {
         "Compare WebP for photo-heavy projects.",
         "Write accurate filenames and alt text.",
       ],
+      faqs: [
+        {
+          question: "Will WebP portfolio images display correctly on Behance or Notion?",
+          answer:
+            "Both Behance and Notion support WebP, and most web-based portfolio platforms display it correctly. If you are distributing a PDF portfolio or sending work samples by email, JPG or PNG is the safer choice for broader compatibility.",
+        },
+        {
+          question: "How large should a portfolio hero image be?",
+          answer:
+            "A full-width hero image benefits from at least 1920px width, but there is no need to upload a 5000px original. Resizing to 2000 to 2400px and compressing at quality 80 to 85 produces images that look sharp on high-resolution screens while loading noticeably faster.",
+        },
+      ],
     },
     "batch-image-compression-workflow": {
       title: "Batch Image Compression Workflow",
@@ -664,6 +964,18 @@ export const articlePages = {
         "Use the same settings only within similar groups.",
         "Skip results that are larger than the original.",
         "Review exceptions before publishing.",
+      ],
+      faqs: [
+        {
+          question: "How many images should I process in one batch?",
+          answer:
+            "This depends on your device and image size. Starting with batches of 10 to 20 images is a safe approach. Processing 20 or more large smartphone photos at once on a mobile browser can slow down or stall due to memory constraints — splitting into smaller groups avoids that.",
+        },
+        {
+          question: "How do I review batch compression results efficiently?",
+          answer:
+            "After processing, compare each file size against the original in the result list. Skip downloading any result that is larger than the original. Review text-heavy screenshots, transparent images, and very bright or dark photos individually at zoom before downloading, since these are the most likely to show unexpected artifacts.",
+        },
       ],
     },
   },
