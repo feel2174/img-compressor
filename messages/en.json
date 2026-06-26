@@ -37,7 +37,7 @@
       "formats": "Format guide",
       "terms": "Terms of use",
       "contact": "Contact",
-      "footer": "New tools will keep appearing in this menu."
+      "footer": "Open the compression tool and image optimization guides from this menu."
     },
     "sections": {
       "compress": {
@@ -58,7 +58,7 @@
       "privacy": {
         "label": "Privacy",
         "title": "Privacy Policy",
-        "description": "For AdSense review and user trust, this site clearly explains image handling, analytics, advertising, and cookie-related practices."
+        "description": "This site clearly explains image handling, analytics, advertising, and cookie-related practices for user trust."
       }
     },
     "features": [
@@ -92,8 +92,8 @@
     "privacy": [
       "Image compression and WebP conversion run in the browser. Selected image files are not uploaded to or stored on this site's server.",
       "Analytics are used only when the operator enables them in the deployment environment, and they do not collect the contents of selected image files.",
-      "Advertising tags are disabled by default. If advertising is enabled, this page will identify the provider and clearly explain how visitors can manage consent.",
-      "If contact, partnership, or feature request channels are added later, the collected fields and usage purpose will be explained separately."
+      "The AdSense script and ad placements are controlled by deployment settings. If advertising is enabled, this page will identify the provider and clearly explain how visitors can manage consent.",
+      "Information provided through contact, partnership, or feature request messages is used only for replies and service improvement."
     ],
     "footerNav": {
       "label": "Policy and site information",

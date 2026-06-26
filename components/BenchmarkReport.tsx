@@ -2,6 +2,7 @@ import Image from "next/image";
 import {
   benchmarkAssets,
   benchmarkMethod,
+  benchmarkScenarios,
   reductionPercent,
 } from "@/content/benchmark";
 import type { Locale } from "@/i18n";
@@ -62,6 +63,41 @@ export default function BenchmarkReport({ locale }: { locale: Locale }) {
           <Image src={workspace.source} alt={isKo ? "린넨 노트, 식물 잎, 패브릭, 색상 카드를 포함한 사이트 소유 사진형 테스트 원본" : "Site-owned photographic test source with a linen notebook, leaves, fabric, and color card"} width={workspace.width} height={workspace.height} />
           <figcaption>{isKo ? "사진형 자산: 린넨 섬유, 잎맥, 그림자, 색상 블록의 품질 저하를 확인합니다." : "Photographic asset: inspect linen fibers, leaf veins, shadows, and color blocks."}</figcaption>
         </figure>
+      </div>
+
+      <div className="xp-benchmark-note">
+        <h3>{isKo ? "사용 상황별 절감 추정" : "Use-case savings estimates"}</h3>
+        <p>
+          {isKo
+            ? "아래 표는 같은 고정 테스트 파일의 실측 결과를 여러 장의 실제 게시 상황에 적용해 계산한 추정치입니다. 원본 내용과 브라우저 인코더에 따라 결과는 달라질 수 있지만, 블로그·상품 목록·이메일 첨부처럼 이미지가 여러 장 쓰이는 상황에서 절감 규모를 판단하는 기준으로 사용할 수 있습니다."
+            : "The table below applies the fixed-file measurements to common multi-image publishing situations. Real files and browser encoders vary, but these estimates show the scale of savings for blogs, product grids, and email attachments."}
+        </p>
+        <div className="xp-value-table-wrap">
+          <table className="xp-value-table">
+            <thead>
+              <tr>
+                <th>{isKo ? "상황" : "Use case"}</th>
+                <th>{isKo ? "설정" : "Setting"}</th>
+                <th>{isKo ? "원본 합계" : "Original total"}</th>
+                <th>{isKo ? "결과 합계" : "Output total"}</th>
+                <th>{isKo ? "감소율" : "Reduction"}</th>
+                <th>{isKo ? "검수 기준" : "Review rule"}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {benchmarkScenarios.map((scenario) => (
+                <tr key={scenario.key}>
+                  <td>{scenario.useCase[locale]}</td>
+                  <td>{scenario.setting}</td>
+                  <td>{formatSize(scenario.sourceBytes, locale)}</td>
+                  <td>{formatSize(scenario.outputBytes, locale)}</td>
+                  <td>{reductionPercent(scenario.sourceBytes, scenario.outputBytes).toFixed(1)}%</td>
+                  <td>{scenario.review[locale]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div className="xp-benchmark-note">

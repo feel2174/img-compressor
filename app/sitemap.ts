@@ -4,7 +4,7 @@ import { locales } from "@/i18n";
 import { getSiteUrl } from "@/lib/site-url";
 
 const baseUrl = getSiteUrl();
-const contentLastModified = new Date("2026-06-23T00:00:00.000Z");
+const contentLastModified = new Date("2026-06-26T00:00:00.000Z");
 
 const routes = [
   { path: "", priority: 1.0, changeFrequency: "weekly" as const },

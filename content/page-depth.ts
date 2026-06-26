@@ -209,6 +209,132 @@ export const pageDepthSections = {
         body: "WebP 적용 후에는 파일 크기만 보는 것이 아니라 실제 페이지에서 이미지가 빨리 표시되는지 확인해야 합니다. 대표 이미지가 첫 화면에서 늦게 뜨면 사용자는 페이지가 느리다고 느낄 수 있습니다. 이미지 크기, 포맷, 표시 위치를 함께 점검해야 실질적인 성능 개선을 기대할 수 있습니다.",
       },
     ],
+    "naver-blog-image-size-guide": [
+      {
+        title: "사진이 많은 글의 첫 화면 관리",
+        body: "네이버 블로그 후기나 여행 글은 사진이 여러 장 이어지는 경우가 많습니다. 대표 이미지는 선명도를 유지하고, 본문 아래쪽 반복 이미지는 표시 폭에 맞게 줄이는 방식이 좋습니다. 모든 사진을 같은 품질로 낮추기보다 대표 이미지, 본문 이미지, 캡처 이미지를 나누어 처리하면 모바일에서 읽는 흐름을 더 안정적으로 만들 수 있습니다.",
+      },
+      {
+        title: "플랫폼 재처리를 고려한 압축",
+        body: "블로그 플랫폼은 업로드 후 이미지를 다시 처리할 수 있습니다. 업로드 전 품질을 지나치게 낮추면 플랫폼 재처리까지 거치며 글자나 질감이 더 흐려질 수 있습니다. PixelZipKit에서는 먼저 80 전후로 결과를 만들고, 원본과 압축본을 비교한 뒤 품질을 낮추는 순서가 안전합니다.",
+      },
+      {
+        title: "파일명과 글 맥락 정리",
+        body: "검색과 관리 모두를 생각하면 파일명도 정리하는 편이 좋습니다. 장소, 제품명, 촬영 순서가 드러나는 파일명은 나중에 같은 이미지를 다시 찾을 때 도움이 됩니다. alt 텍스트나 본문 설명은 키워드 반복보다 사진이 글의 어떤 부분을 설명하는지 자연스럽게 연결하는 것이 좋습니다.",
+      },
+    ],
+    "google-image-seo-alt-filename-guide": [
+      {
+        title: "파일명은 검색엔진보다 사람에게 먼저 읽혀야 합니다",
+        body: "좋은 파일명은 검색엔진 신호이기 전에 운영자가 이미지를 관리하기 쉽게 만드는 정보입니다. 이미지 주제, 용도, 순서를 짧게 담고 공백 대신 하이픈을 쓰면 여러 시스템에서 다루기 쉽습니다. 무의미한 카메라 파일명보다 문맥이 드러나는 이름이 이미지 SEO와 운영 효율에 모두 유리합니다.",
+      },
+      {
+        title: "alt 텍스트의 실패 패턴",
+        body: "alt 텍스트에 키워드를 반복하면 검색 친화적으로 보일 수 있지만 실제 사용자에게는 도움이 되지 않습니다. 이미지가 보이지 않을 때 대신 전달해야 할 정보를 문장으로 적는 것이 핵심입니다. 장식용 이미지라면 과한 설명을 넣지 않고, 정보 전달 이미지라면 본문 이해에 필요한 세부 내용을 적습니다.",
+      },
+      {
+        title: "압축과 접근성은 함께 점검합니다",
+        body: "이미지를 작게 만들더라도 사용자가 읽어야 할 글자나 제품 정보가 흐려지면 콘텐츠 가치가 떨어집니다. 파일 용량, 이미지 설명, 주변 문맥, 실제 모바일 화면을 함께 점검해야 검색엔진과 사용자 모두에게 유용한 이미지가 됩니다.",
+      },
+    ],
+    "product-thumbnail-compression-checklist": [
+      {
+        title: "목록 페이지 기준으로 판단하기",
+        body: "상품 썸네일은 한 장만 볼 때보다 목록 전체에서 볼 때 중요성이 드러납니다. 20개 이상의 이미지가 한 번에 노출되면 작은 용량 차이도 페이지 체감 속도에 영향을 줍니다. 썸네일은 상세 이미지보다 과감하게 줄이되, 상품 경계와 색상은 실제 목록 화면에서 다시 확인해야 합니다.",
+      },
+      {
+        title: "대표 상품은 예외로 관리합니다",
+        body: "일괄 압축 기준이 있더라도 대표 상품, 광고 소재, 시즌 메인 상품은 별도로 검수하는 편이 좋습니다. 클릭을 유도해야 하는 썸네일에서 색감이 흐려지거나 흰 배경 노이즈가 생기면 성능 개선보다 손실이 커질 수 있습니다.",
+      },
+      {
+        title: "상세 이미지와 파일을 분리하는 이유",
+        body: "같은 원본에서 출발하더라도 목록용 썸네일과 상세용 이미지는 역할이 다릅니다. 썸네일은 빠른 탐색, 상세 이미지는 구매 판단을 돕습니다. 두 용도를 하나의 파일로 처리하면 목록은 느려지거나 상세 이미지는 흐려질 수 있으므로 별도 사본을 만드는 것이 안전합니다.",
+      },
+    ],
+    "website-speed-core-web-vitals-images": [
+      {
+        title: "LCP 이미지는 가장 먼저 다룹니다",
+        body: "첫 화면에서 가장 크게 보이는 대표 이미지는 사용자가 페이지 속도를 느끼는 기준이 됩니다. 이 이미지는 표시 크기보다 큰 원본을 피하고, 품질을 낮추기 전에 실제 표시 영역에 맞춘 리사이즈부터 적용하는 것이 좋습니다. WebP 결과와 원본 포맷을 비교해 용량과 선명도의 균형을 확인하세요.",
+      },
+      {
+        title: "레이아웃 흔들림을 줄이는 이미지 준비",
+        body: "압축만으로는 성능 문제가 모두 해결되지 않습니다. 이미지의 너비와 높이가 명확하지 않으면 로딩 중 콘텐츠가 밀릴 수 있습니다. 웹사이트 운영자는 압축 파일을 준비한 뒤 실제 페이지에서 이미지 크기 속성, 반응형 표시, 지연 로딩 위치까지 함께 점검해야 합니다.",
+      },
+      {
+        title: "실제 개선은 페이지에서 확인합니다",
+        body: "파일 용량이 줄어도 첫 화면에 불필요하게 큰 이미지를 넣거나, 아래쪽 이미지를 한꺼번에 불러오면 사용자는 여전히 느리다고 느낄 수 있습니다. PixelZipKit의 압축 결과는 시작점이며, 최종 판단은 실제 페이지의 로딩 흐름과 모바일 체감 속도를 기준으로 해야 합니다.",
+      },
+    ],
+    "transparent-png-webp-guide": [
+      {
+        title: "투명도는 용량보다 먼저 확인합니다",
+        body: "로고, 아이콘, 누끼 이미지는 배경이 투명하게 유지되는지가 핵심입니다. JPG는 투명도를 지원하지 않으므로 이런 이미지에는 적합하지 않습니다. WebP 결과가 작더라도 밝은 배경과 어두운 배경에서 가장자리가 자연스럽게 보이는지 먼저 확인해야 합니다.",
+      },
+      {
+        title: "작은 그래픽은 압축 이득이 작을 수 있습니다",
+        body: "아이콘처럼 이미 작은 파일은 변환 후 절감 폭이 크지 않을 수 있습니다. 이런 경우에는 작은 용량 차이보다 가장자리 선명도와 브랜드 색상 유지가 더 중요합니다. 결과가 원본보다 커지면 원본 포맷을 유지하는 것이 더 나은 선택입니다.",
+      },
+      {
+        title: "상품 누끼 이미지는 배경별로 검수합니다",
+        body: "상품 누끼 이미지는 흰 배경에서는 괜찮아 보여도 어두운 배경에서 가장자리 번짐이 드러날 수 있습니다. 쇼핑몰 카드, 상세 페이지, 광고 소재처럼 서로 다른 배경에 쓰일 수 있다면 여러 배경색에서 미리 확인하는 것이 좋습니다.",
+      },
+    ],
+    "social-media-upload-image-compression": [
+      {
+        title: "플랫폼 재압축을 감안한 출발값",
+        body: "SNS는 업로드 후 자체 압축을 거치는 경우가 많으므로 업로드 전에 너무 낮은 품질로 줄이면 두 번 압축된 결과가 됩니다. 피드 사진은 75에서 85 사이로 시작하고, 텍스트가 있는 카드 이미지는 글자 경계가 흐려지지 않는지 먼저 확인하는 편이 안전합니다.",
+      },
+      {
+        title: "비율을 먼저 맞추면 낭비가 줄어듭니다",
+        body: "정사각형, 세로형, 가로형처럼 게시 위치의 비율을 먼저 정하면 잘려나갈 픽셀을 압축하지 않아도 됩니다. 압축 전에 크롭과 리사이즈를 정리하면 파일 용량을 줄이면서도 중요한 피사체가 자동 크롭으로 사라지는 문제를 줄일 수 있습니다.",
+      },
+      {
+        title: "공유용 이미지의 최종 기준",
+        body: "커뮤니티나 메신저 공유용 이미지는 용량 제한이 중요하지만, 최종 기준은 읽을 수 있어야 하는 글자와 핵심 피사체의 식별 가능성입니다. 용량이 작아졌다는 이유만으로 게시하지 말고 실제 업로드 화면에서 다시 확인하세요.",
+      },
+    ],
+    "email-attachment-image-size-guide": [
+      {
+        title: "첨부용과 보관용을 분리합니다",
+        body: "이메일 첨부용 이미지는 상대방이 빠르게 확인할 수 있는 보기용 파일이면 충분한 경우가 많습니다. 반대로 인쇄, 디자인, 보정이 필요한 원본은 압축하면 안 됩니다. 원본 보관용과 첨부용 사본을 분리하면 품질 손실과 재작업을 줄일 수 있습니다.",
+      },
+      {
+        title: "호환성이 필요한 경우의 포맷",
+        body: "WebP는 웹 게시에는 효율적이지만 수신자의 업무 환경이 오래된 뷰어나 문서 도구라면 열리지 않을 수 있습니다. 기관 제출, 거래처 전달, 업무 메일처럼 호환성이 더 중요한 상황에서는 JPG가 더 안전한 선택일 수 있습니다.",
+      },
+      {
+        title: "여러 장을 보낼 때의 검수 순서",
+        body: "여러 이미지를 첨부할 때는 전체 용량, 파일명 순서, 식별 가능한 선명도를 함께 확인합니다. 압축 결과가 작아도 수신자가 어떤 사진인지 알기 어렵거나 중요한 글자가 흐리면 다시 작업해야 하므로, 파일명과 품질을 동시에 정리하는 것이 좋습니다.",
+      },
+    ],
+    "portfolio-image-optimization-guide": [
+      {
+        title: "첫인상을 만드는 이미지는 보수적으로 압축합니다",
+        body: "포트폴리오의 대표 이미지는 단순한 장식이 아니라 작업자의 신뢰를 보여주는 자료입니다. 품질 80 이상에서 시작하고, 용량 절감 폭이 크지 않다면 더 높은 품질을 유지하는 편이 좋습니다. 목록 썸네일과 상세 작품 이미지는 별도 파일로 준비하세요.",
+      },
+      {
+        title: "UI 캡처와 사진 작품은 기준이 다릅니다",
+        body: "UI 캡처는 작은 글자와 얇은 선이 많아 손실 압축에서 쉽게 흐려집니다. 반면 사진 중심 작품은 WebP 변환으로 큰 용량 절감을 얻을 수 있습니다. 작품 유형별로 포맷과 품질 기준을 나누면 시각 품질과 속도를 함께 관리할 수 있습니다.",
+      },
+      {
+        title: "검색보다 작품 이해가 먼저입니다",
+        body: "파일명과 alt 텍스트에 프로젝트명과 역할을 넣는 것은 도움이 되지만, 키워드를 반복하는 방식은 포트폴리오의 신뢰를 낮출 수 있습니다. 사용자가 작품을 이해하는 데 필요한 맥락을 정확히 설명하는 것이 더 중요합니다.",
+      },
+    ],
+    "batch-image-compression-workflow": [
+      {
+        title: "일괄 압축 전 샘플을 먼저 봅니다",
+        body: "이미지가 많을수록 한 번에 처리하고 싶지만, 모든 파일에 같은 품질을 적용하면 실패 사례를 놓치기 쉽습니다. 대표 이미지, 본문 사진, 캡처, 썸네일에서 각각 한두 장을 먼저 테스트해 기준값을 정한 뒤 같은 목적의 파일에만 일괄 적용하는 것이 좋습니다.",
+      },
+      {
+        title: "예외 파일을 찾는 기준",
+        body: "일괄 처리 후에는 원본보다 커진 결과, 글자가 흐려진 캡처, 투명 배경 가장자리가 깨진 파일을 따로 확인해야 합니다. PixelZipKit은 결과 크기와 감소율을 보여주므로 파일 크기와 시각 품질을 함께 검수하는 흐름에 적합합니다.",
+      },
+      {
+        title: "팀 작업을 위한 기준 기록",
+        body: "반복적으로 이미지를 업로드하는 팀이라면 블로그 본문, 상품 상세, 썸네일, 이메일 첨부처럼 목적별 기준을 문서화하는 것이 좋습니다. 기준을 남기면 작업자마다 다른 품질을 만드는 문제를 줄이고, 전체 사이트의 시각 품질을 안정적으로 유지할 수 있습니다.",
+      },
+    ],
     privacy: [
       {
         title: "이미지 파일 처리 범위",
@@ -387,6 +513,96 @@ export const pageDepthSections = {
       {
         title: "Check compatibility before publishing",
         body: "WebP is often a good choice for websites, but not every external platform or workflow accepts it. If the converted result is larger or visually worse, keep the original format instead.",
+      },
+    ],
+    "naver-blog-image-size-guide": [
+      {
+        title: "Mobile reading comes first",
+        body: "Naver Blog posts are frequently consumed on mobile, especially for reviews, travel notes, food posts, and product content. A photo-heavy post should separate the lead image from repeated body images so the first screen stays useful while the rest of the article remains clear.",
+      },
+      {
+        title: "Avoid quality loss before platform processing",
+        body: "Publishing platforms may resize or recompress uploads after the user sends them. If an image is already compressed too aggressively, the platform pass can make it visibly worse. Start around quality 80 for review images, then lower the setting only after checking the uploaded result.",
+      },
+    ],
+    "google-image-seo-alt-filename-guide": [
+      {
+        title: "Write for people before search engines",
+        body: "A descriptive filename helps editors, developers, and search engines understand the image. Use short lowercase words and hyphens where practical, and make the file name describe the image rather than a keyword target alone.",
+      },
+      {
+        title: "Alt text should replace the image meaning",
+        body: "Good alt text explains the image's role in the page. A product image may need color and shape, while a UI screenshot may need the action or screen state. Repeating keywords is weaker than describing what the image actually communicates.",
+      },
+    ],
+    "product-thumbnail-compression-checklist": [
+      {
+        title: "Judge thumbnails as a grid",
+        body: "A single thumbnail can look harmless, but category pages load many thumbnails together. Resize and compress based on the grid size, then review the whole page for loading speed, edge clarity, and consistent color across related products.",
+      },
+      {
+        title: "Separate thumbnail and detail files",
+        body: "The thumbnail's job is fast scanning, while the detail image's job is purchase confidence. Using one file for both usually makes one of those jobs worse. Create a smaller thumbnail copy and keep a more careful detail image.",
+      },
+    ],
+    "website-speed-core-web-vitals-images": [
+      {
+        title: "Start with the LCP candidate",
+        body: "The largest above-the-fold image often shapes the user's speed perception. Resize it to its displayed dimensions, compare WebP with the original format, and avoid using an oversized camera export as the first visible asset.",
+      },
+      {
+        title: "Compression is only part of performance",
+        body: "Reduced files still need stable width and height, responsive sources, caching, and sensible lazy loading. The compressed asset is the input; the actual page determines whether users feel the improvement.",
+      },
+    ],
+    "transparent-png-webp-guide": [
+      {
+        title: "Check alpha before size",
+        body: "Transparent assets are useful only if the alpha channel and edges survive the conversion. Preview logos, icons, and product cutouts on both light and dark backgrounds before replacing a PNG with WebP.",
+      },
+      {
+        title: "Tiny graphics may not need conversion",
+        body: "Small icons and simple logos may already be efficient. If WebP saves very little or introduces edge artifacts, keeping the PNG can be the better publishing decision.",
+      },
+    ],
+    "social-media-upload-image-compression": [
+      {
+        title: "Leave room for platform recompression",
+        body: "Social platforms often process uploaded images again. Start around quality 75 to 85 for feed photos and inspect text-heavy cards carefully, because a second compression pass can make small type look soft.",
+      },
+      {
+        title: "Crop before compressing",
+        body: "Resize and crop to the intended platform ratio before compression. This avoids spending bytes on pixels that may be removed later and helps keep the subject inside the visible area after upload.",
+      },
+    ],
+    "email-attachment-image-size-guide": [
+      {
+        title: "Separate viewing copies from originals",
+        body: "An email recipient often needs a clear viewing copy, not a full-resolution original. Keep original files for print or design work, and send compressed JPG copies when compatibility and attachment limits matter more.",
+      },
+      {
+        title: "Check total attachment size",
+        body: "When sending many photos, review the total size, naming order, and readability before attaching. A smaller image still fails the workflow if the recipient cannot identify the subject or read important text.",
+      },
+    ],
+    "portfolio-image-optimization-guide": [
+      {
+        title: "Protect featured work",
+        body: "Portfolio hero images and featured projects communicate trust. Start at quality 80 or higher, use lighter files for listing thumbnails, and keep more detail for project pages where users inspect the work.",
+      },
+      {
+        title: "Treat UI screenshots differently",
+        body: "Interface screenshots contain type, icons, and thin lines that can blur under aggressive lossy compression. Compare PNG and WebP carefully for UI work, while using lossy WebP more freely for photographic case-study images.",
+      },
+    ],
+    "batch-image-compression-workflow": [
+      {
+        title: "Sample before the batch",
+        body: "Batch compression works best after testing representative files. Try one hero image, one body image, one screenshot, and one thumbnail first, then apply settings only to files with the same publishing purpose.",
+      },
+      {
+        title: "Review exceptions after processing",
+        body: "After the batch finishes, look for outputs larger than the original, screenshots with soft text, and transparent files with damaged edges. The fastest workflow still needs a final quality pass.",
       },
     ],
   },

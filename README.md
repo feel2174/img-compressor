@@ -78,13 +78,14 @@ NEXT_PUBLIC_BASE_URL=https://www.pixelzipkit.com
 
 1. AdSense 계정의 Publisher ID를 확인합니다.
 2. Vercel 환경 변수에 `NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-xxxxxxxxxxxxxxxx` 형식으로 등록합니다.
-3. `public/ads.txt`의 Publisher ID가 실제 AdSense 계정 ID와 일치하는지 확인합니다.
-4. 광고 슬롯 ID는 Google AdSense에서 광고 단위를 생성한 뒤 `AdSense` 컴포넌트 사용 위치에 전달합니다.
-5. 승인 전에는 개인정보처리방침, 문의, 소개, 이용약관 페이지가 실제 도메인에서 접근 가능한지 확인합니다.
+3. 심사 신청 시 `NEXT_PUBLIC_ADSENSE_ENABLED=true`로 설정해 AdSense 스크립트가 `<head>`에 포함되게 합니다.
+4. `public/ads.txt`의 Publisher ID가 실제 AdSense 계정 ID와 일치하는지 확인합니다.
+5. 광고 슬롯 ID는 Google AdSense에서 광고 단위를 생성한 뒤 `AdSense` 컴포넌트 사용 위치에 전달합니다.
+6. 실제 광고 슬롯 렌더링은 `NEXT_PUBLIC_CONSENT_PLATFORM_READY=true`까지 설정된 경우에만 동작합니다.
+7. 승인 전에는 개인정보처리방침, 문의, 소개, 이용약관 페이지가 실제 도메인에서 접근 가능한지 확인합니다.
 
 ## 라이선스
 
 MIT
-
 
 

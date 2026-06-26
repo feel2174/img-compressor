@@ -49,7 +49,7 @@ export const legalPages = {
     about: {
       title: "사이트 소개",
       description:
-        "PixelZipKit의 브라우저 기반 이미지 압축, WebP 변환, 개인정보 보호 방식과 앞으로의 운영 방향을 소개합니다.",
+        "PixelZipKit의 브라우저 기반 이미지 압축, WebP 변환, 개인정보 보호 방식과 자체 테스트 자료를 소개합니다.",
       label: "About",
       paragraphs: [
         "XP 이미지 압축기는 웹사이트 운영자, 블로거, 디자이너, 쇼핑몰 운영자처럼 이미지를 자주 다루는 사용자를 위해 만든 무료 온라인 유틸리티입니다.",
@@ -176,7 +176,7 @@ export const legalPages = {
       paragraphs: [
         "이 사이트의 이미지 압축과 WebP 변환 기능은 사용자의 브라우저에서 실행됩니다. 선택한 이미지 파일은 사이트 서버로 업로드하거나 저장하지 않습니다.",
         "분석 도구는 운영자가 배포 환경에서 별도로 활성화한 경우에만 사용됩니다. 활성화된 분석은 페이지 방문과 대략적인 기기·사용 흐름을 이해하기 위한 것이며, 사용자가 선택한 이미지 파일 내용은 수집하지 않습니다.",
-        "광고 태그는 기본적으로 비활성화되어 있습니다. 운영자가 광고를 활성화하면 이 페이지에 광고 제공자, 쿠키 또는 유사 기술의 사용 목적, 적용 시점, 이용자가 선택을 관리하는 방법을 함께 공개합니다.",
+        "AdSense 스크립트와 광고 배치는 운영 환경값으로 관리됩니다. 운영자가 광고를 활성화하면 이 페이지에 광고 제공자, 쿠키 또는 유사 기술의 사용 목적, 적용 시점, 이용자가 선택을 관리하는 방법을 함께 공개합니다.",
         "EEA, 영국, 스위스처럼 동의 관리 요건이 적용되는 지역에 광고를 제공하기 전에는 Google 인증 CMP를 실제 배포에 연결합니다. 사용자는 해당 CMP를 통해 선택을 관리할 수 있어야 하며, Google 파트너 사이트 데이터 정책도 함께 확인할 수 있습니다.",
         "이 사이트는 광고 요청에 개인 식별 정보로 인식될 수 있는 이미지 파일이나 문의 내용을 전달하지 않습니다. 문의자가 직접 제공한 연락처 정보는 문의 응답과 서비스 개선 목적에만 사용합니다.",
         "문의 기능이나 이메일 연락처를 통해 사용자가 직접 정보를 제공하는 경우, 해당 정보는 문의 응답과 서비스 개선 목적에 한해 사용됩니다. 법령상 보관 의무가 있거나 분쟁 대응이 필요한 경우를 제외하고 불필요한 개인정보는 보관하지 않습니다.",
@@ -233,7 +233,7 @@ export const legalPages = {
       paragraphs: [
         "XP Image Compressor is a free online utility for website owners, bloggers, designers, and store operators who regularly prepare images for the web.",
         "Large image files can slow down pages and affect search performance. This site helps users reduce image file size and create WebP files directly in the browser without installing extra software.",
-        "The classic desktop style is designed to feel like a familiar utility. The main tools are image compression and WebP conversion, with future room for resizing, format conversion, and metadata cleanup.",
+        "The classic desktop style is designed to feel like a familiar utility. The main tools are image compression, dimension limiting, WebP conversion, batch processing, and published benchmark guidance for choosing safer settings.",
       ],
       bullets: [
         "Browser-based image compression",
@@ -355,7 +355,7 @@ export const legalPages = {
       paragraphs: [
         "Image compression and WebP conversion run in the user's browser. Selected image files are not uploaded to or stored on this site's server.",
         "Analytics are used only when the operator enables them in the deployment environment. Enabled analytics help understand visits, broad device context, and usage flow; they do not collect the contents of selected image files.",
-        "Advertising tags are disabled by default. If the operator enables advertising, this page will identify the provider, the purpose of cookies or similar technologies, the activation date, and the way visitors can manage their choices.",
+        "The AdSense script and ad placements are controlled by deployment settings. If the operator enables advertising, this page will identify the provider, the purpose of cookies or similar technologies, the activation date, and the way visitors can manage their choices.",
         "Before ads are served in regions with consent requirements, including the EEA, the UK, and Switzerland, a Google-certified CMP must be deployed. Visitors must be able to manage their choices through that CMP, and the Google partner-site data policy will be linked here.",
         "This site does not send selected image files or inquiry contents that could be recognized as personally identifiable information in advertising requests. Contact information provided directly by a visitor is used only to respond to the inquiry and improve the service.",
         "If a user provides information through a contact channel, it will be used to respond to the inquiry and improve the service. Unnecessary personal data is not retained unless required by law or needed to resolve a dispute.",

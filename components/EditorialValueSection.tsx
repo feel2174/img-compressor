@@ -30,12 +30,20 @@ export default function EditorialValueSection({ locale }: EditorialValueSectionP
         ["블로그 발행 전 체크리스트", "본문 사진의 표시 크기, alt 텍스트, 모바일 검수 순서를 정리했습니다.", "blog-image-optimization-checklist"],
         ["상품 이미지 검수 가이드", "썸네일과 상세 컷을 분리하고 라벨·색감·질감을 확인하는 기준입니다.", "ecommerce-product-image-compression-guide"],
         ["JPG·PNG·WebP 선택 기준", "사진, UI 캡처, 투명 자산의 포맷을 목적에 맞게 비교합니다.", "jpg-png-webp-format-choice"],
+        ["품질 60·70·80 비교", "압축 품질값을 실제 게시 목적별로 고르는 기준을 정리했습니다.", "image-quality-60-70-80-comparison"],
+        ["모바일 사진 압축", "스마트폰 사진을 업로드용 사본으로 줄일 때의 안전한 흐름입니다.", "mobile-photo-compression-before-upload"],
+        ["이미지 SEO와 WebP", "WebP 변환, 파일명, alt 텍스트, 페이지 속도를 함께 점검합니다.", "webp-conversion-seo-guide"],
+        ["웹 성능 이미지 최적화", "Core Web Vitals 관점에서 대표 이미지와 반복 이미지를 관리합니다.", "website-speed-core-web-vitals-images"],
       ]
     : [
         ["Fixed-asset compression test", "Compare published quality 60, 70, and 80 output files from the same source.", "image-compression-benchmark-results"],
         ["Blog pre-publishing checklist", "Review displayed size, alt text, and mobile clarity for body images.", "blog-image-optimization-checklist"],
         ["Product image review guide", "Separate thumbnails from detail images and inspect labels, color, and texture.", "ecommerce-product-image-compression-guide"],
         ["JPG, PNG, and WebP decisions", "Compare formats by image type, visual quality, and destination support.", "jpg-png-webp-format-choice"],
+        ["Quality 60, 70, and 80", "Choose compression quality by publishing purpose instead of number alone.", "image-quality-60-70-80-comparison"],
+        ["Mobile photo compression", "Prepare phone photos as upload copies without losing important details.", "mobile-photo-compression-before-upload"],
+        ["WebP and image SEO", "Review WebP, filenames, alt text, and page speed together.", "webp-conversion-seo-guide"],
+        ["Images for Core Web Vitals", "Manage hero images and repeated assets for real page performance.", "website-speed-core-web-vitals-images"],
       ];
 
   return (

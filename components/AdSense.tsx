@@ -9,8 +9,11 @@ interface AdSenseProps {
 
 export default function AdSense({ slotId, position = "top" }: AdSenseProps) {
   const clientId = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
+  const slotsEnabled =
+    process.env.NEXT_PUBLIC_ADSENSE_ENABLED === "true" &&
+    process.env.NEXT_PUBLIC_CONSENT_PLATFORM_READY === "true";
 
-  if (!clientId || !slotId) {
+  if (!clientId || !slotId || !slotsEnabled) {
     return null;
   }
 

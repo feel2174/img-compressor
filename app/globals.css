@@ -591,6 +591,10 @@
     word-break: break-all;
   }
 
+  .xp-author-line time {
+    @apply font-bold text-[#222];
+  }
+
   .xp-depth-sections {
     @apply mt-5 space-y-3 border-t border-[#d5d0bd] pt-4;
   }

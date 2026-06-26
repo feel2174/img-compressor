@@ -35,6 +35,8 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
       : "Reviewed against fixed test assets, tool behavior, and published references";
   const authorEmail = "devzucca@gmail.com";
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || authorEmail;
+  const contentPublishedAt = "2026-06-22";
+  const contentModifiedAt = "2026-06-26";
 
   return (
     <main className="xp-desktop">
@@ -82,6 +84,8 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
                 <span>{locale === "ko" ? "작성자" : "Author"}</span>
                 <strong>{authorName}</strong>
                 <em>{authorMethod}</em>
+                <span>{locale === "ko" ? "최종 검수" : "Last reviewed"}</span>
+                <time dateTime={contentModifiedAt}>{contentModifiedAt}</time>
               </div>
             </div>
 
@@ -225,6 +229,8 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
                     description: page.description,
                     inLanguage: locale === "ko" ? "ko-KR" : "en-US",
                     mainEntityOfPage: pageUrl,
+                    datePublished: contentPublishedAt,
+                    dateModified: contentModifiedAt,
                     image:
                       slug === "image-compression-benchmark-results"
                         ? `${baseUrl}/benchmarks/benchmark-photo-source.png`
@@ -244,6 +250,8 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
                     description: page.description,
                     inLanguage: locale === "ko" ? "ko-KR" : "en-US",
                     url: pageUrl,
+                    datePublished: contentPublishedAt,
+                    dateModified: contentModifiedAt,
                   },
             ],
           }),

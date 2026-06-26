@@ -19,10 +19,9 @@ const isLocale = (locale: string): locale is Locale =>
   locales.includes(locale as Locale);
 
 const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
-const adsenseEnabled =
-  process.env.NEXT_PUBLIC_ADSENSE_ENABLED === "true" &&
-  process.env.NEXT_PUBLIC_CONSENT_PLATFORM_READY === "true";
+const adsenseScriptEnabled = process.env.NEXT_PUBLIC_ADSENSE_ENABLED === "true";
 const analyticsEnabled = process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true";
+const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "devzucca@gmail.com";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -119,7 +118,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html lang={locale}>
       <head>
         <meta name="theme-color" content="#245edb" />
-        {adsenseEnabled && adsenseClient && (
+        {adsenseScriptEnabled && adsenseClient && (
           <Script
             async
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
@@ -143,6 +142,12 @@ export default async function LocaleLayout({ children, params }: Props) {
                   "@type": "Organization",
                   name: siteMeta[locale].name,
                   url: baseUrl,
+                  contactPoint: {
+                    "@type": "ContactPoint",
+                    email: contactEmail,
+                    contactType: "customer support",
+                    availableLanguage: ["ko", "en"],
+                  },
                 },
                 {
                   "@type": "WebApplication",

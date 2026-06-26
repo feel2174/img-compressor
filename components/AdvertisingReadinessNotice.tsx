@@ -10,8 +10,8 @@ export default function AdvertisingReadinessNotice({ locale }: { locale: Locale 
       </h2>
       <p>
         {isKo
-          ? "이미지 압축 기능은 광고와 무관하게 동작합니다. 이 사이트의 광고 태그는 기본적으로 비활성화되어 있으며, 운영자가 광고 활성화와 동의 관리 준비 값을 모두 확인할 때만 배포됩니다. 이 준비 값 자체는 CMP가 아닙니다. EEA, 영국, 스위스 등 동의 요건이 적용되는 지역에 광고를 제공하기 전에는 Google 인증 CMP를 실제 배포에 연결하고, 이 페이지에 사용 서비스와 동의 방법을 업데이트합니다."
-          : "Image compression works independently of advertising. Ad tags are disabled by default and are deployed only when the operator confirms both advertising activation and consent readiness. This readiness setting is not a CMP itself. Before serving ads in regions with consent requirements, including the EEA, the UK, and Switzerland, the operator must deploy a Google-certified CMP and update this page with the services used and the consent method."}
+          ? "이미지 압축 기능은 광고와 무관하게 동작합니다. AdSense 스크립트는 운영 환경 변수로 관리하며, 실제 광고 배치와 동의 관리 적용 여부는 별도로 점검합니다. EEA, 영국, 스위스 등 동의 요건이 적용되는 지역에 광고를 제공하기 전에는 Google 인증 CMP를 실제 배포에 연결하고, 이 페이지에 사용 서비스와 동의 방법을 업데이트합니다."
+          : "Image compression works independently of advertising. The AdSense script is controlled by deployment settings, while visible ad placements and consent readiness are reviewed separately. Before serving ads in regions with consent requirements, including the EEA, the UK, and Switzerland, the operator must deploy a Google-certified CMP and update this page with the services used and the consent method."}
       </p>
       <p>
         {isKo ? (
