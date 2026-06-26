@@ -84,6 +84,8 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
                 <span>{locale === "ko" ? "작성자" : "Author"}</span>
                 <strong>{authorName}</strong>
                 <em>{authorMethod}</em>
+                <span>{locale === "ko" ? "최초 작성" : "Published"}</span>
+                <time dateTime={contentPublishedAt}>{contentPublishedAt}</time>
                 <span>{locale === "ko" ? "최종 검수" : "Last reviewed"}</span>
                 <time dateTime={contentModifiedAt}>{contentModifiedAt}</time>
               </div>

@@ -55,6 +55,7 @@ export const legalPages = {
         "XP 이미지 압축기는 웹사이트 운영자, 블로거, 디자이너, 쇼핑몰 운영자처럼 이미지를 자주 다루는 사용자를 위해 만든 무료 온라인 유틸리티입니다.",
         "이미지 파일이 너무 크면 페이지 로딩 속도가 느려지고 검색엔진 최적화에도 불리할 수 있습니다. 이 사이트는 별도 프로그램 설치 없이 브라우저에서 이미지 용량을 줄이고 WebP 파일을 만들 수 있도록 돕습니다.",
         "클래식 데스크톱 스타일 화면은 친숙한 프로그램처럼 사용할 수 있도록 설계했습니다. 메인 기능은 이미지 압축과 WebP 변환이며, 품질과 최대 너비·높이를 직접 조정한 뒤 결과 파일 크기와 선명도를 비교할 수 있습니다.",
+        "이 사이트는 2026년 6월부터 대한민국에서 개인 운영 방식으로 서비스합니다. 벤치마크 자료와 가이드 콘텐츠는 운영자가 직접 준비한 고정 테스트 이미지와 공개된 참고 자료를 기준으로 작성하고 검수합니다.",
       ],
       bullets: [
         "브라우저 기반 이미지 압축",
@@ -176,16 +177,17 @@ export const legalPages = {
       paragraphs: [
         "이 사이트의 이미지 압축과 WebP 변환 기능은 사용자의 브라우저에서 실행됩니다. 선택한 이미지 파일은 사이트 서버로 업로드하거나 저장하지 않습니다.",
         "분석 도구는 운영자가 배포 환경에서 별도로 활성화한 경우에만 사용됩니다. 활성화된 분석은 페이지 방문과 대략적인 기기·사용 흐름을 이해하기 위한 것이며, 사용자가 선택한 이미지 파일 내용은 수집하지 않습니다.",
-        "AdSense 스크립트와 광고 배치는 운영 환경값으로 관리됩니다. 운영자가 광고를 활성화하면 이 페이지에 광고 제공자, 쿠키 또는 유사 기술의 사용 목적, 적용 시점, 이용자가 선택을 관리하는 방법을 함께 공개합니다.",
-        "EEA, 영국, 스위스처럼 동의 관리 요건이 적용되는 지역에 광고를 제공하기 전에는 Google 인증 CMP를 실제 배포에 연결합니다. 사용자는 해당 CMP를 통해 선택을 관리할 수 있어야 하며, Google 파트너 사이트 데이터 정책도 함께 확인할 수 있습니다.",
+        "이 사이트는 Google AdSense를 통해 광고를 게재합니다. Google AdSense는 광고 성과 측정과 사용자 관심사에 맞는 광고 게재를 위해 쿠키 및 유사 기술을 사용합니다. 광고 개인화 설정은 Google 광고 설정 페이지에서 변경하거나 해제할 수 있습니다. 이미지 압축 기능은 광고 시스템과 무관하게 작동하며, 사용자가 선택한 이미지 파일은 광고 서버에 전달되지 않습니다.",
+        "EEA, 영국, 스위스 등 동의 요건이 적용되는 지역에 광고를 제공하기 전에는 Google 인증 동의 관리 플랫폼(CMP)을 배포에 연결합니다. 해당 지역 이용자는 CMP를 통해 쿠키 사용 여부를 직접 선택할 수 있습니다. Google이 파트너 사이트에서 정보를 활용하는 방식은 이 페이지 하단의 링크에서 확인할 수 있습니다.",
         "이 사이트는 광고 요청에 개인 식별 정보로 인식될 수 있는 이미지 파일이나 문의 내용을 전달하지 않습니다. 문의자가 직접 제공한 연락처 정보는 문의 응답과 서비스 개선 목적에만 사용합니다.",
         "문의 기능이나 이메일 연락처를 통해 사용자가 직접 정보를 제공하는 경우, 해당 정보는 문의 응답과 서비스 개선 목적에 한해 사용됩니다. 법령상 보관 의무가 있거나 분쟁 대응이 필요한 경우를 제외하고 불필요한 개인정보는 보관하지 않습니다.",
       ],
       bullets: [
         "이미지 파일 서버 저장 없음",
         "분석 도구 사용 가능성 고지",
-        "Google 광고 쿠키 및 식별자 사용 가능성 고지",
-        "문의 정보는 응답 목적 중심으로 처리",
+        "Google AdSense 쿠키 및 광고 식별자 사용",
+        "광고 개인화 설정 해제 가능 (Google 광고 설정)",
+        "문의 정보는 응답 및 서비스 개선 목적으로만 처리",
       ],
     },
     terms: {
@@ -197,12 +199,16 @@ export const legalPages = {
         "XP 이미지 압축기는 무료로 제공되는 브라우저 기반 이미지 최적화 도구입니다. 사용자는 합법적으로 보유하거나 처리 권한이 있는 이미지 파일에 한해 서비스를 이용해야 합니다.",
         "서비스는 일반적인 이미지 압축과 WebP 변환을 돕기 위한 도구이며, 모든 이미지에서 동일한 압축률이나 품질 결과를 보장하지 않습니다. 중요한 원본 파일은 사용자가 별도로 보관해야 합니다.",
         "사용자는 저작권을 침해하거나 불법적인 목적의 이미지 처리에 이 사이트를 사용해서는 안 됩니다. 서비스 운영자는 안정적인 사용 환경을 위해 기능, 디자인, 정책을 변경할 수 있습니다.",
+        "이 서비스는 현재 상태('as-is')로 제공됩니다. 운영자는 압축 결과의 완전성, 특정 목적 적합성, 오류 없음을 명시적 또는 묵시적으로 보증하지 않습니다. 서비스 이용 중 발생한 파일 손실, 데이터 오류, 제3자 플랫폼 업로드 실패에 대해 운영자는 관련 법이 허용하는 최대한의 범위에서 책임을 지지 않습니다.",
+        "이 이용약관은 대한민국 법률을 준거법으로 하며, 서비스 이용과 관련한 분쟁은 관련 법령이 정하는 관할 법원에서 해결합니다.",
       ],
       bullets: [
         "권한이 있는 이미지 파일만 사용",
         "결과 품질과 압축률은 파일 특성에 따라 달라짐",
         "중요 원본은 사용자가 직접 백업",
         "불법 또는 권리 침해 목적 사용 금지",
+        "서비스는 현재 상태(as-is)로 제공되며 결과를 보증하지 않음",
+        "준거법: 대한민국 법률",
       ],
     },
     contact: {
@@ -213,7 +219,7 @@ export const legalPages = {
       paragraphs: [
         "서비스 이용 중 오류를 발견했거나 추가되면 좋은 이미지 편집 기능이 있다면 운영자에게 알려주세요. 기능 개선 요청은 사이트의 다음 업데이트 우선순위를 정하는 데 참고됩니다.",
         "광고, 제휴, 정책 관련 문의가 있는 경우 사이트 이름, 문의 목적, 회신 가능한 연락처를 포함해 전달해 주세요.",
-        "문의 내용은 오류 확인, 기능 개선, 정책 응답, 제휴 검토 목적으로만 사용됩니다. 개인정보 관련 문의에는 가능한 한 빠르게 확인 후 답변하겠습니다.",
+        "문의 내용은 오류 확인, 기능 개선, 정책 응답, 제휴 검토 목적으로만 사용됩니다. 모든 문의는 2영업일 이내 확인 후 답변하며, 개인정보 관련 문의는 우선 처리합니다.",
       ],
       bullets: [
         "오류 제보",
@@ -234,6 +240,7 @@ export const legalPages = {
         "XP Image Compressor is a free online utility for website owners, bloggers, designers, and store operators who regularly prepare images for the web.",
         "Large image files can slow down pages and affect search performance. This site helps users reduce image file size and create WebP files directly in the browser without installing extra software.",
         "The classic desktop style is designed to feel like a familiar utility. The main tools are image compression, dimension limiting, WebP conversion, batch processing, and published benchmark guidance for choosing safer settings.",
+        "This site has been independently operated from the Republic of Korea since June 2026. Benchmark data and guide content are written and reviewed against fixed test images prepared by the operator and publicly available reference materials.",
       ],
       bullets: [
         "Browser-based image compression",
@@ -355,15 +362,16 @@ export const legalPages = {
       paragraphs: [
         "Image compression and WebP conversion run in the user's browser. Selected image files are not uploaded to or stored on this site's server.",
         "Analytics are used only when the operator enables them in the deployment environment. Enabled analytics help understand visits, broad device context, and usage flow; they do not collect the contents of selected image files.",
-        "The AdSense script and ad placements are controlled by deployment settings. If the operator enables advertising, this page will identify the provider, the purpose of cookies or similar technologies, the activation date, and the way visitors can manage their choices.",
-        "Before ads are served in regions with consent requirements, including the EEA, the UK, and Switzerland, a Google-certified CMP must be deployed. Visitors must be able to manage their choices through that CMP, and the Google partner-site data policy will be linked here.",
+        "This site uses Google AdSense to display advertisements. Google AdSense uses cookies and similar technologies to measure ad performance and serve interest-based ads. Ad personalization preferences can be adjusted or disabled through Google Ads Settings. The image compression tool works independently of the advertising system, and selected image files are not passed to any ad server.",
+        "Before ads are served in regions with consent requirements, including the EEA, the UK, and Switzerland, a Google-certified consent management platform (CMP) will be connected to this site. Visitors in those regions will be able to manage their cookie preferences directly through the CMP. Information about how Google uses data on partner sites is available through the link at the bottom of this page.",
         "This site does not send selected image files or inquiry contents that could be recognized as personally identifiable information in advertising requests. Contact information provided directly by a visitor is used only to respond to the inquiry and improve the service.",
         "If a user provides information through a contact channel, it will be used to respond to the inquiry and improve the service. Unnecessary personal data is not retained unless required by law or needed to resolve a dispute.",
       ],
       bullets: [
         "No server-side image storage",
         "Analytics disclosure",
-        "Google advertising cookie and identifier disclosure",
+        "Google AdSense cookies and advertising identifiers in use",
+        "Ad personalization can be disabled via Google Ads Settings",
         "Contact information is used mainly for replies",
       ],
     },
@@ -376,12 +384,16 @@ export const legalPages = {
         "XP Image Compressor is a free browser-based image optimization tool. Users should only process image files they own or have permission to handle.",
         "The service helps with general image compression and WebP conversion, but it does not guarantee the same compression rate or visual quality for every file. Users should keep separate backups of important originals.",
         "Users must not use this site for copyright infringement or illegal image processing. The operator may update features, design, and policies to maintain a stable service.",
+        "This service is provided on an 'as-is' and 'as-available' basis. The operator makes no warranties, express or implied, regarding the completeness of results, fitness for a particular purpose, or freedom from errors. To the maximum extent permitted by applicable law, the operator is not liable for file loss, data errors, or upload failures that occur when using this service.",
+        "These terms are governed by the laws of the Republic of Korea. Any disputes arising from the use of this service shall be resolved in the courts designated under applicable Korean law.",
       ],
       bullets: [
         "Use only images you have permission to process",
         "Results vary by file type and image content",
         "Keep your own backup of important originals",
         "Illegal or rights-infringing use is prohibited",
+        "Service is provided as-is without warranty of results",
+        "Governing law: Republic of Korea",
       ],
     },
     contact: {
@@ -392,7 +404,7 @@ export const legalPages = {
       paragraphs: [
         "If you find an issue or have an idea for a useful image editing feature, please let the operator know. Feature requests may guide future updates.",
         "For advertising, partnership, or policy inquiries, include the site name, inquiry purpose, and a reply contact.",
-        "Inquiry details are used only for bug review, feature improvement, policy replies, and partnership review. Privacy-related questions will be reviewed and answered as promptly as possible.",
+        "Inquiry details are used only for bug review, feature improvement, policy replies, and partnership review. All inquiries are reviewed and answered within two business days. Privacy-related inquiries are prioritized.",
       ],
       bullets: [
         "Bug reports",

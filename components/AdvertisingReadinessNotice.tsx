@@ -6,38 +6,37 @@ export default function AdvertisingReadinessNotice({ locale }: { locale: Locale 
   return (
     <section className="xp-advertising-notice" aria-labelledby="advertising-readiness-title">
       <h2 id="advertising-readiness-title">
-        {isKo ? "광고 및 동의 관리 운영 기준" : "Advertising and consent management standard"}
+        {isKo ? "Google AdSense 광고 및 쿠키 안내" : "Google AdSense advertising and cookie notice"}
       </h2>
       <p>
         {isKo
-          ? "이미지 압축 기능은 광고와 무관하게 동작합니다. AdSense 스크립트는 운영 환경 변수로 관리하며, 실제 광고 배치와 동의 관리 적용 여부는 별도로 점검합니다. EEA, 영국, 스위스 등 동의 요건이 적용되는 지역에 광고를 제공하기 전에는 Google 인증 CMP를 실제 배포에 연결하고, 이 페이지에 사용 서비스와 동의 방법을 업데이트합니다."
-          : "Image compression works independently of advertising. The AdSense script is controlled by deployment settings, while visible ad placements and consent readiness are reviewed separately. Before serving ads in regions with consent requirements, including the EEA, the UK, and Switzerland, the operator must deploy a Google-certified CMP and update this page with the services used and the consent method."}
+          ? "이 사이트는 Google AdSense를 통해 광고를 게재합니다. AdSense 스크립트가 페이지에 포함되어 있으며, Google은 이 스크립트를 통해 광고 성과 측정과 관심사 기반 광고 게재에 사용되는 쿠키를 설정할 수 있습니다. 이미지 압축 기능은 광고 쿠키와 무관하게 작동하며, 사용자가 선택한 이미지 파일은 광고 시스템에 전달되지 않습니다."
+          : "This site uses Google AdSense to display advertisements. The AdSense script is included in the page and Google may set cookies through it for ad measurement and interest-based advertising. The image compression tool works independently of advertising cookies, and selected image files are not passed to any advertising system."}
       </p>
       <p>
         {isKo ? (
           <>
-            광고가 활성화된 경우 사용자는 이 페이지에서 사용 중인 광고·동의 도구를 확인할 수 있어야 하며,{" "}
+            광고 개인화 설정은{" "}
             <a href="https://adssettings.google.com/" target="_blank" rel="noreferrer">
               Google 광고 설정
             </a>
-            과{" "}
+            에서 변경하거나 해제할 수 있습니다. Google이 파트너 사이트에서 정보를 활용하는 방식은{" "}
             <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noreferrer">
               Google이 파트너 사이트에서 정보를 사용하는 방식
             </a>
-            도 함께 안내합니다.
+            에서 확인할 수 있습니다. EEA, 영국, 스위스 등 동의 요건이 적용되는 지역 이용자에게는 추후 인증 동의 관리 도구(CMP)를 통해 쿠키 사용 여부를 선택할 수 있도록 안내합니다.
           </>
         ) : (
           <>
-            When advertising is enabled, visitors must be able to identify the advertising and consent tools used on
-            this page, alongside links to{" "}
+            Ad personalization preferences can be managed or disabled through{" "}
             <a href="https://adssettings.google.com/" target="_blank" rel="noreferrer">
               Google Ads Settings
-            </a>{" "}
-            and{" "}
+            </a>
+            . Information about how Google uses data on partner sites is available at{" "}
             <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noreferrer">
               how Google uses information from sites or apps that use its services
             </a>
-            .
+            . Visitors in regions with consent requirements, including the EEA, the UK, and Switzerland, will be given the option to manage cookie preferences through a certified consent management tool.
           </>
         )}
       </p>
