@@ -63,6 +63,12 @@ export default function SiteFooter({ locale }: SiteFooterProps) {
         </ul>
       </nav>
 
+      <div className="xp-site-footer-legal">
+        {isKo
+          ? "개인정보 관리책임자: 김영주 (feel2174@naver.com)"
+          : "Privacy Officer: Youngju Kim (feel2174@naver.com)"}
+      </div>
+
       <div className="xp-site-footer-copy">
         © 2026 {host} — All rights reserved.
       </div>

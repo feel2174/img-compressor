@@ -702,6 +702,10 @@
     @apply text-[#68717d] hover:text-[#245edb] hover:underline;
   }
 
+  .xp-site-footer-legal {
+    @apply text-center text-xs text-[#68717d] sm:col-span-2;
+  }
+
   .xp-site-footer-copy {
     @apply border-t border-[#d5dbe2] pt-4 text-center text-xs font-bold text-[#a0a8b2] sm:col-span-2;
   }
