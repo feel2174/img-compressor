@@ -21,6 +21,21 @@ export const articleSlugs = [
 
 export type ArticleSlug = (typeof articleSlugs)[number];
 
+export const coreArticleSlugs = [
+  "image-compression-benchmark-results",
+  "blog-image-optimization-checklist",
+  "ecommerce-product-image-compression-guide",
+  "jpg-png-webp-format-choice",
+  "image-quality-60-70-80-comparison",
+  "mobile-photo-compression-before-upload",
+  "webp-conversion-seo-guide",
+  "website-speed-core-web-vitals-images",
+] as const satisfies readonly ArticleSlug[];
+
+export const supportingArticleSlugs = articleSlugs.filter(
+  (slug) => !coreArticleSlugs.includes(slug as (typeof coreArticleSlugs)[number])
+) as ArticleSlug[];
+
 export type ArticlePage = {
   title: string;
   description: string;

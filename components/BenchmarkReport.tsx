@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   benchmarkAssets,
   benchmarkMethod,
@@ -41,6 +42,14 @@ export default function BenchmarkReport({ locale }: { locale: Locale }) {
             ? `WebP 실측일: ${benchmarkMethod.webpMeasuredAt}. JPEG 실측일: ${benchmarkMethod.jpegMeasuredAt}. WebP 결과는 ${benchmarkMethod.encoder}, JPEG 결과는 ${benchmarkMethod.jpegEncoder}로 생성했습니다. ${benchmarkMethod.source}. 사진 원본은 ${photo.width} x ${photo.height} PNG입니다.`
             : `WebP measured: ${benchmarkMethod.webpMeasuredAt}. JPEG measured: ${benchmarkMethod.jpegMeasuredAt}. WebP results use the ${benchmarkMethod.encoder}; JPEG results use the ${benchmarkMethod.jpegEncoder}. ${benchmarkMethod.source}. The photo source is a ${photo.width} x ${photo.height} PNG.`}
         </p>
+        <p>
+          {isKo
+            ? "콘텐츠 검수 업데이트: 2026-07-14. 실측 파일은 유지하고, 사용 상황별 판단 기준과 핵심 글 연결을 보강했습니다."
+            : "Editorial review update: 2026-07-14. Measurement files remain stable, while use-case decision rules and core-guide links have been strengthened."}
+        </p>
+        <Link href={`/${locale}/research`}>
+          {isKo ? "압축 테스트 방법론 보기" : "View compression test methodology"}
+        </Link>
         <a href={photo.source} download>
           {isKo ? "사진 테스트 원본 다운로드" : "Download the photo source"}
         </a>

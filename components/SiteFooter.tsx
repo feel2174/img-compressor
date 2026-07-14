@@ -42,6 +42,8 @@ export default function SiteFooter({ locale }: SiteFooterProps) {
         <Link href={`/${locale}/about`}>{isKo ? "소개" : "About"}</Link>
         <Link href={`/${locale}/guide`}>{isKo ? "가이드" : "Guide"}</Link>
         <Link href={`/${locale}/faq`}>FAQ</Link>
+        <Link href={`/${locale}/articles`}>{isKo ? "콘텐츠 허브" : "Content Hub"}</Link>
+        <Link href={`/${locale}/research`}>{isKo ? "테스트 방법론" : "Methodology"}</Link>
         <Link href={`/${locale}/contact`}>{isKo ? "문의" : "Contact"}</Link>
         <Link href={`/${locale}/privacy`}>{isKo ? "개인정보처리방침" : "Privacy Policy"}</Link>
         <Link href={`/${locale}/terms`}>{isKo ? "이용약관" : "Terms"}</Link>

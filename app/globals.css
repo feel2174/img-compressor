@@ -98,11 +98,11 @@
   }
 
   .xp-compact-menubar {
-    @apply relative flex-nowrap items-center gap-2 overflow-visible text-sm;
+    @apply relative flex-wrap items-center gap-2 overflow-visible text-sm;
   }
 
   .xp-current-page {
-    @apply min-w-0 max-w-[45%] truncate rounded-sm border border-[#aca899] bg-white px-2 py-1 text-xs text-[#333];
+    @apply min-w-0 max-w-full truncate rounded-sm border border-[#aca899] bg-white px-2 py-1 text-xs text-[#333] sm:max-w-[45%];
   }
 
   .xp-nav-menu {
@@ -508,20 +508,43 @@
 
   .xp-benchmark-method,
   .xp-article-evidence,
-  .xp-advertising-notice {
+  .xp-advertising-notice,
+  .xp-tone-guide {
     @apply mt-5 border border-[#c8c8b8] bg-[#f7f6ea] p-4 text-sm leading-6 text-[#3f4854];
   }
 
   .xp-benchmark-method strong,
   .xp-article-evidence h2,
-  .xp-advertising-notice h2 {
+  .xp-advertising-notice h2,
+  .xp-tone-guide h2 {
     @apply block text-base font-bold text-[#1f3d72];
   }
 
   .xp-benchmark-method p,
   .xp-article-evidence p,
-  .xp-advertising-notice p {
+  .xp-advertising-notice p,
+  .xp-tone-guide p {
     @apply mt-2;
+  }
+
+  .xp-tone-grid {
+    @apply mt-3 grid gap-3 md:grid-cols-2;
+  }
+
+  .xp-tone-grid article {
+    @apply border border-[#7f9db9] bg-white p-4;
+  }
+
+  .xp-tone-guide h3 {
+    @apply text-sm font-bold text-[#38547d];
+  }
+
+  .xp-tone-guide ul {
+    @apply mt-4 list-disc border-t border-[#d7d3bd] pt-3 pl-5;
+  }
+
+  .xp-tone-guide li {
+    @apply mt-1 text-sm leading-6 text-[#333];
   }
 
   .xp-article-evidence h3 {
@@ -547,6 +570,30 @@
 
   .xp-article-evidence li span {
     @apply mt-1 font-normal leading-6 text-[#3f4854];
+  }
+
+  .xp-hub-grid {
+    @apply mt-4 grid gap-3 md:grid-cols-2;
+  }
+
+  .xp-hub-grid article {
+    @apply border border-[#7f9db9] bg-white p-4;
+  }
+
+  .xp-hub-grid article strong {
+    @apply block text-base font-bold leading-snug text-[#07348b];
+  }
+
+  .xp-hub-grid article p {
+    @apply mt-2 text-sm leading-6 text-[#333];
+  }
+
+  .xp-hub-grid article a {
+    @apply mt-3 inline-block font-semibold text-[#1e54bd] underline underline-offset-2;
+  }
+
+  .xp-hub-table {
+    @apply mt-4;
   }
 
   .xp-benchmark-method a,

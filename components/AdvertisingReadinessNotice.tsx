@@ -24,7 +24,7 @@ export default function AdvertisingReadinessNotice({ locale }: { locale: Locale 
             <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noreferrer">
               Google이 파트너 사이트에서 정보를 사용하는 방식
             </a>
-            에서 확인할 수 있습니다. EEA, 영국, 스위스 등 동의 요건이 적용되는 지역 이용자에게는 추후 인증 동의 관리 도구(CMP)를 통해 쿠키 사용 여부를 선택할 수 있도록 안내합니다.
+            에서 확인할 수 있습니다. EEA, 영국, 스위스 등 동의 요건이 적용되는 지역 이용자에게는 인증 동의 관리 도구(CMP)를 통해 쿠키 사용 여부를 선택할 수 있도록 안내합니다.
           </>
         ) : (
           <>
@@ -36,7 +36,7 @@ export default function AdvertisingReadinessNotice({ locale }: { locale: Locale 
             <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noreferrer">
               how Google uses information from sites or apps that use its services
             </a>
-            . Visitors in regions with consent requirements, including the EEA, the UK, and Switzerland, will be given the option to manage cookie preferences through a certified consent management tool.
+            . Visitors in regions with consent requirements, including the EEA, the UK, and Switzerland, can manage cookie preferences through a certified consent management tool.
           </>
         )}
       </p>

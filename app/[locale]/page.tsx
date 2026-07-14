@@ -26,6 +26,8 @@ export default function Home() {
     { label: t("startMenu.faq"), href: `/${locale}/faq`, badge: "FAQ" },
     { label: t("startMenu.useCases"), href: `/${locale}/use-cases`, badge: "CASE" },
     { label: t("startMenu.formats"), href: `/${locale}/formats`, badge: "JPG" },
+    { label: t("startMenu.articles"), href: `/${locale}/articles`, badge: "DOC" },
+    { label: t("startMenu.research"), href: `/${locale}/research`, badge: "LAB" },
     { label: t("startMenu.privacy"), href: `/${locale}/privacy`, badge: "TXT" },
     { label: t("startMenu.terms"), href: `/${locale}/terms`, badge: "LAW" },
     { label: t("startMenu.contact"), href: `/${locale}/contact`, badge: "MAIL" },
@@ -54,6 +56,8 @@ export default function Home() {
           <Link href={`/${locale}/about`}>{t("menu.about")}</Link>
           <Link href={`/${locale}/guide`}>{t("menu.guide")}</Link>
           <Link href={`/${locale}/faq`}>{t("menu.faq")}</Link>
+          <Link href={`/${locale}/articles`}>{t("startMenu.articles")}</Link>
+          <Link href={`/${locale}/research`}>{t("startMenu.research")}</Link>
           <Link href={`/${locale}/privacy`}>{t("menu.privacy")}</Link>
           <Link href={`/${locale}/contact`}>{t("menu.contact")}</Link>
         </div>

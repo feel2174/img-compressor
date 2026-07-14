@@ -9,7 +9,9 @@ export type BaseInfoPageSlug =
   | "formats"
   | "privacy"
   | "terms"
-  | "contact";
+  | "contact"
+  | "articles"
+  | "research";
 
 export type InfoPageSlug = BaseInfoPageSlug | ArticleSlug;
 
@@ -24,8 +26,20 @@ export const infoPageSlugs: InfoPageSlug[] = [
   "privacy",
   "terms",
   "contact",
+  "articles",
+  "research",
   ...articleSlugs,
 ];
+
+export const contentDates = Object.fromEntries(
+  infoPageSlugs.map((slug) => [
+    slug,
+    {
+      publishedAt: "2026-06-22",
+      modifiedAt: "2026-07-14",
+    },
+  ])
+) as Record<InfoPageSlug, { publishedAt: string; modifiedAt: string }>;
 
 export const siteMeta = {
   ko: {
@@ -178,7 +192,7 @@ export const legalPages = {
         "이 사이트의 이미지 압축과 WebP 변환 기능은 사용자의 브라우저에서 실행됩니다. 선택한 이미지 파일은 사이트 서버로 업로드하거나 저장하지 않습니다.",
         "분석 도구는 운영자가 배포 환경에서 별도로 활성화한 경우에만 사용됩니다. 활성화된 분석은 페이지 방문과 대략적인 기기·사용 흐름을 이해하기 위한 것이며, 사용자가 선택한 이미지 파일 내용은 수집하지 않습니다.",
         "이 사이트는 Google AdSense를 통해 광고를 게재합니다. Google AdSense는 광고 성과 측정과 사용자 관심사에 맞는 광고 게재를 위해 쿠키 및 유사 기술을 사용합니다. 광고 개인화 설정은 Google 광고 설정 페이지에서 변경하거나 해제할 수 있습니다. 이미지 압축 기능은 광고 시스템과 무관하게 작동하며, 사용자가 선택한 이미지 파일은 광고 서버에 전달되지 않습니다.",
-        "EEA, 영국, 스위스 등 동의 요건이 적용되는 지역에 광고를 제공하기 전에는 Google 인증 동의 관리 플랫폼(CMP)을 배포에 연결합니다. 해당 지역 이용자는 CMP를 통해 쿠키 사용 여부를 직접 선택할 수 있습니다. Google이 파트너 사이트에서 정보를 활용하는 방식은 이 페이지 하단의 링크에서 확인할 수 있습니다.",
+        "EEA, 영국, 스위스 등 동의 요건이 적용되는 지역의 이용자에게는 Google 인증 동의 관리 플랫폼(CMP)을 통해 쿠키 사용 여부를 선택할 수 있도록 안내합니다. Google이 파트너 사이트에서 정보를 활용하는 방식은 이 페이지 하단의 링크에서 확인할 수 있습니다.",
         "이 사이트는 광고 요청에 개인 식별 정보로 인식될 수 있는 이미지 파일이나 문의 내용을 전달하지 않습니다. 문의자가 직접 제공한 연락처 정보는 문의 응답과 서비스 개선 목적에만 사용합니다.",
         "문의 기능이나 이메일 연락처를 통해 사용자가 직접 정보를 제공하는 경우, 해당 정보는 문의 응답과 서비스 개선 목적에 한해 사용됩니다. 법령상 보관 의무가 있거나 분쟁 대응이 필요한 경우를 제외하고 불필요한 개인정보는 보관하지 않습니다.",
       ],
@@ -226,6 +240,40 @@ export const legalPages = {
         "새 기능 제안",
         "광고 및 제휴 문의",
         "개인정보 또는 정책 문의",
+      ],
+    },
+    articles: {
+      title: "이미지 최적화 콘텐츠 허브",
+      description:
+        "PixelZipKit의 압축 테스트, 블로그·쇼핑몰·WebP·성능 가이드를 주제별로 모아 둔 콘텐츠 허브입니다.",
+      label: "콘텐츠 허브",
+      paragraphs: [
+        "이 허브는 PixelZipKit의 핵심 이미지 최적화 자료를 한곳에서 탐색할 수 있도록 정리한 페이지입니다. 단순한 링크 모음이 아니라, 압축 테스트 결과와 실제 게시 목적별 가이드를 연결해 사용자가 자신의 상황에 맞는 글을 빠르게 고를 수 있게 구성했습니다.",
+        "처음 방문한 사용자는 압축 테스트 결과와 이미지 품질 60·70·80 비교를 먼저 확인하면 전체 기준을 잡기 쉽습니다. 블로그, 쇼핑몰, 모바일 사진, WebP SEO처럼 목적이 분명한 사용자는 해당 가이드를 바로 열어 설정값과 검수 기준을 확인할 수 있습니다.",
+        "각 콘텐츠는 고정 테스트 자산, 파일 크기 비교, 실제 게시 흐름에서 생기는 실패 사례를 바탕으로 검수합니다. 같은 조언을 반복하는 대신, 페이지마다 다른 사용 맥락과 판단 기준을 제공하는 것을 목표로 합니다.",
+      ],
+      bullets: [
+        "핵심 압축 테스트와 실무 가이드를 주제별로 분류",
+        "구어체 요약과 비즈니스 기준을 함께 제공",
+        "블로그, 쇼핑몰, 모바일, WebP, 성능 최적화 흐름 연결",
+        "고정 테스트 자산과 실제 검수 기준을 함께 확인",
+      ],
+    },
+    research: {
+      title: "압축 테스트 방법론과 검수 기준",
+      description:
+        "PixelZipKit의 이미지 압축 테스트 자산, 측정 방식, 품질 판단 기준과 업데이트 이력을 설명합니다.",
+      label: "테스트 방법론",
+      paragraphs: [
+        "이 페이지는 PixelZipKit의 이미지 압축 가이드가 어떤 기준으로 작성되는지 설명합니다. 테스트는 사이트가 보유한 고정 자산을 기준으로 하며, 사진·UI 캡처·투명 그래픽·사진형 작업 자산처럼 서로 다른 이미지 유형을 나누어 비교합니다.",
+        "품질값은 절대 점수가 아니라 출발점입니다. 같은 품질 80이라도 사진, 상품 썸네일, 텍스트 캡처, 투명 로고에서 보이는 손상 지점은 다릅니다. 그래서 파일 크기 감소율과 함께 사용자가 실제로 확인해야 하는 질감, 글자, 가장자리, 색상 경계를 기록합니다.",
+        "측정 기록과 콘텐츠 검수일을 분리해 관리합니다. 파일 자체의 실측일은 벤치마크 표에 남기고, 글과 검수 기준이 보강된 날짜는 페이지 구조화 데이터와 sitemap에 반영합니다.",
+      ],
+      bullets: [
+        "사이트 소유 고정 테스트 자산 기준",
+        "사진, 캡처, 투명 그래픽, 사진형 작업 자산 분리",
+        "파일 크기와 시각 검수 기준을 함께 기록",
+        "콘텐츠 검수일을 sitemap과 Article schema에 반영",
       ],
     },
     ...articlePages.ko,
@@ -363,9 +411,9 @@ export const legalPages = {
         "Image compression and WebP conversion run in the user's browser. Selected image files are not uploaded to or stored on this site's server.",
         "Analytics are used only when the operator enables them in the deployment environment. Enabled analytics help understand visits, broad device context, and usage flow; they do not collect the contents of selected image files.",
         "This site uses Google AdSense to display advertisements. Google AdSense uses cookies and similar technologies to measure ad performance and serve interest-based ads. Ad personalization preferences can be adjusted or disabled through Google Ads Settings. The image compression tool works independently of the advertising system, and selected image files are not passed to any ad server.",
-        "Before ads are served in regions with consent requirements, including the EEA, the UK, and Switzerland, a Google-certified consent management platform (CMP) will be connected to this site. Visitors in those regions will be able to manage their cookie preferences directly through the CMP. Information about how Google uses data on partner sites is available through the link at the bottom of this page.",
+        "For visitors in regions with consent requirements, including the EEA, the UK, and Switzerland, this site provides cookie preference controls through a Google-certified consent management platform (CMP). Information about how Google uses data on partner sites is available through the link at the bottom of this page.",
         "This site does not send selected image files or inquiry contents that could be recognized as personally identifiable information in advertising requests. Contact information provided directly by a visitor is used only to respond to the inquiry and improve the service.",
-        "If a user provides information through a contact channel, it will be used to respond to the inquiry and improve the service. Unnecessary personal data is not retained unless required by law or needed to resolve a dispute.",
+        "Information provided through a contact channel is used to respond to the inquiry and improve the service. Unnecessary personal data is not retained unless required by law or needed to resolve a dispute.",
       ],
       bullets: [
         "No server-side image storage",
@@ -402,7 +450,7 @@ export const legalPages = {
         "Information for feature suggestions, bug reports, advertising, and partnership inquiries.",
       label: "Contact",
       paragraphs: [
-        "If you find an issue or have an idea for a useful image editing feature, please let the operator know. Feature requests may guide future updates.",
+        "Issue reports and practical image editing ideas help the operator improve the service. Clear workflow examples are reviewed as part of the regular content and feature maintenance process.",
         "For advertising, partnership, or policy inquiries, include the site name, inquiry purpose, and a reply contact.",
         "Inquiry details are used only for bug review, feature improvement, policy replies, and partnership review. All inquiries are reviewed and answered within two business days. Privacy-related inquiries are prioritized.",
       ],
@@ -411,6 +459,40 @@ export const legalPages = {
         "New feature suggestions",
         "Advertising and partnership inquiries",
         "Privacy or policy questions",
+      ],
+    },
+    articles: {
+      title: "Image Optimization Content Hub",
+      description:
+        "A central hub for PixelZipKit compression tests, blog, ecommerce, WebP, SEO, and performance guides.",
+      label: "Content Hub",
+      paragraphs: [
+        "This hub organizes PixelZipKit's core image optimization resources in one place. It connects compression test results with practical publishing guides so visitors can quickly choose the page that matches their workflow.",
+        "New visitors can start with the compression benchmark and the quality 60, 70, and 80 comparison to understand the baseline. Visitors with a specific task can go directly to blog, ecommerce, mobile photo, WebP SEO, or performance guidance.",
+        "Each guide is reviewed against fixed test assets, file-size comparisons, and common publishing failure cases. The goal is to give every page a distinct use case and decision rule instead of repeating the same generic advice.",
+      ],
+      bullets: [
+        "Core compression tests and practical guides grouped by topic",
+        "Conversational summaries and business-ready decision rules",
+        "Connected workflows for blogs, ecommerce, mobile, WebP, and performance",
+        "Fixed test assets and review criteria linked from the guides",
+      ],
+    },
+    research: {
+      title: "Compression Test Methodology and Review Criteria",
+      description:
+        "How PixelZipKit prepares test assets, measures compression results, and reviews visual quality for image optimization guides.",
+      label: "Methodology",
+      paragraphs: [
+        "This page explains how PixelZipKit's image optimization guidance is reviewed. Tests use fixed assets owned by the site and separate image types such as photographs, UI screenshots, transparent graphics, and photographic workspace assets.",
+        "A quality number is a starting point, not an absolute score. The same quality 80 setting can behave differently for photos, thumbnails, text screenshots, and transparent logos. The review therefore records file-size reduction together with texture, text, edge, and color checks.",
+        "Measurement dates and editorial review dates are managed separately. File measurement dates remain in the benchmark table, while content review dates are reflected in page schema and the sitemap.",
+      ],
+      bullets: [
+        "Site-owned fixed test assets",
+        "Separate checks for photos, screenshots, transparent graphics, and workspace images",
+        "File-size results paired with visual review rules",
+        "Content review dates reflected in sitemap and Article schema",
       ],
     },
     ...articlePages.en,

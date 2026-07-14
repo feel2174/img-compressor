@@ -335,6 +335,26 @@ export const pageDepthSections = {
         body: "반복적으로 이미지를 업로드하는 팀이라면 블로그 본문, 상품 상세, 썸네일, 이메일 첨부처럼 목적별 기준을 문서화하는 것이 좋습니다. 기준을 남기면 작업자마다 다른 품질을 만드는 문제를 줄이고, 전체 사이트의 시각 품질을 안정적으로 유지할 수 있습니다.",
       },
     ],
+    articles: [
+      {
+        title: "핵심 글을 먼저 보여주는 이유",
+        body: "이미지 압축 주제는 검색 결과에 비슷한 글이 많기 때문에, PixelZipKit은 모든 글을 같은 무게로 나열하지 않습니다. 테스트 결과, 품질 비교, 블로그, 쇼핑몰, 모바일, WebP SEO, 성능 최적화처럼 사용자가 실제로 결정을 내려야 하는 핵심 글을 먼저 묶어 보여줍니다.",
+      },
+      {
+        title: "구어체와 비즈니스 문체를 함께 쓰는 방식",
+        body: "처음 읽는 사용자는 쉬운 말로 핵심을 이해하고, 운영자나 실무자는 바로 적용할 수 있는 기준 문장으로 판단할 수 있어야 합니다. 그래서 핵심 글에는 쉬운 요약과 비즈니스 기준을 나누어 제공해 같은 내용을 서로 다른 사용 맥락에서 활용할 수 있게 합니다.",
+      },
+    ],
+    research: [
+      {
+        title: "측정값과 판단 기준을 분리합니다",
+        body: "파일 크기 감소율은 숫자로 기록할 수 있지만, 실제 게시 가능 여부는 이미지가 맡은 역할에 따라 달라집니다. 텍스트 캡처는 글자 선명도, 상품 사진은 질감과 색상, 투명 그래픽은 가장자리와 알파 채널을 중심으로 검수합니다.",
+      },
+      {
+        title: "콘텐츠 검수일을 별도로 관리합니다",
+        body: "벤치마크 파일의 실측일과 글의 최종 검수일은 서로 다릅니다. PixelZipKit은 테스트 파일의 측정 기록은 유지하면서, 설명과 판단 기준이 개선된 날짜를 페이지 메타데이터와 sitemap에 반영해 최신 콘텐츠 상태를 명확하게 보여줍니다.",
+      },
+    ],
     privacy: [
       {
         title: "이미지 파일 처리 범위",
@@ -366,7 +386,7 @@ export const pageDepthSections = {
       },
       {
         title: "기능 제안과 운영 문의",
-        body: "추가되면 좋은 이미지 편집 기능, 플랫폼별 업로드 가이드, 접근성 개선, 광고 및 제휴 문의도 접수할 수 있습니다. 모든 제안이 바로 반영되는 것은 아니지만, 반복적으로 요청되는 기능은 향후 업데이트 우선순위를 정하는 데 참고합니다.",
+        body: "이미지 편집 기능 제안, 플랫폼별 업로드 가이드 요청, 접근성 개선 의견, 광고 및 제휴 문의도 접수할 수 있습니다. 반복적으로 요청되는 기능과 콘텐츠 주제는 정기 검수 과정에서 우선순위를 정해 반영합니다.",
       },
       {
         title: "답변이 필요한 문의",
@@ -382,7 +402,7 @@ export const pageDepthSections = {
       },
       {
         title: "Editorial direction",
-        body: "The site is designed to combine a practical browser tool with publishing guidance. Future updates can add before-and-after examples, platform-specific recommendations, and common failure cases so users can make better decisions before uploading images.",
+        body: "The site combines a practical browser tool with publishing guidance, before-and-after examples, platform-specific recommendations, and common failure cases so users can make better decisions before uploading images.",
       },
     ],
     guide: [
@@ -453,6 +473,26 @@ export const pageDepthSections = {
       {
         title: "Feature and partnership inquiries",
         body: "Feature ideas, accessibility feedback, privacy questions, and partnership requests are welcome. A clear explanation of the intended workflow helps prioritize improvements that make the tool more useful.",
+      },
+    ],
+    articles: [
+      {
+        title: "Why the core guides are separated",
+        body: "Image compression is a crowded topic, so PixelZipKit does not treat every article as equal. The hub highlights the guides that carry the strongest publishing value: benchmarks, quality comparison, blogs, ecommerce, mobile uploads, WebP SEO, and performance.",
+      },
+      {
+        title: "Plain language plus business rules",
+        body: "A first-time visitor needs a quick explanation, while a site operator needs a rule that can be used in a workflow. Core guides therefore separate conversational summaries from business-ready decision language.",
+      },
+    ],
+    research: [
+      {
+        title: "Measurements and judgment are separate",
+        body: "File-size reduction can be measured, but publishing readiness depends on the role of the image. Text screenshots are reviewed for readability, product photos for color and texture, and transparent graphics for edges and alpha preservation.",
+      },
+      {
+        title: "Review dates are maintained independently",
+        body: "Benchmark measurement dates and editorial review dates are not the same. PixelZipKit keeps measurement records visible while reflecting updated explanations and decision rules in metadata and sitemap dates.",
       },
     ],
     "blog-image-optimization-checklist": [

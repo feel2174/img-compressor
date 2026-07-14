@@ -1,9 +1,11 @@
 import Link from "next/link";
 import type { Locale } from "@/i18n";
 import { articleSlugs } from "@/content/articles";
-import { infoPageSlugs, legalPages, siteMeta, type InfoPageSlug } from "@/content/site";
+import { contentDates, infoPageSlugs, legalPages, siteMeta, type InfoPageSlug } from "@/content/site";
 import { pageDepthSections, type PageDepthSection } from "@/content/page-depth";
 import BenchmarkReport from "@/components/BenchmarkReport";
+import ContentHubSection from "@/components/ContentHubSection";
+import ArticleToneGuide from "@/components/ArticleToneGuide";
 import ArticleEvidencePanel from "@/components/ArticleEvidencePanel";
 import AdvertisingReadinessNotice from "@/components/AdvertisingReadinessNotice";
 import SiteFooter from "@/components/SiteFooter";
@@ -35,8 +37,8 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
       : "Reviewed against fixed test assets, tool behavior, and published references";
   const authorEmail = "devzucca@gmail.com";
   const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || authorEmail;
-  const contentPublishedAt = "2026-06-22";
-  const contentModifiedAt = "2026-06-26";
+  const contentPublishedAt = contentDates[slug].publishedAt;
+  const contentModifiedAt = contentDates[slug].modifiedAt;
 
   return (
     <main className="xp-desktop">
@@ -57,6 +59,12 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
 
         <nav className="xp-menubar xp-compact-menubar" aria-label="Site navigation">
           <Link href={homeHref}>{locale === "ko" ? "홈" : "Home"}</Link>
+          <Link href={`/${locale}/articles`}>
+            {locale === "ko" ? "콘텐츠 허브" : "Content Hub"}
+          </Link>
+          <Link href={`/${locale}/research`}>
+            {locale === "ko" ? "테스트 방법론" : "Methodology"}
+          </Link>
           <span className="xp-current-page">{page.label}</span>
           <details className="xp-nav-menu">
             <summary>{locale === "ko" ? "콘텐츠 메뉴" : "Content Menu"}</summary>
@@ -102,6 +110,10 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
                 ))}
               </ul>
 
+              {isArticle && (
+                <ArticleToneGuide locale={locale} slug={slug as (typeof articleSlugs)[number]} />
+              )}
+
               {depthSections.length > 0 && (
                 <div className="xp-depth-sections">
                   {depthSections.map((section) => (
@@ -112,6 +124,10 @@ export default function InfoPageWindow({ locale, slug }: InfoPageWindowProps) {
                   ))}
                 </div>
               )}
+
+              {slug === "articles" && <ContentHubSection locale={locale} variant="articles" />}
+
+              {slug === "research" && <ContentHubSection locale={locale} variant="research" />}
 
               {slug === "image-compression-benchmark-results" && (
                 <BenchmarkReport locale={locale} />

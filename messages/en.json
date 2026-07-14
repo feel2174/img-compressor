@@ -35,6 +35,8 @@
       "faq": "FAQ",
       "useCases": "Use cases",
       "formats": "Format guide",
+      "articles": "Content hub",
+      "research": "Methodology",
       "terms": "Terms of use",
       "contact": "Contact",
       "footer": "Open the compression tool and image optimization guides from this menu."
@@ -92,7 +94,7 @@
     "privacy": [
       "Image compression and WebP conversion run in the browser. Selected image files are not uploaded to or stored on this site's server.",
       "Analytics are used only when the operator enables them in the deployment environment, and they do not collect the contents of selected image files.",
-      "The AdSense script and ad placements are controlled by deployment settings. If advertising is enabled, this page will identify the provider and clearly explain how visitors can manage consent.",
+      "The AdSense script and ad placements are controlled by deployment settings. This page identifies the advertising provider and clearly explains how visitors can manage consent.",
       "Information provided through contact, partnership, or feature request messages is used only for replies and service improvement."
     ],
     "footerNav": {

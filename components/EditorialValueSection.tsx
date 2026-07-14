@@ -25,9 +25,11 @@ export default function EditorialValueSection({ locale }: EditorialValueSectionP
   const isKo = locale === "ko";
   const rows = isKo ? koRows : enRows;
   const resources = isKo
-    ? [
-        ["고정 자산 압축 테스트", "같은 원본의 품질 60·70·80 결과 파일을 직접 비교합니다.", "image-compression-benchmark-results"],
-        ["블로그 발행 전 체크리스트", "본문 사진의 표시 크기, alt 텍스트, 모바일 검수 순서를 정리했습니다.", "blog-image-optimization-checklist"],
+	    ? [
+	        ["이미지 최적화 콘텐츠 허브", "핵심 압축 테스트와 실무 가이드를 주제별로 탐색합니다.", "articles"],
+	        ["압축 테스트 방법론", "고정 테스트 자산, 측정 방식, 검수 기준을 확인합니다.", "research"],
+	        ["고정 자산 압축 테스트", "같은 원본의 품질 60·70·80 결과 파일을 직접 비교합니다.", "image-compression-benchmark-results"],
+	        ["블로그 발행 전 체크리스트", "본문 사진의 표시 크기, alt 텍스트, 모바일 검수 순서를 정리했습니다.", "blog-image-optimization-checklist"],
         ["상품 이미지 검수 가이드", "썸네일과 상세 컷을 분리하고 라벨·색감·질감을 확인하는 기준입니다.", "ecommerce-product-image-compression-guide"],
         ["JPG·PNG·WebP 선택 기준", "사진, UI 캡처, 투명 자산의 포맷을 목적에 맞게 비교합니다.", "jpg-png-webp-format-choice"],
         ["품질 60·70·80 비교", "압축 품질값을 실제 게시 목적별로 고르는 기준을 정리했습니다.", "image-quality-60-70-80-comparison"],
@@ -35,9 +37,11 @@ export default function EditorialValueSection({ locale }: EditorialValueSectionP
         ["이미지 SEO와 WebP", "WebP 변환, 파일명, alt 텍스트, 페이지 속도를 함께 점검합니다.", "webp-conversion-seo-guide"],
         ["웹 성능 이미지 최적화", "Core Web Vitals 관점에서 대표 이미지와 반복 이미지를 관리합니다.", "website-speed-core-web-vitals-images"],
       ]
-    : [
-        ["Fixed-asset compression test", "Compare published quality 60, 70, and 80 output files from the same source.", "image-compression-benchmark-results"],
-        ["Blog pre-publishing checklist", "Review displayed size, alt text, and mobile clarity for body images.", "blog-image-optimization-checklist"],
+	    : [
+	        ["Image optimization content hub", "Browse core compression tests and practical guides by topic.", "articles"],
+	        ["Compression test methodology", "Review fixed assets, measurement method, and quality criteria.", "research"],
+	        ["Fixed-asset compression test", "Compare published quality 60, 70, and 80 output files from the same source.", "image-compression-benchmark-results"],
+	        ["Blog pre-publishing checklist", "Review displayed size, alt text, and mobile clarity for body images.", "blog-image-optimization-checklist"],
         ["Product image review guide", "Separate thumbnails from detail images and inspect labels, color, and texture.", "ecommerce-product-image-compression-guide"],
         ["JPG, PNG, and WebP decisions", "Compare formats by image type, visual quality, and destination support.", "jpg-png-webp-format-choice"],
         ["Quality 60, 70, and 80", "Choose compression quality by publishing purpose instead of number alone.", "image-quality-60-70-80-comparison"],
