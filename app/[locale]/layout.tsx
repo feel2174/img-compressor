@@ -117,6 +117,10 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html lang={locale}>
       <head>
         <meta name="theme-color" content="#245edb" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        <link rel="preconnect" href="https://googleads.g.doubleclick.net" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
         {adsenseScriptEnabled && adsenseClient && (
           // eslint-disable-next-line @next/next/no-sync-scripts
           <script

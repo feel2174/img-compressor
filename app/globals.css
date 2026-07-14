@@ -160,15 +160,15 @@
   }
 
   .xp-home-primary #compressor {
-    order: 1;
+    order: 3;
   }
 
   .xp-home-primary .xp-home-hero {
-    order: 2;
+    order: 1;
   }
 
   .xp-home-primary .xp-editorial-value {
-    order: 3;
+    order: 2;
   }
 
   .xp-kicker {
@@ -203,6 +203,12 @@
   .xp-section {
     @apply mt-5 border border-[#aca899] bg-[#fffef8] p-4 sm:p-5;
     box-shadow: inset 1px 1px 0 #ffffff;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 42rem;
+  }
+
+  .xp-home-hero {
+    content-visibility: visible;
   }
 
   .xp-section-heading {
@@ -800,5 +806,44 @@
 
   .xp-start-footer {
     @apply bg-[#ece9d8] px-4 py-2 text-xs text-[#555];
+  }
+
+  @media (max-width: 640px) {
+    .xp-desktop {
+      @apply px-2 pb-12 pt-14;
+      background: linear-gradient(180deg, #dcecff 0%, #f4f8ff 58%, #e6f2dc 100%);
+    }
+
+    .xp-wallpaper {
+      display: none;
+    }
+
+    .xp-window {
+      max-height: none;
+      overflow: visible;
+      box-shadow: 0 8px 20px rgba(14, 48, 96, 0.18);
+    }
+
+    .xp-window-body {
+      overflow-y: visible;
+      padding: 0.75rem;
+    }
+
+    .xp-hero {
+      @apply p-4;
+    }
+
+    .xp-hero h1 {
+      @apply text-2xl;
+    }
+
+    .xp-dropzone {
+      min-height: 11rem;
+      padding: 1rem;
+    }
+
+    .xp-section {
+      contain-intrinsic-size: auto 34rem;
+    }
   }
 }
